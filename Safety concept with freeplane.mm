@@ -225,7 +225,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="31" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="42" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Usage" POSITION="right" ID="ID_1951910464" CREATED="1609081338762" MODIFIED="1609675076672">
 <edge COLOR="#ff0000"/>
 <node TEXT="Use ctrl + D to paste as clone, to avoid redundancy" ID="ID_377773510" CREATED="1609081348519" MODIFIED="1609675076674"/>
