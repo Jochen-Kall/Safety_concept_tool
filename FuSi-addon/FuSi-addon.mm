@@ -1,6 +1,6 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1609671065311" LINK="https://www.google.com/" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
+<node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1609675359888" LINK="https://www.google.com/" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_icon_for_attributes="true" show_note_icons="true" fit_to_viewport="false"/>
@@ -106,8 +106,9 @@
     </ul>
   </body>
 </html>
+
 </richcontent>
-<node TEXT="changes" POSITION="left" ID="ID_645554915" CREATED="1609274211245" MODIFIED="1609671065326">
+<node TEXT="changes" POSITION="left" ID="ID_645554915" CREATED="1609274211245" MODIFIED="1609675359891">
 <edge COLOR="#0000ff"/>
 <richcontent TYPE="NOTE">
 
@@ -121,10 +122,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="/media/jochen/Linux_work/ELISA repos/Safety_concept_tool/FuSi-addon/FuSi-addon-v0.2.addon.mm" ID="ID_1006199234" CREATED="1609670949549" MODIFIED="1609670955307"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_749694744" CREATED="1609274211247" MODIFIED="1609671065328">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_749694744" CREATED="1609274211247" MODIFIED="1609675359892">
 <edge COLOR="#00ff00"/>
 <richcontent TYPE="NOTE">
 
@@ -144,10 +146,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="&#xa;This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xa;GNU General Public License for more details.&#xa;" ID="ID_957272066" CREATED="1609274211253" MODIFIED="1609274211254"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_146217099" CREATED="1609274211269" MODIFIED="1609671065330">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_146217099" CREATED="1609274211269" MODIFIED="1609675359893">
 <edge COLOR="#ff00ff"/>
 <richcontent TYPE="NOTE">
 
@@ -164,9 +167,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1237073425" CREATED="1609274211273" MODIFIED="1609671065332">
+<node TEXT="default.properties" POSITION="left" ID="ID_1237073425" CREATED="1609274211273" MODIFIED="1609675359894">
 <edge COLOR="#00ffff"/>
 <richcontent TYPE="NOTE">
 
@@ -188,9 +192,10 @@
     </ul>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="description" POSITION="left" ID="ID_938954240" CREATED="1609274211239" MODIFIED="1609671065325">
+<node TEXT="description" POSITION="left" ID="ID_938954240" CREATED="1609274211239" MODIFIED="1609675359889">
 <edge COLOR="#ff0000"/>
 <richcontent TYPE="NOTE">
 
@@ -210,10 +215,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="Blubb description" ID="ID_1867477143" CREATED="1609321484661" MODIFIED="1609321488630"/>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1891165789" CREATED="1609274211275" MODIFIED="1609671065333">
+<node TEXT="translations" POSITION="left" ID="ID_1891165789" CREATED="1609274211275" MODIFIED="1609675359894">
 <edge COLOR="#7c0000"/>
 <richcontent TYPE="NOTE">
 
@@ -238,6 +244,7 @@
     </ul>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="en" ID="ID_693758551" CREATED="1609274211285" MODIFIED="1609669163395">
 <attribute_layout NAME_WIDTH="263.9999921321871 pt" VALUE_WIDTH="263.9999921321871 pt"/>
@@ -248,7 +255,7 @@
 <attribute NAME="addons.${name}.Safety_edit" VALUE="Safety Edit"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_662706713" CREATED="1609274211300" MODIFIED="1609671065335">
+<node TEXT="deinstall" POSITION="left" ID="ID_662706713" CREATED="1609274211300" MODIFIED="1609675359895">
 <edge COLOR="#00007c"/>
 <richcontent TYPE="NOTE">
 
@@ -262,6 +269,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <attribute_layout NAME_WIDTH="49.499998524785084 pt" VALUE_WIDTH="343.49998976290254 pt"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
@@ -271,7 +279,7 @@
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/Export_csv.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/Safety_edit.groovy"/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_1631106833" CREATED="1609274211315" MODIFIED="1609671065340">
+<node TEXT="scripts" POSITION="right" ID="ID_1631106833" CREATED="1609274211315" MODIFIED="1609675359896">
 <edge COLOR="#007c00"/>
 <richcontent TYPE="NOTE">
 
@@ -390,6 +398,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="Export_Safety_concept_markdown.groovy" ID="ID_866588008" CREATED="1609669083061" MODIFIED="1609670766815">
 <attribute_layout NAME_WIDTH="226.49999324977418 pt" VALUE_WIDTH="263.9999921321871 pt"/>
@@ -440,7 +449,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="lib" POSITION="right" ID="ID_1650646113" CREATED="1609274211327" MODIFIED="1609671065357">
+<node TEXT="lib" POSITION="right" ID="ID_1650646113" CREATED="1609274211327" MODIFIED="1609675359903">
 <edge COLOR="#7c007c"/>
 <richcontent TYPE="NOTE">
 
@@ -478,9 +487,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_1150015076" CREATED="1609274211332" MODIFIED="1609671065360">
+<node TEXT="zips" POSITION="right" ID="ID_1150015076" CREATED="1609274211332" MODIFIED="1609675359904">
 <edge COLOR="#007c7c"/>
 <richcontent TYPE="NOTE">
 
@@ -518,10 +528,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="icons" ID="ID_1750144087" CREATED="1609323304628" MODIFIED="1609323311863"/>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_1397463527" CREATED="1609274211335" MODIFIED="1609671065367">
+<node TEXT="images" POSITION="right" ID="ID_1397463527" CREATED="1609274211335" MODIFIED="1609675359907">
 <edge COLOR="#7c7c00"/>
 <richcontent TYPE="NOTE">
 
@@ -555,6 +566,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 </node>

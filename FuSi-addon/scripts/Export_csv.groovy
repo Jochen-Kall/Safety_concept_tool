@@ -14,16 +14,31 @@ def showDialog(String text) {
     dialog.setVisible(true)
 }
 
+def delete_helper_attribute(thisNode) {
+	thisNode.attributes.removeAll('helper_attribute')
+	thisNode.children.each {
+        	delete_helper_attribute(it)
+    	}
+}
+
 def process(thisNode, childPosition, parentID) {
-    def L = thisNode.text + ',' + thisNode['ASIL'] + ',' + thisNode['Type'] + ','+ thisNode.nodeID + ','+parentID
-    def result = [[childPosition, L]]
-    thisNode.children.each {
-        result += process(it, childPosition + 1,thisNode.nodeID)
-    }
-    return result
+	def seperator=';'
+    	def L = thisNode.text + seperator + thisNode['ASIL'] + seperator + thisNode['Type'] + seperator+ thisNode.nodeID + seperator+parentID    
+	def result=[]
+    	if (thisNode['helper_attribute']=='true') {
+		
+    	} else {
+	   	thisNode.attributes.set('helper_attribute','true')
+	   	result = [[childPosition, L]]
+    	}	
+    	thisNode.children.each {
+        	result += process(it, childPosition + 1,thisNode.nodeID)
+    	}
+    	return result
 }
 
 def result = [[0, 'Req,ASIL,Type,ID,Parent_ID']]
 result += process(node, 0,'');
 
-showDialog(result.collect{ "-" * it[0] + it[1] }.join("\n"))
+delete_helper_attribute(node)
+showDialog(result.collect{it[1]}.join("\n"))
