@@ -20,3 +20,5 @@ inkscape --without-gui --file=pg_0016.pdf --export-plain-svg=output/SZ.svg
 inkscape --without-gui --file=pg_0017.pdf --export-plain-svg=output/FSR.svg
 inkscape --without-gui --file=pg_0018.pdf --export-plain-svg=output/TSR.svg
 inkscape --without-gui --file=pg_0019.pdf --export-plain-svg=output/Info.svg
+inkscape --without-gui --file=pg_0020.pdf --export-plain-svg=output/SW.svg
+inkscape --without-gui --file=pg_0021.pdf --export-plain-svg=output/HW.svg
