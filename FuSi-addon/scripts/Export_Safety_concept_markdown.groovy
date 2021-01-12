@@ -14,6 +14,7 @@ def showDialog(String text) {
     dialog.setVisible(true)
 }
 
+// Start export for passt Safety goal node
 def process_SG(thisNode, level) {
 	def result=[]
 	if (thisNode['Type']=='SZ') {
@@ -25,13 +26,30 @@ def process_SG(thisNode, level) {
     	return result
 }
 
+ASIL_map=[:]
+ASIL_map['QM'] = 'QM'
+ASIL_map['QM[A]'] = 'QM[A]'
+ASIL_map['QM[B]'] = 'QM[B]'
+ASIL_map['QM[C]'] = 'QM[C]'
+ASIL_map['QM[D]'] = 'QM[D]'
+ASIL_map['A'] = 'ASIL A'
+ASIL_map['A[B]'] = 'ASIL A[B]'
+ASIL_map['A[C]'] = 'ASIL A[C]'
+ASIL_map['A[D]'] = 'ASIL A[D]'
+ASIL_map['B'] = 'ASIL B'
+ASIL_map['B[C]'] = 'ASIL B[C]'
+ASIL_map['B[D]'] = 'ASIL B[D]'
+ASIL_map['C'] = 'ASIL C'
+ASIL_map['C[D]'] = 'ASIL C[D]'
+ASIL_map['D'] = 'ASIL D'
+
 def process_reqs(thisNode,level){
 	L= '    '* (level-1) + '* '
 	if (thisNode['Type']!=null) {
 		L+= '[' + thisNode['Type'] + '] '
 	}
 	if (thisNode['ASIL']!='') {
-		L+= '[' + thisNode['ASIL'] + '] '
+		L+= '[' + ASIL_map[thisNode['ASIL']] + '] '
 	}	
 	def result=[L + thisNode.text]
 	thisNode.children.each{

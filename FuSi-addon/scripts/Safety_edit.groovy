@@ -77,7 +77,7 @@ if (Current_type=='SZ'){
 	}
 }
 // Fallback list for Types
-Typelist=['SZ', 'FSR', 'TSR', 'Information']
+Typelist=['SZ', 'FSR', 'TSR', 'Information', 'HW', 'SW']
 // restrict types to acceptable types, based on the parent nodes type.
 if (node.getParent()['Type']=='SZ'){
 	Typelist= ['FSR', 'Information']
@@ -86,10 +86,38 @@ if (node.getParent()['Type']=='FSR'){
 	Typelist= ['FSR','TSR', 'Information']
 }
 if (node.getParent()['Type']=='TSR'){
-	Typelist= ['TSR', 'Information']
+	Typelist= ['TSR','HW','SW', 'Information']
 }
 if (node.getParent()['Type']=='Information'){
-	Typelist= ['Information', 'Information']
+	Typelist= ['Information']
+}
+if (node.getParent()['Type']=='HW'){
+	Typelist= ['Information', 'HW']
+}
+if (node.getParent()['Type']=='SW'){
+	Typelist= ['Information', 'SW']
+}
+
+Alloclist=[]
+if (Current_type=='FSR'){
+	ID_647993701.children.each{
+		Alloclist+= it.text
+	}
+}
+if (Current_type=='TSR'){
+	ID_647993701.children.each{
+		Alloclist+= it.text
+	}
+}
+if (Current_type=='SW'){
+	ID_1297553272.children.each{
+		Alloclist+= it.text
+	}
+}
+if (Current_type=='HW'){
+	ID_983665653.children.each{
+		Alloclist+= it.text
+	}
 }
 
 // construct box
@@ -112,6 +140,13 @@ def dial = s.dialog(title:'Safety Properties', id:'myDialog', minimumSize: [300,
             comboBox(id:'ASIL', items:ASILlist)
 	    vars.ASIL.selectedItem=Current_ASIL
         }
+        
+        panel(alignmentX:0f) {
+            flowLayout(alignment:FL.LEFT)
+            label('Allocation')
+            comboBox(id:'Allocation', items:Alloclist)
+	    vars.Allocation.selectedItem='bla'
+        }
 
         panel(alignmentX:0f) {
             flowLayout(alignment:FL.RIGHT)
@@ -125,6 +160,7 @@ if (vars.ok){
 	// set attributes to the selected attributes, if user left the dialog with 'OK'
 	node.attributes.set('Type',vars.type.selectedItem)
 	node.attributes.set('ASIL',vars.ASIL.selectedItem)
+	node.attributes.set('Allocation',vars.Allocation.selectedItem)
 	node.style.name='Requirement'
 }
 

@@ -37,7 +37,7 @@ def process(thisNode, childPosition, parentID) {
     	return result
 }
 
-def result = [[0, 'Req,ASIL,Type,ID,Parent_ID']]
+def result = [[0, 'Req;ASIL;Type;ID;Parent_ID']]
 result += process(node, 0,'');
 
 delete_helper_attribute(node)
