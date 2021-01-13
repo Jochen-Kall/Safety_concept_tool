@@ -26,6 +26,7 @@ def process_SG(thisNode, level) {
     	return result
 }
 
+// map for printing ASILs
 ASIL_map=[:]
 ASIL_map['QM'] = 'QM'
 ASIL_map['QM[A]'] = 'QM[A]'
@@ -45,6 +46,11 @@ ASIL_map['D'] = 'ASIL D'
 
 def process_reqs(thisNode,level){
 	L= '    '* (level-1) + '* '
+	if (thisNode['ID']!='') {
+		L+= '[' + thisNode['ID'] + '] '
+	} else {
+		L+= '[No ID assigned] '
+	}	
 	if (thisNode['Type']!=null) {
 		L+= '[' + thisNode['Type'] + '] '
 	}

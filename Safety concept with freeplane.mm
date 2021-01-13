@@ -3,7 +3,7 @@
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
 <node TEXT="Safety concept with freeplane" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1609675076669" STYLE="oval">
 <font SIZE="18"/>
-<hook NAME="MapStyle" zoom="1.21">
+<hook NAME="MapStyle" zoom="0.751">
     <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_icon_for_attributes="false" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
@@ -248,7 +248,7 @@
 <attribute NAME="ASIL" VALUE=""/>
 <attribute NAME="Type" VALUE="Information"/>
 </node>
-<node TEXT="An requirement  lala" STYLE_REF="Requirement" FOLDED="true" ID="ID_1780168904" CREATED="1609154124607" MODIFIED="1609675076694">
+<node TEXT="An requirement  lala" STYLE_REF="Requirement" ID="ID_1780168904" CREATED="1609154124607" MODIFIED="1609675076694">
 <attribute NAME="ASIL" VALUE="QM"/>
 <attribute NAME="Type" VALUE="FSR"/>
 <node TEXT="Requirement" STYLE_REF="Requirement" ID="ID_853612185" CREATED="1609510536849" MODIFIED="1609675076694">
