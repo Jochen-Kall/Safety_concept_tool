@@ -1,6 +1,6 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1609675359888" LINK="https://www.google.com/" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
+<node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1610652444602" LINK="https://www.google.com/" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_icon_for_attributes="true" show_note_icons="true" fit_to_viewport="false"/>
@@ -66,7 +66,7 @@
 <hook NAME="AutomaticEdgeColor" COUNTER="11" RULE="ON_BRANCH_CREATION"/>
 <attribute_layout NAME_WIDTH="122.99999633431446 pt" VALUE_WIDTH="134.24999599903833 pt"/>
 <attribute NAME="name" VALUE="fuSiAddon"/>
-<attribute NAME="version" VALUE="v0.2"/>
+<attribute NAME="version" VALUE="v0.3"/>
 <attribute NAME="author" VALUE="Jochen Kall"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v0.7"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -108,7 +108,7 @@
 </html>
 
 </richcontent>
-<node TEXT="changes" POSITION="left" ID="ID_645554915" CREATED="1609274211245" MODIFIED="1609675359891">
+<node TEXT="changes" POSITION="left" ID="ID_645554915" CREATED="1609274211245" MODIFIED="1610652394556">
 <edge COLOR="#0000ff"/>
 <richcontent TYPE="NOTE">
 
@@ -125,8 +125,10 @@
 
 </richcontent>
 <node TEXT="/media/jochen/Linux_work/ELISA repos/Safety_concept_tool/FuSi-addon/FuSi-addon-v0.2.addon.mm" ID="ID_1006199234" CREATED="1609670949549" MODIFIED="1609670955307"/>
+<node TEXT="Added ASIL Icons" ID="ID_1109716096" CREATED="1610652451941" MODIFIED="1610652470756"/>
+<node TEXT="Added support for HW and SW requirements" ID="ID_1117473821" CREATED="1610652472026" MODIFIED="1610652481447"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_749694744" CREATED="1609274211247" MODIFIED="1609675359892">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_749694744" CREATED="1609274211247" MODIFIED="1610652394557">
 <edge COLOR="#00ff00"/>
 <richcontent TYPE="NOTE">
 
@@ -150,7 +152,7 @@
 </richcontent>
 <node TEXT="&#xa;This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xa;GNU General Public License for more details.&#xa;" ID="ID_957272066" CREATED="1609274211253" MODIFIED="1609274211254"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_146217099" CREATED="1609274211269" MODIFIED="1609675359893">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_146217099" CREATED="1609274211269" MODIFIED="1610652394559">
 <edge COLOR="#ff00ff"/>
 <richcontent TYPE="NOTE">
 
@@ -170,7 +172,7 @@
 
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1237073425" CREATED="1609274211273" MODIFIED="1609675359894">
+<node TEXT="default.properties" POSITION="left" ID="ID_1237073425" CREATED="1609274211273" MODIFIED="1610652394561">
 <edge COLOR="#00ffff"/>
 <richcontent TYPE="NOTE">
 
@@ -195,7 +197,7 @@
 
 </richcontent>
 </node>
-<node TEXT="description" POSITION="left" ID="ID_938954240" CREATED="1609274211239" MODIFIED="1609675359889">
+<node TEXT="description" POSITION="left" ID="ID_938954240" CREATED="1609274211239" MODIFIED="1610652394554">
 <edge COLOR="#ff0000"/>
 <richcontent TYPE="NOTE">
 
@@ -219,7 +221,7 @@
 </richcontent>
 <node TEXT="Blubb description" ID="ID_1867477143" CREATED="1609321484661" MODIFIED="1609321488630"/>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1891165789" CREATED="1609274211275" MODIFIED="1609675359894">
+<node TEXT="translations" POSITION="left" ID="ID_1891165789" CREATED="1609274211275" MODIFIED="1610652394563">
 <edge COLOR="#7c0000"/>
 <richcontent TYPE="NOTE">
 
@@ -255,7 +257,7 @@
 <attribute NAME="addons.${name}.Safety_edit" VALUE="Safety Edit"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_662706713" CREATED="1609274211300" MODIFIED="1609675359895">
+<node TEXT="deinstall" POSITION="left" ID="ID_662706713" CREATED="1609274211300" MODIFIED="1610652399883">
 <edge COLOR="#00007c"/>
 <richcontent TYPE="NOTE">
 
@@ -278,8 +280,29 @@
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/Fusi_sanity_check.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/Export_csv.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/Safety_edit.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_A[B].svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_B[C].svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_C.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/TSR.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/Info.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_QM[C].svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_A[D].svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/SW.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_QM.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_B[D].svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/HW.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_QM[D].svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_QM[A].svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_A.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_A[C].svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_B.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_QM[B].svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_D.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_C[D].svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FSR.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/SZ.svg"/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_1631106833" CREATED="1609274211315" MODIFIED="1609675359896">
+<node TEXT="scripts" POSITION="right" ID="ID_1631106833" CREATED="1609274211315" MODIFIED="1610652394569">
 <edge COLOR="#007c00"/>
 <richcontent TYPE="NOTE">
 
@@ -449,7 +472,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="lib" POSITION="right" ID="ID_1650646113" CREATED="1609274211327" MODIFIED="1609675359903">
+<node TEXT="lib" POSITION="right" ID="ID_1650646113" CREATED="1609274211327" MODIFIED="1610652394588">
 <edge COLOR="#7c007c"/>
 <richcontent TYPE="NOTE">
 
@@ -490,7 +513,7 @@
 
 </richcontent>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_1150015076" CREATED="1609274211332" MODIFIED="1609675359904">
+<node TEXT="zips" POSITION="right" ID="ID_1150015076" CREATED="1609274211332" MODIFIED="1610652394590">
 <edge COLOR="#007c7c"/>
 <richcontent TYPE="NOTE">
 
@@ -532,7 +555,7 @@
 </richcontent>
 <node TEXT="icons" ID="ID_1750144087" CREATED="1609323304628" MODIFIED="1609323311863"/>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_1397463527" CREATED="1609274211335" MODIFIED="1609675359907">
+<node TEXT="images" POSITION="right" ID="ID_1397463527" CREATED="1609274211335" MODIFIED="1610652394599">
 <edge COLOR="#7c7c00"/>
 <richcontent TYPE="NOTE">
 
