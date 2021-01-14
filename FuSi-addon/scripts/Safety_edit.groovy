@@ -1,7 +1,7 @@
 // safety edit box
 // displays the safety properties ASIL and Type and allows modification.
 // Non safety nodes are turned into safety nodes (correct node style and attributes)
-// Only acceptable paramter values are offered regarding ASILs and Types.
+// Only acceptable parameter values are offered regarding ASILs and Types.
 
 import groovy.swing.SwingBuilder
 import java.awt.FlowLayout as FL
@@ -119,6 +119,7 @@ if (Current_type=='HW'){
 		Alloclist+= it.text
 	}
 }
+Alloclist+='Not Allocated'
 
 // construct box
 def s = new SwingBuilder()
@@ -159,8 +160,18 @@ def dial = s.dialog(title:'Safety Properties', id:'myDialog', minimumSize: [300,
 if (vars.ok){
 	// set attributes to the selected attributes, if user left the dialog with 'OK'
 	node.attributes.set('Type',vars.type.selectedItem)
-	node.attributes.set('ASIL',vars.ASIL.selectedItem)
-	node.attributes.set('Allocation',vars.Allocation.selectedItem)
+	// set ASIL attribute for all types except information
+	if ( (vars.type.selectedItem == 'SZ') || (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
+		node.attributes.set('ASIL',vars.ASIL.selectedItem)
+	} else {
+		node.attributes.set('ASIL', '')
+	}
+	// set Allocation parameter for all types except SZ and Information
+	if (  (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
+		node.attributes.set('Allocation', vars.Allocation.selectedItem)
+	} else {
+		node.attributes.set('Allocation', '')
+	}		
 	node.style.name='Requirement'
 }
 

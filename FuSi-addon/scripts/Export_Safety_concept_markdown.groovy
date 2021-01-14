@@ -14,18 +14,6 @@ def showDialog(String text) {
     dialog.setVisible(true)
 }
 
-// Start export for passt Safety goal node
-def process_SG(thisNode, level) {
-	def result=[]
-	if (thisNode['Type']=='SZ') {
-		result=['## Safety goal: ' + thisNode.text]
-		thisNode.children.each{
-			result += process_reqs(it, 1)
-		}
-	}
-    	return result
-}
-
 // map for printing ASILs
 ASIL_map=[:]
 ASIL_map['QM'] = 'QM'
@@ -44,24 +32,42 @@ ASIL_map['C'] = 'ASIL C'
 ASIL_map['C[D]'] = 'ASIL C[D]'
 ASIL_map['D'] = 'ASIL D'
 
-def process_reqs(thisNode,level){
+// Start export for passt Safety goal node
+def process_SG(thisNode, level) {
+	def result=[]
+	if (thisNode['Type']=='SZ') {
+		result=['## Safety goal: ' + thisNode.text]
+		result+="""<details><summary>Unfold Safety Goal</summary><p>\n"""
+		thisNode.children.each{
+			result += process_reqs(it, 1)
+		}
+		result+='</p></details>\n'
+	}
+    	return result
+}
+
+def process_reqs(thisNode,level){	
 	L= '    '* (level-1) + '* '
-	if (thisNode['ID']!='') {
+	L_indent=L
+	if (thisNode['ID']) {
 		L+= '[' + thisNode['ID'] + '] '
 	} else {
-		L+= '[No ID assigned] '
+		internal_ID= thisNode.getId() 
+		L+= """[$internal_ID] """
 	}	
-	if (thisNode['Type']!=null) {
+	if (thisNode['Type']) {
 		L+= '[' + thisNode['Type'] + '] '
 	}
-	if (thisNode['ASIL']!='') {
+	if (thisNode['ASIL']) {
 		L+= '[' + ASIL_map[thisNode['ASIL']] + '] '
 	}	
 	def result=[L + thisNode.text]
+//	if (thisNode.children) {result+="""<details><summary>Unfold Requirement</summary><p>\n"""}
 	thisNode.children.each{
 		result += process_reqs(it, level+1)
 	}
-    	return result	
+//	if (thisNode.children) {result+='</p></details>\n'}
+    return result	
 }
 
 def process_start_node(thisNode) {
