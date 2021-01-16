@@ -3,8 +3,8 @@
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
 <node TEXT="Safety concept with freeplane" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1609675076669" STYLE="oval">
 <font SIZE="18"/>
-<hook NAME="MapStyle" zoom="0.751">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_icon_for_attributes="false" show_note_icons="true" fit_to_viewport="false"/>
+<hook NAME="MapStyle" zoom="0.754">
+    <properties show_icon_for_attributes="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -55,6 +55,9 @@
     <conditional_style ACTIVE="true" STYLE_REF="ASIL A" LAST="false">
         <attribute_compare_condition VALUE="A" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="ASIL A[A]" LAST="false">
+        <attribute_compare_condition VALUE="A[A]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL A[B]" LAST="false">
         <attribute_compare_condition VALUE="A[B]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
@@ -67,6 +70,9 @@
     <conditional_style ACTIVE="true" STYLE_REF="ASIL B" LAST="false">
         <attribute_compare_condition VALUE="B" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="ASIL B[B]" LAST="false">
+        <attribute_compare_condition VALUE="B[B]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL B[C]" LAST="false">
         <attribute_compare_condition VALUE="B[C]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
@@ -76,11 +82,17 @@
     <conditional_style ACTIVE="true" STYLE_REF="ASIL C" LAST="false">
         <attribute_compare_condition VALUE="C" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="ASIL C[C]" LAST="false">
+        <attribute_compare_condition VALUE="C[C]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL C[D]" LAST="false">
         <attribute_compare_condition VALUE="C[D]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL D" LAST="false">
         <attribute_compare_condition VALUE="D" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="ASIL D[D]" LAST="false">
+        <attribute_compare_condition VALUE="D[D]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="QM" LAST="false">
         <attribute_compare_condition VALUE="QM" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
@@ -109,6 +121,12 @@
     <conditional_style ACTIVE="true" STYLE_REF="SZ" LAST="false">
         <attribute_compare_condition VALUE="SZ" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="HW" LAST="false">
+        <attribute_compare_condition VALUE="HW" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="SW" LAST="false">
+        <attribute_compare_condition VALUE="SW" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
 </hook>
 </stylenode>
 <stylenode TEXT="QM">
@@ -135,6 +153,10 @@
 <icon BUILTIN="ASIL_A"/>
 <edge COLOR="#007c00"/>
 </stylenode>
+<stylenode TEXT="ASIL A[A]">
+<icon BUILTIN="ASIL_A[A]"/>
+<edge COLOR="#007c00"/>
+</stylenode>
 <stylenode TEXT="ASIL A[B]">
 <icon BUILTIN="ASIL_A[B]"/>
 <edge COLOR="#007c00"/>
@@ -151,6 +173,10 @@
 <icon BUILTIN="ASIL_B"/>
 <edge COLOR="#007c00"/>
 </stylenode>
+<stylenode TEXT="ASIL B[B]">
+<icon BUILTIN="ASIL_B[B]"/>
+<edge COLOR="#007c00"/>
+</stylenode>
 <stylenode TEXT="ASIL B[C]">
 <icon BUILTIN="ASIL_B[C]"/>
 <edge COLOR="#007c00"/>
@@ -163,12 +189,20 @@
 <icon BUILTIN="ASIL_C"/>
 <edge COLOR="#007c00"/>
 </stylenode>
+<stylenode TEXT="ASIL C[C]">
+<icon BUILTIN="ASIL_C[C]"/>
+<edge COLOR="#007c00"/>
+</stylenode>
 <stylenode TEXT="ASIL C[D]">
 <icon BUILTIN="ASIL_C[D]"/>
 <edge COLOR="#007c00"/>
 </stylenode>
 <stylenode TEXT="ASIL D">
 <icon BUILTIN="ASIL_D"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="ASIL D[D]">
+<icon BUILTIN="ASIL_D[D]"/>
 <edge COLOR="#007c00"/>
 </stylenode>
 <stylenode TEXT="SZ" STYLE="wide_hexagon">
@@ -187,14 +221,17 @@
 <icon BUILTIN="Info"/>
 <edge COLOR="#007c00"/>
 </stylenode>
-<stylenode TEXT="Warning" BACKGROUND_COLOR="#ff3333">
-<icon BUILTIN="messagebox_warning"/>
-<font SIZE="24"/>
+<stylenode TEXT="HW" STYLE="rectangle" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#ff9900">
+<icon BUILTIN="HW"/>
 <edge COLOR="#007c00"/>
 </stylenode>
-<stylenode TEXT="Meeting" STYLE="wide_hexagon" BORDER_WIDTH="2.0 px" BORDER_DASH_LIKE_EDGE="false" BORDER_DASH="DASHES">
+<stylenode TEXT="SW" STYLE="rectangle" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#0066ff">
+<icon BUILTIN="SW"/>
 <edge COLOR="#007c00"/>
-<attribute NAME="Date" VALUE=""/>
+</stylenode>
+<stylenode TEXT="Warning" BACKGROUND_COLOR="#ff3333" STYLE="rectangle" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#0066ff">
+<icon BUILTIN="button_cancel"/>
+<edge COLOR="#007c00"/>
 </stylenode>
 </stylenode>
 <stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
@@ -220,12 +257,11 @@
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level,9"/>
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level,10"/>
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level,11"/>
-<stylenode LOCALIZED_TEXT="AutomaticLayout.level,12"/>
 </stylenode>
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="42" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="45" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Usage" POSITION="right" ID="ID_1951910464" CREATED="1609081338762" MODIFIED="1609675076672">
 <edge COLOR="#ff0000"/>
 <node TEXT="Use ctrl + D to paste as clone, to avoid redundancy" ID="ID_377773510" CREATED="1609081348519" MODIFIED="1609675076674"/>

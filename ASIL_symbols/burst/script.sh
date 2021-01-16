@@ -22,3 +22,8 @@ inkscape --without-gui --file=pg_0018.pdf --export-plain-svg=output/TSR.svg
 inkscape --without-gui --file=pg_0019.pdf --export-plain-svg=output/Info.svg
 inkscape --without-gui --file=pg_0020.pdf --export-plain-svg=output/SW.svg
 inkscape --without-gui --file=pg_0021.pdf --export-plain-svg=output/HW.svg
+inkscape --without-gui --file=pg_0022.pdf --export-plain-svg=output/ASIL_A[A].svg
+inkscape --without-gui --file=pg_0023.pdf --export-plain-svg=output/ASIL_B[B].svg
+inkscape --without-gui --file=pg_0024.pdf --export-plain-svg=output/ASIL_C[C].svg
+inkscape --without-gui --file=pg_0025.pdf --export-plain-svg=output/ASIL_D[D].svg
+

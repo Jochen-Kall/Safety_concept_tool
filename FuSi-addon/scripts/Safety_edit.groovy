@@ -43,8 +43,11 @@ if (Current_type=='SZ'){
 	}	
 	// possible children ASILs A
 	if (node.getParent()['ASIL'] =='A') {
-		ASILlist=['','QM[A]','A']
+		ASILlist=['','QM[A]','A[A]','A']
 	}
+	if (node.getParent()['ASIL'] =='A[A]') {
+		ASILlist=['','QM[A]','A[A]']
+	}	
 	if (node.getParent()['ASIL'] =='A[B]') {
 		ASILlist=['','QM[B]','A[B]']
 	}
@@ -56,8 +59,11 @@ if (Current_type=='SZ'){
 	}	
 	// possible children ASILs B
 	if (node.getParent()['ASIL'] =='B') {
-		ASILlist=['','QM[B]','A[B]','B']
+		ASILlist=['','QM[B]','A[B]','B[B]','B']
 	}
+	if (node.getParent()['ASIL'] =='B[B]') {
+		ASILlist=['','QM[B]','A[B]','B[B]']
+	}	
 	if (node.getParent()['ASIL'] =='B[C]') {
 		ASILlist=['','QM[C]','A[C]','B[C]']
 	}	
@@ -66,15 +72,21 @@ if (Current_type=='SZ'){
 	}
 	// possible children ASILs C
 	if (node.getParent()['ASIL'] =='C') {
-		ASILlist=['','QM[C]','A[C]','B[C]','C']
+		ASILlist=['','QM[C]','A[C]','B[C]','C[C]','C']
 	}
+	if (node.getParent()['ASIL'] =='C[C]') {
+		ASILlist=['','QM[C]','A[C]','B[C]','C[C]']
+	}	
 	if (node.getParent()['ASIL'] =='C[D]') {
 		ASILlist=['','QM[D]','A[D]','B[D]','C[D]']
 	}
 	// possible children ASILs D
 	if (node.getParent()['ASIL'] =='D') {
-		ASILlist=['','QM[D]','A[D]','B[D]','C[D]','D']
+		ASILlist=['','QM[D]','A[D]','B[D]','C[D]','D[D]','D']
 	}
+	if (node.getParent()['ASIL'] =='D[D]') {
+		ASILlist=['','QM[D]','A[D]','B[D]','C[D]','D[D]']
+	}	
 }
 // Fallback list for Types
 Typelist=['SZ', 'FSR', 'TSR', 'Information', 'HW', 'SW']
