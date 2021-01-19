@@ -1,9 +1,7 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
-<node TEXT="Safety concept with freeplane" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1609675076669" STYLE="oval">
-<font SIZE="18"/>
-<hook NAME="MapStyle" zoom="0.754">
+<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1611078939667"><hook NAME="MapStyle" zoom="0.754">
     <properties show_icon_for_attributes="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
@@ -229,8 +227,13 @@
 <icon BUILTIN="SW"/>
 <edge COLOR="#007c00"/>
 </stylenode>
-<stylenode TEXT="Warning" BACKGROUND_COLOR="#ff3333" STYLE="rectangle" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#0066ff">
+<stylenode TEXT="Warning" BACKGROUND_COLOR="#ff0033" STYLE="rectangle" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#0066ff">
 <icon BUILTIN="button_cancel"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="Source code Tag" ICON_SIZE="12.0 pt" BACKGROUND_COLOR="#cccccc" STYLE="narrow_hexagon" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#0066ff">
+<icon BUILTIN="very_positive"/>
+<font NAME="L M Mono Caps10" BOLD="true"/>
 <edge COLOR="#007c00"/>
 </stylenode>
 </stylenode>
@@ -261,172 +264,61 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="45" RULE="ON_BRANCH_CREATION"/>
-<node TEXT="Usage" POSITION="right" ID="ID_1951910464" CREATED="1609081338762" MODIFIED="1609675076672">
-<edge COLOR="#ff0000"/>
-<node TEXT="Use ctrl + D to paste as clone, to avoid redundancy" ID="ID_377773510" CREATED="1609081348519" MODIFIED="1609675076674"/>
-<node TEXT="Use F4 to turn nodes into safety nodes or edit safety properties" ID="ID_1341720400" CREATED="1609672844809" MODIFIED="1609675076676"/>
-<node TEXT="Use the sanity checker to identify errors" ID="ID_1280738814" CREATED="1609673065287" MODIFIED="1609675076682"/>
-<node TEXT="Use the exporter to generate markdown or csv files for import into requirements managment tools" ID="ID_1150255288" CREATED="1609673090986" MODIFIED="1609675076683"/>
-</node>
-<node TEXT="Installation" POSITION="right" ID="ID_1327017477" CREATED="1609672866498" MODIFIED="1609675076684">
-<edge COLOR="#7c007c"/>
-<node TEXT="Install the Safety addons: Tools-&gt;Add-ons" ID="ID_844738243" CREATED="1609672873693" MODIFIED="1609675076686"/>
-<node TEXT="Copy the ASIL and Type Icons into the personal folder/icons." FOLDED="true" ID="ID_1881153185" CREATED="1609156235048" MODIFIED="1609675076688">
-<node TEXT="Tools-&gt; open User Directory" ID="ID_1595654137" CREATED="1609672954008" MODIFIED="1609675076689"/>
-</node>
-<node TEXT="In case something goes wrong killing freeplane on startup, delete add-on in the installation dir, typically  /usr/share/freeplane" ID="ID_1883638717" CREATED="1609672975132" MODIFIED="1609675076690"/>
-</node>
-<node TEXT="Safety goal" STYLE_REF="Requirement" POSITION="left" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1609675076691">
+<hook NAME="AutomaticEdgeColor" COUNTER="55" RULE="ON_BRANCH_CREATION"/>
+<node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1611077159629" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
 <attribute NAME="ASIL" VALUE="B"/>
 <attribute NAME="Type" VALUE="SZ"/>
-<node TEXT="an Information... jippi" STYLE_REF="Requirement" ID="ID_1502911625" CREATED="1609087027838" MODIFIED="1609675076693">
-<attribute NAME="ASIL" VALUE=""/>
-<attribute NAME="Type" VALUE="Information"/>
+<attribute NAME="Allocation" VALUE=""/>
 </node>
-<node TEXT="An requirement  lala" STYLE_REF="Requirement" ID="ID_1780168904" CREATED="1609154124607" MODIFIED="1609675076694">
-<attribute NAME="ASIL" VALUE="QM"/>
-<attribute NAME="Type" VALUE="FSR"/>
-<node TEXT="Requirement" STYLE_REF="Requirement" ID="ID_853612185" CREATED="1609510536849" MODIFIED="1609675076694">
-<attribute NAME="ASIL" VALUE="QM"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-</node>
-<node TEXT="Another Safety requirement" STYLE_REF="Requirement" ID="ID_1579674255" CREATED="1609154144484" MODIFIED="1609675076696">
-<attribute NAME="ASIL" VALUE="B"/>
-<attribute NAME="Type" VALUE="FSR"/>
-<node TEXT="This requirement is cloned (strg + c strg +d) and shares its content." STYLE_REF="Requirement" ID="ID_563151915" CREATED="1609154270910" MODIFIED="1609675076700">
-<attribute NAME="ASIL" VALUE="B"/>
-<attribute NAME="Type" VALUE="Information"/>
-</node>
-<node TEXT="Stuff" STYLE_REF="Requirement" ID="ID_1536638437" CREATED="1609154224781" MODIFIED="1609675076702">
-<attribute NAME="ASIL" VALUE="A"/>
-<attribute NAME="Type" VALUE="TSR"/>
-<node TEXT="joho trallala" STYLE_REF="Requirement" ID="ID_1790656024" CREATED="1609255035921" MODIFIED="1609675076704">
-<attribute NAME="ASIL" VALUE="A"/>
-<attribute NAME="Type" VALUE="TSR"/>
-</node>
-</node>
-<node TEXT="Another TSR" STYLE_REF="Requirement" ID="ID_782239857" CREATED="1609154224781" MODIFIED="1609675076705">
-<attribute NAME="ASIL" VALUE="B"/>
-<attribute NAME="Type" VALUE="TSR"/>
-</node>
-<node TEXT="And one more" STYLE_REF="Requirement" ID="ID_483857261" CREATED="1609251656312" MODIFIED="1609675076706">
-<attribute NAME="ASIL" VALUE="B"/>
-<attribute NAME="Type" VALUE="TSR"/>
-</node>
-</node>
-</node>
-<node TEXT="Another safety goal" STYLE_REF="Requirement" POSITION="left" ID="ID_1716394890" CREATED="1609086691056" MODIFIED="1609675076707" HGAP_QUANTITY="43.99999910593036 pt" VSHIFT_QUANTITY="56.99999830126767 pt">
-<attribute NAME="ASIL" VALUE="A"/>
+<node TEXT="Safety Goal 2" STYLE_REF="Requirement" POSITION="right" ID="ID_759203603" CREATED="1611077204015" MODIFIED="1611077216833">
 <attribute NAME="Type" VALUE="SZ"/>
-<node ID="ID_1040985508" TREE_ID="ID_1579674255">
-<node ID="ID_872057976" TREE_ID="ID_563151915"/>
-<node ID="ID_1345580647" TREE_ID="ID_1536638437">
-<node ID="ID_457358992" TREE_ID="ID_1790656024"/>
-</node>
-<node ID="ID_1230965319" TREE_ID="ID_782239857"/>
-<node ID="ID_1234065247" TREE_ID="ID_483857261"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1648506662" CREATED="1609254987715" MODIFIED="1609675076709">
 <attribute NAME="ASIL" VALUE="A"/>
-<attribute NAME="Type" VALUE="FSR"/>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1748296991" CREATED="1609255072208" MODIFIED="1609675076709">
-<attribute NAME="ASIL" VALUE="C"/>
-<attribute NAME="Type" VALUE="TSR"/>
-<node ID="ID_1060793508" TREE_ID="ID_1790656024"/>
+<attribute NAME="Allocation" VALUE=""/>
+</node>
+<node TEXT="Architecture" POSITION="left" ID="ID_1988403535" CREATED="1609881073321" MODIFIED="1610703679766" HGAP_QUANTITY="76.99999812245375 pt" VSHIFT_QUANTITY="217.49999351799508 pt">
+<edge COLOR="#0000ff"/>
+<node TEXT="System Architectural Elements" ID="ID_647993701" CREATED="1609881262680" MODIFIED="1610703679766">
+<node TEXT="Element 1" GLOBALLY_VISIBLE="true" ALIAS="Sys:Telltale-requester" ID="ID_176572829" CREATED="1609881457571" MODIFIED="1611077238683"/>
+<node TEXT="Element 2" ID="ID_1992686079" CREATED="1609881092272" MODIFIED="1611077245438"/>
+</node>
+<node TEXT="SW Architectural Elements" ID="ID_1297553272" CREATED="1609881131483" MODIFIED="1610703679767">
+<node TEXT="Element 1" ID="ID_1659037005" CREATED="1609881203148" MODIFIED="1611077251508"/>
+<node TEXT="Element 2" ID="ID_1100078027" CREATED="1609881218794" MODIFIED="1611077254942"/>
+</node>
+<node TEXT="HW Architectural Elements" ID="ID_983665653" CREATED="1610478772917" MODIFIED="1610703679768">
+<node TEXT="Element 1" ID="ID_1264197492" CREATED="1610478968566" MODIFIED="1611077259980"/>
+<node TEXT="Element 2" ID="ID_760445418" CREATED="1611077260758" MODIFIED="1611077262993"/>
 </node>
 </node>
-</node>
-<node TEXT="Demo Safety goal to show all ASIL vs Type combinations" STYLE_REF="Requirement" FOLDED="true" POSITION="left" ID="ID_810403948" CREATED="1609344655001" MODIFIED="1609675076709" HGAP_QUANTITY="12.500000044703482 pt" VSHIFT_QUANTITY="14.249999575316918 pt">
-<attribute NAME="ASIL" VALUE="A"/>
-<attribute NAME="Type" VALUE="SZ"/>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_578710295" CREATED="1609346295334" MODIFIED="1609675076710">
-<attribute NAME="ASIL" VALUE="A"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1046194170" CREATED="1609371843840" MODIFIED="1609675076710">
-<attribute NAME="ASIL" VALUE="A[B]"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_946503600" CREATED="1609408524718" MODIFIED="1609675076710">
-<attribute NAME="ASIL" VALUE="A[C]"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1097230036" CREATED="1609423312592" MODIFIED="1609675076710">
-<attribute NAME="ASIL" VALUE="A[D]"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_629818889" CREATED="1609347210576" MODIFIED="1609675076710">
-<attribute NAME="ASIL" VALUE="B"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_232710430" CREATED="1609423588877" MODIFIED="1609675076710">
-<attribute NAME="ASIL" VALUE="B[C]"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1221524500" CREATED="1609423610072" MODIFIED="1609675076710">
-<attribute NAME="ASIL" VALUE="B[D]"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1557256083" CREATED="1609423731758" MODIFIED="1609675076711">
-<attribute NAME="ASIL" VALUE="C"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1008220701" CREATED="1609423750733" MODIFIED="1609675076711">
-<attribute NAME="ASIL" VALUE="C[D]"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1027397006" CREATED="1609423767828" MODIFIED="1609675076711">
-<attribute NAME="ASIL" VALUE="D"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_598718278" CREATED="1609424263311" MODIFIED="1609675076711">
-<attribute NAME="ASIL" VALUE="QM"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1723970178" CREATED="1609424263903" MODIFIED="1609675076711">
-<attribute NAME="ASIL" VALUE="QM[A]"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1704702783" CREATED="1609424264424" MODIFIED="1609675076711">
-<attribute NAME="ASIL" VALUE="QM[B]"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1518010131" CREATED="1609424264873" MODIFIED="1609675076711">
-<attribute NAME="ASIL" VALUE="QM[C]"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-<node TEXT="blubber" STYLE_REF="Requirement" ID="ID_1560260531" CREATED="1609424265300" MODIFIED="1609675076711">
-<attribute NAME="ASIL" VALUE="QM[D]"/>
-<attribute NAME="Type" VALUE="FSR"/>
-</node>
-</node>
-<node TEXT="And a third Safety goal, why not" STYLE_REF="Requirement" POSITION="left" ID="ID_60769965" CREATED="1609153266415" MODIFIED="1609675076712">
-<attribute NAME="ASIL" VALUE="QM"/>
-<attribute NAME="Type" VALUE="SZ"/>
-<edge COLOR="#007c00"/>
-<node TEXT="asdf" STYLE_REF="Requirement" ID="ID_1542608616" CREATED="1609507252345" MODIFIED="1609675076712">
-<attribute NAME="Type" VALUE="TSR"/>
-<attribute NAME="ASIL" VALUE="QM"/>
-<node TEXT="asdf" STYLE_REF="Requirement" ID="ID_1937029726" CREATED="1609512349399" MODIFIED="1609675076713">
-<attribute NAME="Type" VALUE="TSR"/>
-<attribute NAME="ASIL" VALUE="QM"/>
-<node TEXT="asdf" STYLE_REF="Requirement" ID="ID_321312115" CREATED="1609512380217" MODIFIED="1609675076713">
-<attribute NAME="Type" VALUE="Information"/>
-<attribute NAME="ASIL" VALUE=""/>
-</node>
-</node>
-</node>
-</node>
-<node TEXT="Requirements for ELISA use" POSITION="right" ID="ID_385516890" CREATED="1609581527833" MODIFIED="1609675076713">
-<edge COLOR="#007c00"/>
-<node TEXT="Open source/ non proprietary" ID="ID_123129599" CREATED="1609581545753" MODIFIED="1609675076714"/>
-<node TEXT="Hierarchically structured" ID="ID_1207591757" CREATED="1609586527901" MODIFIED="1609675076715"/>
-<node TEXT="Text based file format / GIT friendly" ID="ID_539363717" CREATED="1609581575802" MODIFIED="1609675076716"/>
-<node TEXT="Support for references / duplicates." ID="ID_1076705369" CREATED="1609581653700" MODIFIED="1609675076717"/>
-<node TEXT="Interface / Exporter for industry requirements management systems (Doors, Polarion, etc)" ID="ID_572758306" CREATED="1609581601492" MODIFIED="1609675076718"/>
-<node TEXT="Interface / Exporter to text (word, markdown, rst etc)" ID="ID_1967828900" CREATED="1609586563637" MODIFIED="1609675076719"/>
+<node TEXT="Source code monitoring" POSITION="left" ID="ID_197895921" CREATED="1610823383222" MODIFIED="1611078617693" HGAP_QUANTITY="7.25000020116567 pt" VSHIFT_QUANTITY="35.249998949468164 pt">
+<edge COLOR="#00ff00"/>
+<attribute_layout NAME_WIDTH="68.99999794363981 pt" VALUE_WIDTH="248.99999257922195 pt"/>
+<attribute NAME="Github link" VALUE="https://github.com/Jochen-Kall/Safety-app/"/>
+<attribute NAME="revision" VALUE="8db75d886c915efc16e481e3fb63a09fd6e10eb6"/>
+<richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Setting up source code monitoring:
+    </p>
+    <p>
+      - Copy paste the local clone as child of the Node &quot;Local Repository&quot;
+    </p>
+    <p>
+      - Copy paste all Source code files to be monitored as children of the node &quot;files&quot;
+    </p>
+    <p>
+      - Enter Github link and current revision in the Parameters of this node, to enable link creation
+    </p>
+  </body>
+</html>
+</richcontent>
+<node TEXT="local repository" ID="ID_1158912197" CREATED="1610880491236" MODIFIED="1611078609857"/>
+<node TEXT="files under Monitoring" ID="ID_608165453" CREATED="1610880473633" MODIFIED="1611078601838"/>
 </node>
 </node>
 </map>
