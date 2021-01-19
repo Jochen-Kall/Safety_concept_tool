@@ -1,7 +1,7 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
-<node TEXT="Safety concept Cluster Display use case" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1610894422559"><hook NAME="MapStyle" zoom="0.685">
+<node TEXT="Safety concept Cluster Display use case" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1610894422559"><hook NAME="MapStyle" zoom="0.623">
     <properties show_icon_for_attributes="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
@@ -471,16 +471,50 @@
 <attribute NAME="Type" VALUE="Information"/>
 </node>
 </node>
-<node TEXT="The watchdog shall disable the backlight of the Cluster Display within 50ms, if it is not triggered within 150ms." STYLE_REF="Requirement" ID="ID_1266688002" CREATED="1609429267081" MODIFIED="1610897196135">
+<node TEXT="The watchdog shall disable the backlight of the Cluster Display within 50ms, if it is not triggered within 150ms." STYLE_REF="Requirement" ID="ID_1266688002" CREATED="1609429267081" MODIFIED="1610912992970">
 <attribute NAME="ASIL" VALUE="B"/>
 <attribute NAME="Type" VALUE="SW"/>
 <attribute NAME="Allocation" VALUE="Telltale-requester"/>
+<richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <a href="https://github.com/Jochen-Kall/Safety-app//blob/8db75d886c915efc16e481e3fb63a09fd6e10eb6/control-app.c#L44">control-app.c:L44</a>
+    </p>
+    <p>
+      <a href="https://github.com/Jochen-Kall/Safety-app//blob/8db75d886c915efc16e481e3fb63a09fd6e10eb6/Safety-signal-source.c#L81">Safety-signal-source.c:L81</a>
+    </p>
+    <p>
+      <a href="https://github.com/Jochen-Kall/Safety-app//blob/8db75d886c915efc16e481e3fb63a09fd6e10eb6/../../../../media/jochen/Linux_work/ELISA repos/Safety_concept_tool/LICENSE#L1">../../../../media/jochen/Linux_work/ELISA repos/Safety_concept_tool/LICENSE:L1</a>
+    </p>
+  </body>
+</html>
+
+</richcontent>
 </node>
 </node>
 </node>
-<node TEXT="The chain between Telltale request sent and display/safe state shall be less than 200ms." STYLE_REF="Requirement" ID="ID_922972509" CREATED="1609428685902" MODIFIED="1610905942022" LINK="#at(:~Sys:Telltale-requester)">
+<node TEXT="The chain between Telltale request sent and display/safe state shall be less than 200ms." STYLE_REF="Requirement" ID="ID_922972509" CREATED="1609428685902" MODIFIED="1610912992967" LINK="#at(:~Sys:Telltale-requester)">
 <attribute NAME="ASIL" VALUE="B"/>
 <attribute NAME="Type" VALUE="FSR"/>
+<richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <a href="https://github.com/Jochen-Kall/Safety-app//blob/8db75d886c915efc16e481e3fb63a09fd6e10eb6/control-app.c#L44">control-app.c:L44</a>
+    </p>
+  </body>
+</html>
+
+</richcontent>
 <node ID="ID_1197920546" TREE_ID="ID_1337523371">
 <node ID="ID_1916288361" TREE_ID="ID_865269483"/>
 <node ID="ID_980166321" TREE_ID="ID_1226012594"/>

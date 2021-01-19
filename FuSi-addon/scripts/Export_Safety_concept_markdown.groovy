@@ -1,15 +1,24 @@
-// intended to output the concept in markdown language for human reading.
-// Full Safety concept structure, duplicates are exported as well to ensure good readibility
-
+// SPDX-License-Identifier: GPL-2.0
+// Copyright (C) 2021 Jochen Kall
+// This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 2.
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA. 
+/*
+ intended to output the concept in markdown language for human reading.
+ Full Safety concept structure, duplicates are exported as well to ensure good readibility
+*/
 import javax.swing.*;
 
-// for cut 'n paste:
-def showDialog(String text) {
+// Dialog window for easy copy and pasting
+def showDialog(String content) {
+    //create new dialog and set size
     def dialog = new JDialog(ui.frame)
-    dialog.setSize(350, 450)
+    dialog.setSize(750, 600)
     dialog.setLocationRelativeTo(ui.frame)
+    // dialog close operation
     dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE)
-    dialog.add(new JScrollPane(new JTextArea(text)))
+    // add panel to dialog
+    dialog.add(new JScrollPane(new JTextArea(content)))
     ui.addEscapeActionToDialog(dialog)
     dialog.setVisible(true)
 }

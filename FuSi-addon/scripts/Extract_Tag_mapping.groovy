@@ -1,12 +1,15 @@
 import javax.swing.*;
 
-// for cut 'n paste:
-def showDialog(String text) {
+// Dialog window for easy copy and pasting
+def showDialog(String content) {
+    //create new dialog and set size
     def dialog = new JDialog(ui.frame)
-    dialog.setSize(350, 450)
+    dialog.setSize(750, 600)
     dialog.setLocationRelativeTo(ui.frame)
+    // dialog close operation
     dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE)
-    dialog.add(new JScrollPane(new JTextArea(text)))
+    // add panel to dialog
+    dialog.add(new JScrollPane(new JTextArea(content)))
     ui.addEscapeActionToDialog(dialog)
     dialog.setVisible(true)
 }
