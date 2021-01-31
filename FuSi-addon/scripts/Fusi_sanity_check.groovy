@@ -45,6 +45,14 @@ def Act_ASIL(ASIL){
 	}
 }
 
+// attach warning node, unless a warning node with that message already exists
+def attach_warning(node , Message) {
+	if (node.children.every{it.text!=Message}){
+		W=node.createChild(Message)
+		W.style.name='Warning'
+	}	
+}
+
 // verify that base ASILs of requirements is never below the Base asils of their parents
 // verify that that the Base asil of requirements is not higher than the highest base ASIL of their parents
 def Check_base_ASIL(thisNode){
@@ -60,13 +68,11 @@ def Check_base_ASIL(thisNode){
 	ba=ASIL_num[Base_ASIL(thisNode['ASIL'])]
 	// check if any of the parents has a higher base ASIL than the node itself
 	if (nodelist.any{ASIL_num[Base_ASIL(it.getParent()["ASIL"])]>ba	} ) {
-		W=thisNode.createChild('A Parent Requirement exists with higher base ASIL!')
-		W.style.name='Warning'
+		attach_warning(thisNode,'A Parent Requirement exists with higher base ASIL!')
 	}
 	// check if at least one parent has the same base ASIL
-	if (nodelist.every{ASIL_num[Base_ASIL(it.getParent()["ASIL"])]<ba	} ) {
-		W=thisNode.createChild('All Parent Requirements have a lower base ASIL!')
-		W.style.name='Warning'
+	if (nodelist.every{ASIL_num[Base_ASIL(it.getParent()["ASIL"])]<ba} ) {
+		attach_warning(thisNode,'All Parent Requirements have a lower base ASIL!')
 	}	
 
 }
@@ -78,8 +84,7 @@ def Check_decomposition(thisNode) {
 	if (ch.any{ASIL_num[Act_ASIL(it['ASIL'])]<ASIL_num[Act_ASIL(thisNode['ASIL'])]}){	
 		// check if the sum of actual ASILs of the children is smaller than the actual ASIL of the parent
 		if (ASIL_num[Act_ASIL(thisNode['ASIL'])] > thisNode.children.collect{ASIL_num[Act_ASIL(it['ASIL'])]}.sum() ) {
-			W=thisNode.createChild('Decomposition problem, derived requirements do not add up ASIL wise!')
-			W.style.name='Warning'			
+			attach_warning(thisNode,'Decomposition problem, derived requirements do not add up ASIL wise!')		
 		}
 	}
 }
@@ -94,8 +99,7 @@ def Check_ASIL_source(thisNode) {
 	
 	// verify that at least one ancestor carries the base ASIL of thisNode
 	if (!all_ancestors.any{it['ASIL']==Base_ASIL(thisNode['ASIL'])} ) {
-		W=thisNode.createChild('Decomposition problem, no ancestor of decomposed ASIL found')
-		W.style.name='Warning'		
+		attach_warning(thisNode,'Decomposition problem, no ancestor of decomposed ASIL found')	
 	}
 }
 
@@ -110,8 +114,7 @@ Allowed_derivation['Information']=['Information']
 
 def Check_type(thisNode) {
 	if (!(thisNode['Type'] in Allowed_derivation[thisNode.getParent()['Type']]))  {
-		W=thisNode.createChild('Illegal Parent Child relationship')
-		W.style.name='Warning'			
+		attach_warning(thisNode,'Illegal Parent Child relationship')		
 	}
 }
 
