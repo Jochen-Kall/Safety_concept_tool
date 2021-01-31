@@ -5,44 +5,145 @@
 // You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA. 
 /*
 Performs sanity checks on the Safety concept.
-Currently only checks appropriate artifact types of children depending on the parents types.
+Currently performed checks
+	- Base ASIL check, children always need a higher or equal base ASIL
+	- Plausibility check Base ASIL of child higher than the highest base ASIL of all Parents
+	- Decomposition check, actual ASILs of children must be higher than the parent requirements ASIL
+	- Decomposition check, Base ASIL has to be present somewhere on the ancestors of a Requirement
+	- Parent child relationship check for not allowed relationsships (e.g. FSR derived from TSR etc)
 */
-def process(thisNode) {
-// check valid child types
-if (thisNode.getParent()!=null){    
-    	if (thisNode.getParent()['Type']=='SZ'){
-	    	if (thisNode['Type']=='TSR') {
-			W=thisNode.createChild('TSR directly derived from Safety Goal')
-			W.style.name='Warning'
-	    	}    
-    	} 
-    	if (thisNode.getParent()['Type']=='FSR'){
-	    	if (thisNode['Type']=='SZ') {
-			W=thisNode.createChild('Safety goal derived from FSR')
-			W.style.name='Warning'
-	    	}    
-    	}
-    	if (thisNode.getParent()['Type']=='TSR'){
-	    	if (thisNode['Type']=='SZ') {
-			W=thisNode.createChild('Safety goal derived from TSR')
-			W.style.name='Warning'
-	    	} 
-	    	if (thisNode['Type']=='FSR') {
-		    	W=thisNode.createChild('FSR derived from TSR')
-		    	W.style.name='Warning'
-	    	}    
-    	}	       	       
 
-}
-// check ASILs of children requirements
-// todo implement a sanity check if derived requirements comply with derivation/ decomposition rules for ASILs
-// e.g. children have the same or higher ASIL level, unless decomposition takes place.
-// in case of decomposition, the children have to be decomposed from the parent ASIL or higher
-// in case of decomposition, the children have to 'sum up' to the parent ASIL
+ASIL_num = [:]
+ASIL_num['QM']=0
+ASIL_num['A']=1
+ASIL_num['B']=2
+ASIL_num['C']=3
+ASIL_num['D']=4
 
-thisNode.children.each {
-        process(it)
-}
+
+// determine base ASIL from arbitrary ASIL, e.g. A -> A, but B[D]-> D
+def Base_ASIL(ASIL){
+	if (ASIL.contains('[')) {
+		// Extract ASIL by regulare expression, in case of a decomposition
+		return ((ASIL=~ /\[.\]/))[0].substring(1,2)
+	} else {
+		// no decomposition, Base ASIL is equal general ASIL
+		return ASIL
+	}
 }
 
-process(node)
+// determines the actual ASIL from arbitrary ASIL, e.g. A->A, A[B] -> A
+def Act_ASIL(ASIL){
+	if (ASIL.contains('[')) {
+		// Extract ASIL by regulare expression, in case of a decomposition
+		def help = (ASIL=~ /.*\[/)[0]
+		return help.substring(0,help.length()-1)
+	}
+	else {
+		// no decomposition
+		return ASIL
+	}
+}
+
+// verify that base ASILs of requirements is never below the Base asils of their parents
+// verify that that the Base asil of requirements is not higher than the highest base ASIL of their parents
+def Check_base_ASIL(thisNode){
+	if (thisNode.getCountNodesSharingContent() > 0) {
+		// node has clones
+		nodelist=thisNode.getNodesSharingContent()
+		nodelist+= [thisNode]
+	} else {
+		// node has no clones
+		nodelist=[thisNode]
+	}
+
+	ba=ASIL_num[Base_ASIL(thisNode['ASIL'])]
+	// check if any of the parents has a higher base ASIL than the node itself
+	if (nodelist.any{ASIL_num[Base_ASIL(it.getParent()["ASIL"])]>ba	} ) {
+		W=thisNode.createChild('A Parent Requirement exists with higher base ASIL!')
+		W.style.name='Warning'
+	}
+	// check if at least one parent has the same base ASIL
+	if (nodelist.every{ASIL_num[Base_ASIL(it.getParent()["ASIL"])]<ba	} ) {
+		W=thisNode.createChild('All Parent Requirements have a lower base ASIL!')
+		W.style.name='Warning'
+	}	
+
+}
+
+// Verify that if there is a decomposition, the ASIL values add up
+def Check_decomposition(thisNode) {
+	// check if any child has a lower base asil than the node itself, indicating a decomposition
+	def ch=thisNode.children.findAll{it['Type'] in ['SZ','FSR','TSR','HW','SW']}
+	if (ch.any{ASIL_num[Act_ASIL(it['ASIL'])]<ASIL_num[Act_ASIL(thisNode['ASIL'])]}){	
+		// check if the sum of actual ASILs of the children is smaller than the actual ASIL of the parent
+		if (ASIL_num[Act_ASIL(thisNode['ASIL'])] > thisNode.children.collect{ASIL_num[Act_ASIL(it['ASIL'])]}.sum() ) {
+			W=thisNode.createChild('Decomposition problem, derived requirements do not add up ASIL wise!')
+			W.style.name='Warning'			
+		}
+	}
+}
+
+
+//  Verifies that somewhere on the tree including clones, the decomposition root asil can be found
+def Check_ASIL_source(thisNode) {
+	// collect full ancestor list of thisNode and all its clones
+	def all_ancestors=([thisNode]+thisNode.getNodesSharingContent()).collect{it.getPathToRoot()}.sum()
+	// remove non-requirement nodes
+	all_ancestors = all_ancestors.findAll{it.style.name=='Requirement'}
+	
+	// verify that at least one ancestor carries the base ASIL of thisNode
+	if (!all_ancestors.any{it['ASIL']==Base_ASIL(thisNode['ASIL'])} ) {
+		W=thisNode.createChild('Decomposition problem, no ancestor of decomposed ASIL found')
+		W.style.name='Warning'		
+	}
+}
+
+// permisseable type relationships
+Allowed_derivation=[:]
+Allowed_derivation['SZ']=['Information','FSR']
+Allowed_derivation['FSR']=['Information','FSR','TSR']
+Allowed_derivation['TSR']=['Information','TSR','HW','SW']
+Allowed_derivation['HW']=['Information','HW']
+Allowed_derivation['SW']=['Information','SW']
+Allowed_derivation['Information']=['Information']
+
+def Check_type(thisNode) {
+	if (!(thisNode['Type'] in Allowed_derivation[thisNode.getParent()['Type']]))  {
+		W=thisNode.createChild('Illegal Parent Child relationship')
+		W.style.name='Warning'			
+	}
+}
+
+// remove all warnings currently in the map
+c.find{it.style.name=='Warning'}.each{
+	// try catch necessary due to clones
+	try {it.delete()} catch(Exception ex) {}
+}
+
+// Check_base_ASIL(node)
+// Check_decomposition(node)
+// Check_ASIL_source(node)
+// Check_type(node)
+
+// Find all Requirement nodes that are of type ['SZ','FSR','TSR','HW','SW'], i.e. excluding Information artifacts
+c.find{(it.style.name=='Requirement') && (it['Type'] in ['SZ','FSR','TSR','HW','SW']) }.each{
+	// Execute base ASIL check on all requirements that are not derived from the root node directly
+	if (!it.getParent().isRoot()) {
+		Check_base_ASIL(it)
+	}
+	// Execute decomposition check on all requirements with children
+	if (it.children.any{it.style.name=='Requirement'}) {
+		Check_decomposition(it)
+	}
+	// Execute ASIL source check for all requirements
+	Check_ASIL_source(it)
+}
+// find all Requirement nodes that do not directly depend on the root node
+c.find{(it.style.name=='Requirement') && (!it.getParent().isRoot())}.each{
+	Check_type(it)	
+}
+
+
+
+
