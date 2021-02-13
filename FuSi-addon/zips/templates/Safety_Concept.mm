@@ -1,7 +1,7 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
-<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1611078939667"><hook NAME="MapStyle" zoom="0.754">
+<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1613228284488"><hook NAME="MapStyle" zoom="1.213">
     <properties show_icon_for_attributes="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
@@ -33,17 +33,6 @@
 </stylenode>
 <stylenode LOCALIZED_TEXT="styles.important">
 <icon BUILTIN="yes"/>
-</stylenode>
-<stylenode TEXT="Teststyle" COLOR="#cc00cc" STYLE="wide_hexagon" NUMBERED="false">
-<edge COLOR="#00ff00"/>
-<cloud COLOR="#ffcc66" SHAPE="ARC"/>
-<hook NAME="NodeConditionalStyles">
-    <conditional_style ACTIVE="true" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" LAST="false">
-        <attribute_compare_condition VALUE="FSR" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
-    </conditional_style>
-</hook>
-<attribute NAME="ASIL" VALUE=""/>
-<attribute NAME="Type" VALUE="FSR"/>
 </stylenode>
 <stylenode TEXT="Requirement">
 <edge COLOR="#007c00"/>
@@ -124,6 +113,12 @@
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="SW" LAST="false">
         <attribute_compare_condition VALUE="SW" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="Tainted_by_child" LAST="false">
+        <attribute_exists_condition ATTRIBUTE="Tainted_by_child"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="Tainted_by_parent" LAST="false">
+        <attribute_exists_condition ATTRIBUTE="Tainted_by_parent"/>
     </conditional_style>
 </hook>
 </stylenode>
@@ -236,6 +231,14 @@
 <font NAME="L M Mono Caps10" BOLD="true"/>
 <edge COLOR="#007c00"/>
 </stylenode>
+<stylenode TEXT="Tainted_by_child" STYLE="rectangle" BORDER_WIDTH="3.0 px" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#0000ff" BORDER_DASH="CLOSE_DOTS">
+<icon BUILTIN="revision"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="Tainted_by_parent" STYLE="rectangle" BORDER_WIDTH="3.0 px" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#ff0000" BORDER_DASH="CLOSE_DOTS">
+<icon BUILTIN="revision-red"/>
+<edge COLOR="#007c00"/>
+</stylenode>
 </stylenode>
 <stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000" STYLE="oval" SHAPE_HORIZONTAL_MARGIN="10.0 pt" SHAPE_VERTICAL_MARGIN="10.0 pt">
@@ -265,6 +268,8 @@
 </map_styles>
 </hook>
 <hook NAME="AutomaticEdgeColor" COUNTER="55" RULE="ON_BRANCH_CREATION"/>
+<attribute_layout NAME_WIDTH="108.74999675899754 pt" VALUE_WIDTH="108.74999675899754 pt"/>
+<attribute NAME="FuSi-Addon-version" VALUE="0.4" OBJECT="org.freeplane.features.format.FormattedNumber|0.4"/>
 <node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1611077159629" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
 <attribute NAME="ASIL" VALUE="B"/>
 <attribute NAME="Type" VALUE="SZ"/>

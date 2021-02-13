@@ -18,12 +18,22 @@ import javax.swing.JOptionPane
 Current_type=node['Type']
 Current_ASIL=node['ASIL']
 
+def Tainted_by_child = node['Tainted_by_child']
+def Tainted_by_parent = node['Tainted_by_parent']
+
 if (!Current_type){
 	Current_type=node.getParent()['Type']
 }
 if (!Current_ASIL){
 	Current_ASIL=node.getParent()['ASIL']
 }
+if (!Tainted_by_child){
+	Tainted_by_child=false
+} 
+if (!Tainted_by_parent){
+	Tainted_by_parent=false
+} 
+
 
 // Backup selection list for ASILs
 ASILlist=['QM', 'A', 'B', 'C', 'D']
@@ -168,6 +178,12 @@ def dial = s.dialog(title:'Safety Properties', id:'myDialog', minimumSize: [300,
         }
 
         panel(alignmentX:0f) {
+            flowLayout(alignment:FL.LEFT)
+            label('Tainted')
+            checkBox(id:'Tainted', selected:((Tainted_by_child)||(Tainted_by_parent)))
+        }
+
+        panel(alignmentX:0f) {
             flowLayout(alignment:FL.RIGHT)
             button(action: action(name: 'OK', defaultButton: true, mnemonic: 'O',
                     closure: {vars.ok = true; dispose()}))
@@ -177,19 +193,31 @@ def dial = s.dialog(title:'Safety Properties', id:'myDialog', minimumSize: [300,
 }
 if (vars.ok){
 	// set attributes to the selected attributes, if user left the dialog with 'OK'
+	// Check if Node is a fresh requirement, if it is suppress tainting by also setting the shadow copies
+	def newNode=(node.style.name!='Requirement')
+	
 	node.attributes.set('Type',vars.type.selectedItem)
+	if (newNode) {node.attributes.set('Type_sc',vars.type.selectedItem)}
 	// set ASIL attribute for all types except information
 	if ( (vars.type.selectedItem == 'SZ') || (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
 		node.attributes.set('ASIL',vars.ASIL.selectedItem)
+		if (newNode) {node.attributes.set('ASIL_sc',vars.ASIL.selectedItem)}
 	} else {
 		node.attributes.set('ASIL', '')
 	}
 	// set Allocation parameter for all types except SZ and Information
 	if (  (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
 		node.attributes.set('Allocation', vars.Allocation.selectedItem)
+		if (newNode) {node.attributes.set('Allocation_sc', vars.Allocation.selectedItem)}
 	} else {
 		node.attributes.set('Allocation', '')
+	}
+	// check if user removed the taint, if so delete the taint properties
+	if (vars.Tainted.selected==false) {
+		node.attributes.removeAll('Tainted_by_child')
+		node.attributes.removeAll('Tainted_by_parent')
 	}		
 	node.style.name='Requirement'
+	
 }
 
