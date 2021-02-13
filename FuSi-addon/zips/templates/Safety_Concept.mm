@@ -270,15 +270,21 @@
 <hook NAME="AutomaticEdgeColor" COUNTER="55" RULE="ON_BRANCH_CREATION"/>
 <attribute_layout NAME_WIDTH="108.74999675899754 pt" VALUE_WIDTH="108.74999675899754 pt"/>
 <attribute NAME="FuSi-Addon-version" VALUE="0.4" OBJECT="org.freeplane.features.format.FormattedNumber|0.4"/>
-<node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1611077159629" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
+<node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1613236872543" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
 <attribute NAME="ASIL" VALUE="B"/>
 <attribute NAME="Type" VALUE="SZ"/>
 <attribute NAME="Allocation" VALUE=""/>
+<attribute NAME="ASIL_sc" VALUE="B"/>
+<attribute NAME="Type_sc" VALUE="SZ"/>
+<attribute NAME="Allocation_sc" VALUE=""/>
 </node>
-<node TEXT="Safety Goal 2" STYLE_REF="Requirement" POSITION="right" ID="ID_759203603" CREATED="1611077204015" MODIFIED="1611077216833">
+<node TEXT="Safety Goal 2" STYLE_REF="Requirement" POSITION="right" ID="ID_759203603" CREATED="1611077204015" MODIFIED="1613236878029">
 <attribute NAME="Type" VALUE="SZ"/>
 <attribute NAME="ASIL" VALUE="A"/>
 <attribute NAME="Allocation" VALUE=""/>
+<attribute NAME="ASIL_sc" VALUE="A"/>
+<attribute NAME="Type_sc" VALUE="SZ"/>
+<attribute NAME="Allocation_sc" VALUE=""/>
 </node>
 <node TEXT="Architecture" POSITION="left" ID="ID_1988403535" CREATED="1609881073321" MODIFIED="1610703679766" HGAP_QUANTITY="76.99999812245375 pt" VSHIFT_QUANTITY="217.49999351799508 pt">
 <edge COLOR="#0000ff"/>
