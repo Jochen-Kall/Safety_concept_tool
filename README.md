@@ -6,6 +6,7 @@ Freeplane addon to build safety concepts within a freeplane mindmap.
 * Install the Safety Addon in Freeplane
 * Optional: Set Selection Method to "By click" to avoid unintentional selection of nodes
 * Optional: For the code monitoring functionality to work, read access for .groovy scripts has to be enabled in the settings
+* Optional: Activate Display selected nodes in bubbles under Tools->Preferences->Appearance to avoid the node selection color interfering with node color coding
 
 # Getting started / Usage
 * Start a new map with the Template provided by the addon, it should work out of the box

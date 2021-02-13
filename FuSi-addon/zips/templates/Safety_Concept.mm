@@ -120,6 +120,9 @@
     <conditional_style ACTIVE="true" STYLE_REF="Tainted_by_parent" LAST="false">
         <attribute_exists_condition ATTRIBUTE="Tainted_by_parent"/>
     </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="Shared" LAST="false">
+        <attribute_compare_condition VALUE="true" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Shared" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
 </hook>
 </stylenode>
 <stylenode TEXT="QM">
@@ -239,6 +242,9 @@
 <icon BUILTIN="revision-red"/>
 <edge COLOR="#007c00"/>
 </stylenode>
+<stylenode TEXT="Shared" BACKGROUND_COLOR="#ffcc99">
+<edge COLOR="#007c00"/>
+</stylenode>
 </stylenode>
 <stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000" STYLE="oval" SHAPE_HORIZONTAL_MARGIN="10.0 pt" SHAPE_VERTICAL_MARGIN="10.0 pt">
@@ -270,21 +276,23 @@
 <hook NAME="AutomaticEdgeColor" COUNTER="55" RULE="ON_BRANCH_CREATION"/>
 <attribute_layout NAME_WIDTH="108.74999675899754 pt" VALUE_WIDTH="108.74999675899754 pt"/>
 <attribute NAME="FuSi-Addon-version" VALUE="0.4" OBJECT="org.freeplane.features.format.FormattedNumber|0.4"/>
-<node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1613236872543" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
+<node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1613244387041" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
 <attribute NAME="ASIL" VALUE="B"/>
 <attribute NAME="Type" VALUE="SZ"/>
 <attribute NAME="Allocation" VALUE=""/>
 <attribute NAME="ASIL_sc" VALUE="B"/>
 <attribute NAME="Type_sc" VALUE="SZ"/>
 <attribute NAME="Allocation_sc" VALUE=""/>
+<attribute NAME="Shared" VALUE="= node.getCountNodesSharingContent()&gt;0"/>
 </node>
-<node TEXT="Safety Goal 2" STYLE_REF="Requirement" POSITION="right" ID="ID_759203603" CREATED="1611077204015" MODIFIED="1613236878029">
+<node TEXT="Safety Goal 2" STYLE_REF="Requirement" POSITION="right" ID="ID_759203603" CREATED="1611077204015" MODIFIED="1613244389296">
 <attribute NAME="Type" VALUE="SZ"/>
 <attribute NAME="ASIL" VALUE="A"/>
 <attribute NAME="Allocation" VALUE=""/>
 <attribute NAME="ASIL_sc" VALUE="A"/>
 <attribute NAME="Type_sc" VALUE="SZ"/>
 <attribute NAME="Allocation_sc" VALUE=""/>
+<attribute NAME="Shared" VALUE="= node.getCountNodesSharingContent()&gt;0"/>
 </node>
 <node TEXT="Architecture" POSITION="left" ID="ID_1988403535" CREATED="1609881073321" MODIFIED="1610703679766" HGAP_QUANTITY="76.99999812245375 pt" VSHIFT_QUANTITY="217.49999351799508 pt">
 <edge COLOR="#0000ff"/>

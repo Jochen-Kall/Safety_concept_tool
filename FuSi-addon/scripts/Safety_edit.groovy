@@ -36,9 +36,9 @@ if (!Tainted_by_parent){
 
 
 // Backup selection list for ASILs
-ASILlist=['QM', 'A', 'B', 'C', 'D']
+def ASILlist=['QM', 'A', 'B', 'C', 'D']
 // Choose ASIL options based on the parent ASIL if it exists.
-if (Current_type=='SZ'){
+if (node.getParent().isRoot()) {
 	ASILlist=['QM', 'A', 'B', 'C', 'D']	
 } else{
 	// possible children ASILs QM
@@ -104,6 +104,8 @@ if (Current_type=='SZ'){
 		ASILlist=['','QM[D]','A[D]','B[D]','C[D]','D[D]']
 	}	
 }
+if (!(node['ASIL'] in ASILlist)) { ASILlist+=node['ASIL']}
+
 // Fallback list for Types
 Typelist=['SZ', 'FSR', 'TSR', 'Information', 'HW', 'SW']
 // restrict types to acceptable types, based on the parent nodes type.
@@ -216,7 +218,8 @@ if (vars.ok){
 	if (vars.Tainted.selected==false) {
 		node.attributes.removeAll('Tainted_by_child')
 		node.attributes.removeAll('Tainted_by_parent')
-	}		
+	}
+	node['Shared']= '= node.getCountNodesSharingContent()>0'		
 	node.style.name='Requirement'
 	
 }
