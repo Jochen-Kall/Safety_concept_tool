@@ -37,18 +37,15 @@ class MyNodeChangeListener implements INodeChangeListener {
 		node['Allocation_sc']=node['Allocation']		
 	}
 	// mark nodes tainted by the change
+	def Selected_node_Id=ScriptUtils.node().getId()
 	if (nodeChanged) {
-		// Mark Parents of clones as tainted by child -> works! :)
-		node.getNodesSharingContent().each{cl->
+		// Mark Parents of clones as tainted by child, except of the parent of the selected node itself
+		def sharedNodes= node.getNodesSharingContent() + [node]
+		sharedNodes.find{it.getId()!=Selected_node_Id}.each{cl->
 			if (cl.getParent().style.name=='Requirement') {
 				cl.getParent()['Tainted_by_child']=true
 			}
 		}
-		// Mark own parent as tainted, at least until I figure out how to solve the clone dilemma
-		if (node.getParent().style.name=='Requirement') {
-			node.getParent()['Tainted_by_child']=true
-		}
-
 		// Mark decendents as tainted by Parent
 		node.children.each{
 			if (it.style.name=='Requirement') {
