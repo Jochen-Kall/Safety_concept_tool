@@ -1,7 +1,7 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
-<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1613228284488"><hook NAME="MapStyle" zoom="1.213">
+<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1613320425887"><hook NAME="MapStyle" zoom="1.213">
     <properties show_icon_for_attributes="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
@@ -273,9 +273,10 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="55" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="57" RULE="ON_BRANCH_CREATION"/>
 <attribute_layout NAME_WIDTH="108.74999675899754 pt" VALUE_WIDTH="108.74999675899754 pt"/>
 <attribute NAME="FuSi-Addon-version" VALUE="0.4" OBJECT="org.freeplane.features.format.FormattedNumber|0.4"/>
+<attribute NAME="Enable Tainting" VALUE="true"/>
 <node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1613244387041" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
 <attribute NAME="ASIL" VALUE="B"/>
 <attribute NAME="Type" VALUE="SZ"/>

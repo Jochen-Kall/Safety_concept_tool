@@ -17,6 +17,7 @@ class MyNodeChangeListener implements INodeChangeListener {
 	Proxy.Node node = new NodeProxy( event.source, FormulaThreadLocalStacks.INSTANCE.getCurrentContext() )
 	//possibly more "stable" variant in the sense of no non-api stuff needed:
 	//def node=c.find{it.getId()==event.getNode().getID()}[0] 
+	if (node.map.getRoot()['Enable Tainting']!='true') {return}
 	if (node.style.name!='Requirement') {return}
 	
 	recursionBreaker=true
