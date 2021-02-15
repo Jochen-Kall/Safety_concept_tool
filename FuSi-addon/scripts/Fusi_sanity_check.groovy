@@ -13,18 +13,26 @@ Currently performed checks
 	- Parent child relationship check for not allowed relationsships (e.g. FSR derived from TSR etc)
 */
 
-ASIL_num = [:]
+/* ASIL_num = [:]
 ASIL_num['QM']=0
 ASIL_num['A']=1
 ASIL_num['B']=2
 ASIL_num['C']=3
-ASIL_num['D']=4
+ASIL_num['D']=4 */
 
+def ASIL_num(ASIL) {
+	if (ASIL=='QM') {return 0}
+	if (ASIL=='A') {return 1}
+	if (ASIL=='B') {return 2}
+	if (ASIL=='C') {return 3}
+	if (ASIL=='D') {return 4}
+	return "asdf"
+}
 
 // determine base ASIL from arbitrary ASIL, e.g. A -> A, but B[D]-> D
 def Base_ASIL(ASIL){
 	if (ASIL.contains('[')) {
-		// Extract ASIL by regulare expression, in case of a decomposition
+		// Extract ASIL by regular expression, in case of a decomposition
 		return ((ASIL=~ /\[.\]/))[0].substring(1,2)
 	} else {
 		// no decomposition, Base ASIL is equal general ASIL
@@ -56,6 +64,7 @@ def attach_warning(node , Message) {
 // verify that base ASILs of requirements is never below the Base asils of their parents
 // verify that that the Base asil of requirements is not higher than the highest base ASIL of their parents
 def Check_base_ASIL(thisNode){
+	def nodelist = []
 	if (thisNode.getCountNodesSharingContent() > 0) {
 		// node has clones
 		nodelist=thisNode.getNodesSharingContent()
@@ -65,25 +74,27 @@ def Check_base_ASIL(thisNode){
 		nodelist=[thisNode]
 	}
 
-	ba=ASIL_num[Base_ASIL(thisNode['ASIL'])]
+	// only consider nodes that are child of a Requirement node
+	nodelist=nodelist.findAll{it.getParent().style.name=='Requirement'}
+
+	ba=ASIL_num(Base_ASIL(thisNode['ASIL']))
 	// check if any of the parents has a higher base ASIL than the node itself
-	if (nodelist.any{ASIL_num[Base_ASIL(it.getParent()["ASIL"])]>ba	} ) {
+	if (nodelist.any{ASIL_num(Base_ASIL(it.getParent()["ASIL"]))>ba	} ) {
 		attach_warning(thisNode,'A Parent Requirement exists with higher base ASIL!')
 	}
 	// check if at least one parent has the same base ASIL
-	if (nodelist.every{ASIL_num[Base_ASIL(it.getParent()["ASIL"])]<ba} ) {
+	if (nodelist.every{ASIL_num(Base_ASIL(it.getParent()["ASIL"]))<ba} ) {
 		attach_warning(thisNode,'All Parent Requirements have a lower base ASIL!')
 	}	
-
 }
 
 // Verify that if there is a decomposition, the ASIL values add up
 def Check_decomposition(thisNode) {
-	// check if any child has a lower base asil than the node itself, indicating a decomposition
+	// check if any child has a lower actual asil than the node itself, indicating a decomposition
 	def ch=thisNode.children.findAll{it['Type'] in ['SZ','FSR','TSR','HW','SW']}
-	if (ch.any{ASIL_num[Act_ASIL(it['ASIL'])]<ASIL_num[Act_ASIL(thisNode['ASIL'])]}){	
+	if (ch.any{ASIL_num(Act_ASIL(it['ASIL']))<ASIL_num(Act_ASIL(thisNode['ASIL']))}){	
 		// check if the sum of actual ASILs of the children is smaller than the actual ASIL of the parent
-		if (ASIL_num[Act_ASIL(thisNode['ASIL'])] > thisNode.children.collect{ASIL_num[Act_ASIL(it['ASIL'])]}.sum() ) {
+		if (ASIL_num(Act_ASIL(thisNode['ASIL'])) > thisNode.children.collect{ASIL_num(Act_ASIL(it['ASIL']))}.sum() ) {
 			attach_warning(thisNode,'Decomposition problem, derived requirements do not add up ASIL wise!')		
 		}
 	}
@@ -129,12 +140,13 @@ c.find{it.style.name=='Warning'}.each{
 // Check_ASIL_source(node)
 // Check_type(node)
 
+// Find all Requirement nodes that are of type [FSR','TSR','HW','SW'], i.e. excluding Information artifacts
+c.find{(it.style.name=='Requirement') && (it['Type'] in ['FSR','TSR','HW','SW']) }.each{
+	Check_base_ASIL(it)
+}
+
 // Find all Requirement nodes that are of type ['SZ','FSR','TSR','HW','SW'], i.e. excluding Information artifacts
 c.find{(it.style.name=='Requirement') && (it['Type'] in ['SZ','FSR','TSR','HW','SW']) }.each{
-	// Execute base ASIL check on all requirements that are not derived from the root node directly
-	if (!it.getParent().isRoot()) {
-		Check_base_ASIL(it)
-	}
 	// Execute decomposition check on all requirements with children
 	if (it.children.any{it.style.name=='Requirement'}) {
 		Check_decomposition(it)
@@ -142,8 +154,8 @@ c.find{(it.style.name=='Requirement') && (it['Type'] in ['SZ','FSR','TSR','HW','
 	// Execute ASIL source check for all requirements
 	Check_ASIL_source(it)
 }
-// find all Requirement nodes that do not directly depend on the root node
-c.find{(it.style.name=='Requirement') && (!it.getParent().isRoot())}.each{
+// find all Requirement nodes that are no Safety goals
+c.find{(it.style.name=='Requirement')&& (it['Type'] in ['FSR','TSR','HW','SW']) }.each{
 	Check_type(it)	
 }
 
