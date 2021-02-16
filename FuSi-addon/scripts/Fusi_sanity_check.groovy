@@ -13,20 +13,13 @@ Currently performed checks
 	- Parent child relationship check for not allowed relationsships (e.g. FSR derived from TSR etc)
 */
 
-/* ASIL_num = [:]
-ASIL_num['QM']=0
-ASIL_num['A']=1
-ASIL_num['B']=2
-ASIL_num['C']=3
-ASIL_num['D']=4 */
-
 def ASIL_num(ASIL) {
 	if (ASIL=='QM') {return 0}
 	if (ASIL=='A') {return 1}
 	if (ASIL=='B') {return 2}
 	if (ASIL=='C') {return 3}
 	if (ASIL=='D') {return 4}
-	return "asdf"
+	return ASIL
 }
 
 // determine base ASIL from arbitrary ASIL, e.g. A -> A, but B[D]-> D
@@ -94,7 +87,7 @@ def Check_decomposition(thisNode) {
 	def ch=thisNode.children.findAll{it['Type'] in ['SZ','FSR','TSR','HW','SW']}
 	if (ch.any{ASIL_num(Act_ASIL(it['ASIL']))<ASIL_num(Act_ASIL(thisNode['ASIL']))}){	
 		// check if the sum of actual ASILs of the children is smaller than the actual ASIL of the parent
-		if (ASIL_num(Act_ASIL(thisNode['ASIL'])) > thisNode.children.collect{ASIL_num(Act_ASIL(it['ASIL']))}.sum() ) {
+		if (ASIL_num(Act_ASIL(thisNode['ASIL'])) > ch.collect{ASIL_num(Act_ASIL(it['ASIL']))}.sum() ) {
 			attach_warning(thisNode,'Decomposition problem, derived requirements do not add up ASIL wise!')		
 		}
 	}
@@ -124,8 +117,9 @@ Allowed_derivation['SW']=['Information','SW']
 Allowed_derivation['Information']=['Information']
 
 def Check_type(thisNode) {
+	if (thisNode.getParent().style.name !='Requirement') {return} // SZ is not hanging at a requirement style node at the first place
 	if (!(thisNode['Type'] in Allowed_derivation[thisNode.getParent()['Type']]))  {
-		attach_warning(thisNode,'Illegal Parent Child relationship')		
+		attach_warning(thisNode,'Illegal Parent Child relationship')	
 	}
 }
 
@@ -134,11 +128,6 @@ c.find{it.style.name=='Warning'}.each{
 	// try catch necessary due to clones
 	try {it.delete()} catch(Exception ex) {}
 }
-
-// Check_base_ASIL(node)
-// Check_decomposition(node)
-// Check_ASIL_source(node)
-// Check_type(node)
 
 // Find all Requirement nodes that are of type [FSR','TSR','HW','SW'], i.e. excluding Information artifacts
 c.find{(it.style.name=='Requirement') && (it['Type'] in ['FSR','TSR','HW','SW']) }.each{
@@ -154,8 +143,8 @@ c.find{(it.style.name=='Requirement') && (it['Type'] in ['SZ','FSR','TSR','HW','
 	// Execute ASIL source check for all requirements
 	Check_ASIL_source(it)
 }
-// find all Requirement nodes that are no Safety goals
-c.find{(it.style.name=='Requirement')&& (it['Type'] in ['FSR','TSR','HW','SW']) }.each{
+// Apply type check to all Requirements
+c.find{(it.style.name=='Requirement')}.each{
 	Check_type(it)	
 }
 
