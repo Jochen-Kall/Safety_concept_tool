@@ -1,6 +1,6 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1613244270016" LINK="https://github.com/Jochen-Kall/Safety_concept_tool" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
+<node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1613808195335" LINK="https://github.com/Jochen-Kall/Safety_concept_tool" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle" zoom="1.1">
     <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_icon_for_attributes="true" show_note_icons="true" fit_to_viewport="false"/>
@@ -66,7 +66,7 @@
 <hook NAME="AutomaticEdgeColor" COUNTER="11" RULE="ON_BRANCH_CREATION"/>
 <attribute_layout NAME_WIDTH="122.99999633431446 pt" VALUE_WIDTH="134.24999599903833 pt"/>
 <attribute NAME="name" VALUE="fuSiAddon"/>
-<attribute NAME="version" VALUE="v0.4"/>
+<attribute NAME="version" VALUE="v0.5"/>
 <attribute NAME="author" VALUE="Jochen Kall"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v0.7"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -106,8 +106,9 @@
     </ul>
   </body>
 </html>
+
 </richcontent>
-<node TEXT="changes" POSITION="left" ID="ID_645554915" CREATED="1609274211245" MODIFIED="1613244416345">
+<node TEXT="changes" POSITION="left" ID="ID_645554915" CREATED="1609274211245" MODIFIED="1613808195345">
 <edge COLOR="#0000ff"/>
 <richcontent TYPE="NOTE">
 
@@ -121,13 +122,14 @@
     </p>
   </body>
 </html>
+
 </richcontent>
-<node TEXT="/media/jochen/Linux_work/ELISA repos/Safety_concept_tool/FuSi-addon/FuSi-addon-v0.4.addon.mm" ID="ID_1006199234" CREATED="1609670949549" MODIFIED="1613244416343" HGAP_QUANTITY="22.999999731779106 pt" VSHIFT_QUANTITY="-0.7499999776482589 pt"/>
+<node TEXT="/media/jochen/Linux_work/ELISA repos/Safety_concept_tool/FuSi-addon/FuSi-addon-v0.5.addon.mm" ID="ID_1006199234" CREATED="1609670949549" MODIFIED="1613806250938" HGAP_QUANTITY="22.999999731779106 pt" VSHIFT_QUANTITY="-0.7499999776482589 pt"/>
 <node TEXT="Added ASIL Icons" ID="ID_1109716096" CREATED="1610652451941" MODIFIED="1610652470756"/>
 <node TEXT="Added support for HW and SW requirements" ID="ID_1117473821" CREATED="1610652472026" MODIFIED="1610652481447"/>
 <node TEXT="Added Icons for ASIL X[X]" ID="ID_1406193037" CREATED="1610812586353" MODIFIED="1610812611209"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_749694744" CREATED="1609274211247" MODIFIED="1613244270030">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_749694744" CREATED="1609274211247" MODIFIED="1613808195347">
 <edge COLOR="#00ff00"/>
 <richcontent TYPE="NOTE">
 
@@ -147,10 +149,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xa;GNU General Public License for more details." ID="ID_957272066" CREATED="1609274211253" MODIFIED="1611076593930"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_146217099" CREATED="1609274211269" MODIFIED="1613244270032">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_146217099" CREATED="1609274211269" MODIFIED="1613808195350">
 <edge COLOR="#ff00ff"/>
 <richcontent TYPE="NOTE">
 
@@ -167,9 +170,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1237073425" CREATED="1609274211273" MODIFIED="1613244270033">
+<node TEXT="default.properties" POSITION="left" ID="ID_1237073425" CREATED="1609274211273" MODIFIED="1613808195352">
 <edge COLOR="#00ffff"/>
 <richcontent TYPE="NOTE">
 
@@ -191,9 +195,10 @@
     </ul>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="description" POSITION="left" ID="ID_938954240" CREATED="1609274211239" MODIFIED="1613244270027">
+<node TEXT="description" POSITION="left" ID="ID_938954240" CREATED="1609274211239" MODIFIED="1613808195343">
 <edge COLOR="#ff0000"/>
 <richcontent TYPE="NOTE">
 
@@ -213,10 +218,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="Functional Safety Addon for Freeplane, to support designing Open Source Safety Concepts with Freeplane" ID="ID_1867477143" CREATED="1609321484661" MODIFIED="1611074898621"/>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1891165789" CREATED="1609274211275" MODIFIED="1613244270035">
+<node TEXT="translations" POSITION="left" ID="ID_1891165789" CREATED="1609274211275" MODIFIED="1613808195355">
 <edge COLOR="#7c0000"/>
 <richcontent TYPE="NOTE">
 
@@ -241,8 +247,9 @@
     </ul>
   </body>
 </html>
+
 </richcontent>
-<node TEXT="en" ID="ID_693758551" CREATED="1609274211285" MODIFIED="1610905761313">
+<node TEXT="en" ID="ID_693758551" CREATED="1609274211285" MODIFIED="1613806219620">
 <attribute_layout NAME_WIDTH="263.9999921321871 pt" VALUE_WIDTH="263.9999921321871 pt"/>
 <attribute NAME="addons.${name}" VALUE="FuSi-addon"/>
 <attribute NAME="addons.${name}.Export_Safety_concept_markdown" VALUE="Export Safety Concept to markdown"/>
@@ -250,9 +257,11 @@
 <attribute NAME="addons.${name}.Export_csv" VALUE="Export Requirements to .csv"/>
 <attribute NAME="addons.${name}.Safety_edit" VALUE="Safety Edit"/>
 <attribute NAME="addons.${name}.Extract_Tag_mapping" VALUE="Refresh Tag Mapping"/>
+<attribute NAME="addons.${name}.remove_taint_selection" VALUE="Remove Taint from selected nodes"/>
+<attribute NAME="addons.${name}.remove_all_taint" VALUE="Remove Taint from all nodes"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_662706713" CREATED="1609274211300" MODIFIED="1613244270036">
+<node TEXT="deinstall" POSITION="left" ID="ID_662706713" CREATED="1609274211300" MODIFIED="1613808195356">
 <edge COLOR="#00007c"/>
 <richcontent TYPE="NOTE">
 
@@ -266,6 +275,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <attribute_layout NAME_WIDTH="49.499998524785084 pt" VALUE_WIDTH="343.49998976290254 pt"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
@@ -302,8 +312,10 @@
 <attribute NAME="delete" VALUE="${installationbase}/icons/ASIL_C[C].svg"/>
 <attribute NAME="delete" VALUE="${installationbase}/templates/Safety_Concept.mm"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/init/FuSi_listener_shadow_copy.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/remove_taint_selection.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/remove_all_taint.groovy"/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_1631106833" CREATED="1609274211315" MODIFIED="1613244270039">
+<node TEXT="scripts" POSITION="right" ID="ID_1631106833" CREATED="1609274211315" MODIFIED="1613808195362">
 <edge COLOR="#007c00"/>
 <richcontent TYPE="NOTE">
 
@@ -422,6 +434,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="Export_Safety_concept_markdown.groovy" ID="ID_866588008" CREATED="1609669083061" MODIFIED="1609670766815">
 <attribute_layout NAME_WIDTH="226.49999324977418 pt" VALUE_WIDTH="263.9999921321871 pt"/>
@@ -483,8 +496,32 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="true"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
+<node TEXT="remove_taint_selection.groovy" ID="ID_1912107020" CREATED="1613805957646" MODIFIED="1613808175608">
+<attribute_layout NAME_WIDTH="226.49999324977418 pt" VALUE_WIDTH="226.49999324977418 pt"/>
+<attribute NAME="menuTitleKey" VALUE="addons.${name}.remove_taint_selection"/>
+<attribute NAME="menuLocation" VALUE="main_menu/addons.${name}/Taint"/>
+<attribute NAME="executionMode" VALUE="on_selected_node"/>
+<attribute NAME="keyboardShortcut" VALUE=""/>
+<attribute NAME="execute_scripts_without_asking" VALUE="true"/>
+<attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="lib" POSITION="right" ID="ID_1650646113" CREATED="1609274211327" MODIFIED="1613244270050">
+<node TEXT="remove_all_taint.groovy" ID="ID_1788361497" CREATED="1613805957647" MODIFIED="1613808183566">
+<attribute_layout NAME_WIDTH="226.49999324977418 pt" VALUE_WIDTH="226.49999324977418 pt"/>
+<attribute NAME="menuTitleKey" VALUE="addons.${name}.remove_all_taint"/>
+<attribute NAME="menuLocation" VALUE="main_menu/addons.${name}/Taint"/>
+<attribute NAME="executionMode" VALUE="on_single_node"/>
+<attribute NAME="keyboardShortcut" VALUE=""/>
+<attribute NAME="execute_scripts_without_asking" VALUE="true"/>
+<attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
+</node>
+</node>
+<node TEXT="lib" POSITION="right" ID="ID_1650646113" CREATED="1609274211327" MODIFIED="1613808195374">
 <edge COLOR="#7c007c"/>
 <richcontent TYPE="NOTE">
 
@@ -522,9 +559,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_1150015076" CREATED="1609274211332" MODIFIED="1613244270051">
+<node TEXT="zips" POSITION="right" ID="ID_1150015076" CREATED="1609274211332" MODIFIED="1613808195376">
 <edge COLOR="#007c7c"/>
 <richcontent TYPE="NOTE">
 
@@ -562,12 +600,13 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="icons" ID="ID_1750144087" CREATED="1609323304628" MODIFIED="1609323311863"/>
 <node TEXT="templates" ID="ID_870861486" CREATED="1611078669458" MODIFIED="1611078692599"/>
 <node TEXT="scripts" ID="ID_360567109" CREATED="1613223305807" MODIFIED="1613223305809"/>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_1397463527" CREATED="1609274211335" MODIFIED="1613244270054">
+<node TEXT="images" POSITION="right" ID="ID_1397463527" CREATED="1609274211335" MODIFIED="1613808195383">
 <edge COLOR="#7c7c00"/>
 <richcontent TYPE="NOTE">
 
@@ -601,6 +640,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 </node>

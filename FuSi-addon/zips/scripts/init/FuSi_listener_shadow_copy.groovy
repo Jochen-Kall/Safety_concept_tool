@@ -33,9 +33,19 @@ class MyNodeChangeListener implements INodeChangeListener {
 		// There was an relevant change in the node
 		nodeChanged=true
 
-		node['ASIL_sc']=node['ASIL']
+		if (node.attributes.containsKey('ASIL')) {
+			node['ASIL_sc']=node['ASIL']
+		} else {
+			node['ASIL']=''
+			node['ASIL_sc']=''			
+		}
 		node['Type_sc']=node['Type']
-		node['Allocation_sc']=node['Allocation']		
+		if (node.attributes.containsKey('Allocation')) {
+			node['Allocation_sc']=node['Allocation']
+		} else {
+			node['Allocation']=''
+			node['Allocation_sc']=''
+		}		
 	}
 	// mark nodes tainted by the change
 	def Selected_node_Id=ScriptUtils.node().getId()

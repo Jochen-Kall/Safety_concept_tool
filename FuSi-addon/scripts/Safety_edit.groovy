@@ -15,8 +15,14 @@ import javax.swing.BoxLayout as BXL
 import javax.swing.JFrame
 import javax.swing.JOptionPane
 
-Current_type=node['Type']
-Current_ASIL=node['ASIL']
+//Current_type=node['Type']
+if (node.attributes.containsKey('Type')) {
+	Current_type=node['Type']
+} else Current_type=null
+// Current_ASIL=node['ASIL']
+if (node.attributes.containsKey('ASIL')) {
+	Current_ASIL=node['ASIL']
+} else Current_ASIL=null
 
 def Tainted_by_child = node['Tainted_by_child']
 def Tainted_by_parent = node['Tainted_by_parent']
@@ -216,8 +222,12 @@ if (vars.ok){
 	}
 	// check if user removed the taint, if so delete the taint properties
 	if (vars.Tainted.selected==false) {
-		node.attributes.removeAll('Tainted_by_child')
-		node.attributes.removeAll('Tainted_by_parent')
+		if (node.attributes.containsKey('Tainted_by_child')) {
+			node.attributes.removeAll('Tainted_by_child')
+		}
+		if (node.attributes.containsKey('Tainted_by_parent')) {
+			node.attributes.removeAll('Tainted_by_parent')
+		}
 	}
 	node['Shared']= '= node.getCountNodesSharingContent()>0'		
 	node.style.name='Requirement'
