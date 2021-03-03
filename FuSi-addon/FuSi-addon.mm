@@ -1,6 +1,6 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1613808195335" LINK="https://github.com/Jochen-Kall/Safety_concept_tool" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
+<node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1614800650012" LINK="https://github.com/Jochen-Kall/Safety_concept_tool" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle" zoom="1.1">
     <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_icon_for_attributes="true" show_note_icons="true" fit_to_viewport="false"/>
@@ -108,7 +108,7 @@
 </html>
 
 </richcontent>
-<node TEXT="changes" POSITION="left" ID="ID_645554915" CREATED="1609274211245" MODIFIED="1613808195345">
+<node TEXT="changes" POSITION="left" ID="ID_645554915" CREATED="1609274211245" MODIFIED="1614800650065">
 <edge COLOR="#0000ff"/>
 <richcontent TYPE="NOTE">
 
@@ -129,7 +129,7 @@
 <node TEXT="Added support for HW and SW requirements" ID="ID_1117473821" CREATED="1610652472026" MODIFIED="1610652481447"/>
 <node TEXT="Added Icons for ASIL X[X]" ID="ID_1406193037" CREATED="1610812586353" MODIFIED="1610812611209"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_749694744" CREATED="1609274211247" MODIFIED="1613808195347">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_749694744" CREATED="1609274211247" MODIFIED="1614800650076">
 <edge COLOR="#00ff00"/>
 <richcontent TYPE="NOTE">
 
@@ -153,7 +153,7 @@
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xa;GNU General Public License for more details." ID="ID_957272066" CREATED="1609274211253" MODIFIED="1611076593930"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_146217099" CREATED="1609274211269" MODIFIED="1613808195350">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_146217099" CREATED="1609274211269" MODIFIED="1614800650084">
 <edge COLOR="#ff00ff"/>
 <richcontent TYPE="NOTE">
 
@@ -173,7 +173,7 @@
 
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1237073425" CREATED="1609274211273" MODIFIED="1613808195352">
+<node TEXT="default.properties" POSITION="left" ID="ID_1237073425" CREATED="1609274211273" MODIFIED="1614800650085">
 <edge COLOR="#00ffff"/>
 <richcontent TYPE="NOTE">
 
@@ -198,7 +198,7 @@
 
 </richcontent>
 </node>
-<node TEXT="description" POSITION="left" ID="ID_938954240" CREATED="1609274211239" MODIFIED="1613808195343">
+<node TEXT="description" POSITION="left" ID="ID_938954240" CREATED="1609274211239" MODIFIED="1614800650054">
 <edge COLOR="#ff0000"/>
 <richcontent TYPE="NOTE">
 
@@ -222,7 +222,7 @@
 </richcontent>
 <node TEXT="Functional Safety Addon for Freeplane, to support designing Open Source Safety Concepts with Freeplane" ID="ID_1867477143" CREATED="1609321484661" MODIFIED="1611074898621"/>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1891165789" CREATED="1609274211275" MODIFIED="1613808195355">
+<node TEXT="translations" POSITION="left" ID="ID_1891165789" CREATED="1609274211275" MODIFIED="1614800650087">
 <edge COLOR="#7c0000"/>
 <richcontent TYPE="NOTE">
 
@@ -261,7 +261,7 @@
 <attribute NAME="addons.${name}.remove_all_taint" VALUE="Remove Taint from all nodes"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_662706713" CREATED="1609274211300" MODIFIED="1613808195356">
+<node TEXT="deinstall" POSITION="left" ID="ID_662706713" CREATED="1609274211300" MODIFIED="1614800653815">
 <edge COLOR="#00007c"/>
 <richcontent TYPE="NOTE">
 
@@ -314,8 +314,13 @@
 <attribute NAME="delete" VALUE="${installationbase}/scripts/init/FuSi_listener_shadow_copy.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/remove_taint_selection.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/remove_all_taint.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/PL_a.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/PL_b.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/PL_c.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/PL_d.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/PL_e.svg"/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_1631106833" CREATED="1609274211315" MODIFIED="1613808195362">
+<node TEXT="scripts" POSITION="right" ID="ID_1631106833" CREATED="1609274211315" MODIFIED="1614800650143">
 <edge COLOR="#007c00"/>
 <richcontent TYPE="NOTE">
 
@@ -521,7 +526,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="lib" POSITION="right" ID="ID_1650646113" CREATED="1609274211327" MODIFIED="1613808195374">
+<node TEXT="lib" POSITION="right" ID="ID_1650646113" CREATED="1609274211327" MODIFIED="1614800650238">
 <edge COLOR="#7c007c"/>
 <richcontent TYPE="NOTE">
 
@@ -562,7 +567,7 @@
 
 </richcontent>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_1150015076" CREATED="1609274211332" MODIFIED="1613808195376">
+<node TEXT="zips" POSITION="right" ID="ID_1150015076" CREATED="1609274211332" MODIFIED="1614800650254">
 <edge COLOR="#007c7c"/>
 <richcontent TYPE="NOTE">
 
@@ -606,7 +611,7 @@
 <node TEXT="templates" ID="ID_870861486" CREATED="1611078669458" MODIFIED="1611078692599"/>
 <node TEXT="scripts" ID="ID_360567109" CREATED="1613223305807" MODIFIED="1613223305809"/>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_1397463527" CREATED="1609274211335" MODIFIED="1613808195383">
+<node TEXT="images" POSITION="right" ID="ID_1397463527" CREATED="1609274211335" MODIFIED="1614800650315">
 <edge COLOR="#7c7c00"/>
 <richcontent TYPE="NOTE">
 

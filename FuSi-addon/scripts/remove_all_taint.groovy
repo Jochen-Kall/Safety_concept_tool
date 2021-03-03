@@ -6,10 +6,6 @@
 /*
 Removes all taint present in the map
 */
-import org.freeplane.plugin.script.proxy.ScriptUtils
-
-def c=ScriptUtils.c()
-def node=ScriptUtils.node()
 
 c.find{it.style.name=='Requirement'}.each{
         if (it.attributes.containsKey('Tainted_by_child')) {

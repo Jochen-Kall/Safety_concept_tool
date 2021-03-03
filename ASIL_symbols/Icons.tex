@@ -1,4 +1,4 @@
-\documentclass[tikz]{standalone}
+\documentclass[dvipsnames,tikz]{standalone}
 
 %inkscape --without-gui --file=ASIL_A.pdf --export-plain-svg=ASIL_A.svg
 \usepackage{xcolor}
@@ -45,23 +45,23 @@
 	\end{tikzpicture}	
 	
 	\begin{tikzpicture}
-	\node[draw=black,fill=green] at (0,0) {QM};
+	\node[draw=black,fill=green!30] at (0,0) {QM};
 	\end{tikzpicture}
 	
 	\begin{tikzpicture}
-	\node[draw=black,fill=green] at (0,0) {QM[A]};
+	\node[draw=black,fill=green!30] at (0,0) {QM[A]};
 	\end{tikzpicture}
 	
 	\begin{tikzpicture}
-	\node[draw=black,fill=green] at (0,0) {QM[B]};
+	\node[draw=black,fill=green!30] at (0,0) {QM[B]};
 	\end{tikzpicture}					
 	
 	\begin{tikzpicture}
-	\node[draw=black,fill=green] at (0,0) {QM[C]};
+	\node[draw=black,fill=green!30] at (0,0) {QM[C]};
 	\end{tikzpicture}		
 	
 	\begin{tikzpicture}
-	\node[draw=black,fill=green] at (0,0) {QM[D]};
+	\node[draw=black,fill=green!30] at (0,0) {QM[D]};
 	\end{tikzpicture}	
 	
 	\begin{tikzpicture}
@@ -102,7 +102,30 @@
 	
 	\begin{tikzpicture}
 	\node[draw=black,fill=red] at (0,0) {ASIL D[D]};
-	\end{tikzpicture}				
+	\end{tikzpicture}	
+	
+	% ISO 13849 Performance Levels
+	
+	\begin{tikzpicture}
+	\node[draw=black,fill=green] at (0,0) {PL a};
+	\end{tikzpicture}	
+
+	\begin{tikzpicture}
+	\node[draw=black,fill=PineGreen] at (0,0) {PL b};
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+	\node[draw=black,fill=yellow] at (0,0) {PL c};
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+	\node[draw=black,fill=orange] at (0,0) {PL d};
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+	\node[draw=black,fill=red] at (0,0) {PL e};
+	\end{tikzpicture}
+				
 \end{document}
 
 

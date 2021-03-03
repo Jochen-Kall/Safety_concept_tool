@@ -26,4 +26,9 @@ inkscape --without-gui --file=pg_0022.pdf --export-plain-svg=output/ASIL_A[A].sv
 inkscape --without-gui --file=pg_0023.pdf --export-plain-svg=output/ASIL_B[B].svg
 inkscape --without-gui --file=pg_0024.pdf --export-plain-svg=output/ASIL_C[C].svg
 inkscape --without-gui --file=pg_0025.pdf --export-plain-svg=output/ASIL_D[D].svg
+inkscape --without-gui --file=pg_0026.pdf --export-plain-svg=output/PL_a.svg
+inkscape --without-gui --file=pg_0027.pdf --export-plain-svg=output/PL_b.svg
+inkscape --without-gui --file=pg_0028.pdf --export-plain-svg=output/PL_c.svg
+inkscape --without-gui --file=pg_0029.pdf --export-plain-svg=output/PL_d.svg
+inkscape --without-gui --file=pg_0030.pdf --export-plain-svg=output/PL_e.svg
 
