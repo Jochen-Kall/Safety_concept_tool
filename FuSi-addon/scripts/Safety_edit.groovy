@@ -40,7 +40,6 @@ if (!Tainted_by_parent){
 	Tainted_by_parent=false
 } 
 
-
 // Backup selection list for ASILs
 def ASILlist=['QM', 'A', 'B', 'C', 'D']
 // Choose ASIL options based on the parent ASIL if it exists.
@@ -134,33 +133,52 @@ if (node.getParent()['Type']=='SW'){
 	Typelist= ['Information', 'SW']
 }
 
-Alloclist=[]
-if (Current_type=='FSR'){
-	ID_647993701.children.each{
-		Alloclist+= it.text
+// Handling Allocations. 
+
+// collection of collections containing the allocations for each architecture
+def Alloclists=[] 	
+// collection of the Architecture names
+def Architecture_names=[]
+// collection of the Attribute names storing each Architecture allocation
+def AllocationAttributenames=[]
+
+c.find{it['Type']=='Architecture'}.each{
+	Alloclist=[]
+	// for now expect the first three children of an architecture node to be System architecture, SW, HW.
+	// if less than 3 nodes are present, the architecture is ignored
+	if (it.children.size()>=3) {
+		if (Current_type=='FSR'){
+			it.children[0].children.each{
+				Alloclist+= it.text
+			}
+		}
+		if (Current_type=='TSR'){
+			it.children[0].children.each{
+				Alloclist+= it.text
+			}
+		}
+		if (Current_type=='SW'){
+			it.children[1].children.each{
+				Alloclist+= it.text
+			}
+		}
+		if (Current_type=='HW'){
+			it.children[2].children.each{
+				Alloclist+= it.text
+			}
+		}		
+		Alloclist+='Not Allocated'
+		Alloclists << Alloclist
+		Architecture_names << "Allocation_$it.text"
+		AllocationAttributenames << it['AllocationAttributeName']
 	}
 }
-if (Current_type=='TSR'){
-	ID_647993701.children.each{
-		Alloclist+= it.text
-	}
-}
-if (Current_type=='SW'){
-	ID_1297553272.children.each{
-		Alloclist+= it.text
-	}
-}
-if (Current_type=='HW'){
-	ID_983665653.children.each{
-		Alloclist+= it.text
-	}
-}
-Alloclist+='Not Allocated'
 
 // construct box
 def s = new SwingBuilder()
 s.setVariable('myDialog-properties',[:])
 def vars = s.variables
+def allocboxes = []
 def dial = s.dialog(title:'Safety Properties', id:'myDialog', minimumSize: [300,50], modal:true, locationRelativeTo:ui.frame, owner:ui.frame, defaultCloseOperation:JFrame.DISPOSE_ON_CLOSE, pack:true, show:true) {
     panel() {
         boxLayout(axis:BXL.Y_AXIS)       
@@ -178,12 +196,14 @@ def dial = s.dialog(title:'Safety Properties', id:'myDialog', minimumSize: [300,
 	    vars.ASIL.selectedItem=Current_ASIL
         }
         
-        panel(alignmentX:0f) {
-            flowLayout(alignment:FL.LEFT)
-            label('Allocation')
-            comboBox(id:'Allocation', items:Alloclist)
-	    vars.Allocation.selectedItem='bla'
-        }
+	Architecture_names.eachWithIndex{name,index->
+		panel(alignmentX:0f) {
+            		flowLayout(alignment:FL.LEFT)
+            		label("$name")
+            		allocboxes << comboBox(id:"${AllocationAttributenames[index]}", items:Alloclists[index])
+			vars."${AllocationAttributenames[index]}".selectedItem='bla'
+		}		
+	}
 
         panel(alignmentX:0f) {
             flowLayout(alignment:FL.LEFT)
@@ -215,8 +235,12 @@ if (vars.ok){
 	}
 	// set Allocation parameter for all types except SZ and Information
 	if (  (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
-		node.attributes.set('Allocation', vars.Allocation.selectedItem)
-		if (newNode) {node.attributes.set('Allocation_sc', vars.Allocation.selectedItem)}
+		AllocationAttributenames.eachWithIndex{it,index->
+			node.attributes.set("$it", allocboxes[index].selectedItem)
+		}
+		
+		// node.attributes.set('Allocation', vars.Allocation.selectedItem)
+		// if (newNode) {node.attributes.set('Allocation_sc', vars.Allocation.selectedItem)}
 	} else {
 		node.attributes.set('Allocation', '')
 	}

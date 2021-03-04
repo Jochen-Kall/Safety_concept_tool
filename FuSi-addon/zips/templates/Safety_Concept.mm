@@ -1,7 +1,7 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
-<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1613320425887"><hook NAME="MapStyle" zoom="1.213">
+<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1614814354049"><hook NAME="MapStyle" zoom="1.213">
     <properties show_icon_for_attributes="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
@@ -275,7 +275,7 @@
 </hook>
 <hook NAME="AutomaticEdgeColor" COUNTER="57" RULE="ON_BRANCH_CREATION"/>
 <attribute_layout NAME_WIDTH="108.74999675899754 pt" VALUE_WIDTH="108.74999675899754 pt"/>
-<attribute NAME="FuSi-Addon-version" VALUE="0.4" OBJECT="org.freeplane.features.format.FormattedNumber|0.4"/>
+<attribute NAME="FuSi-Addon-version" VALUE="0.5" OBJECT="org.freeplane.features.format.FormattedNumber|0.5|#0.####"/>
 <attribute NAME="Enable Tainting" VALUE="true"/>
 <node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1613244387041" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
 <attribute NAME="ASIL" VALUE="B"/>
@@ -295,19 +295,44 @@
 <attribute NAME="Allocation_sc" VALUE=""/>
 <attribute NAME="Shared" VALUE="= node.getCountNodesSharingContent()&gt;0"/>
 </node>
-<node TEXT="Architecture" POSITION="left" ID="ID_1988403535" CREATED="1609881073321" MODIFIED="1610703679766" HGAP_QUANTITY="76.99999812245375 pt" VSHIFT_QUANTITY="217.49999351799508 pt">
+<node TEXT="Architecture" POSITION="left" ID="ID_1988403535" CREATED="1609881073321" MODIFIED="1614814447007" HGAP_QUANTITY="76.99999812245375 pt" VSHIFT_QUANTITY="217.49999351799508 pt">
 <edge COLOR="#0000ff"/>
+<attribute NAME="Type" VALUE="Architecture"/>
+<attribute NAME="AllocationAttributeName" VALUE="Allocation"/>
+<richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Allocation and Variants
+    </p>
+    <p>
+      A node with &quot;Type&quot; Attribute &quot;Architecture&quot; is considered an Architecture tree, with the first three nodes and its children encoding the architectural elements on System, Software and Hardware level.
+    </p>
+    <p>
+      To handle design variants, several Architecture trees can be present at the same time.
+    </p>
+    <p>
+      The Attribute &quot;AllocationAttributeName&quot; controls the attribute name under which the allocation is stored, default value is &quot;Allocation&quot;
+    </p>
+  </body>
+</html>
+
+</richcontent>
 <node TEXT="System Architectural Elements" ID="ID_647993701" CREATED="1609881262680" MODIFIED="1610703679766">
-<node TEXT="Element 1" GLOBALLY_VISIBLE="true" ALIAS="Sys:Telltale-requester" ID="ID_176572829" CREATED="1609881457571" MODIFIED="1611077238683"/>
-<node TEXT="Element 2" ID="ID_1992686079" CREATED="1609881092272" MODIFIED="1611077245438"/>
+<node TEXT="Sys Element 1" GLOBALLY_VISIBLE="true" ALIAS="Sys:Telltale-requester" ID="ID_176572829" CREATED="1609881457571" MODIFIED="1614814132994"/>
+<node TEXT="Sys Element 2" ID="ID_1992686079" CREATED="1609881092272" MODIFIED="1614814138768"/>
 </node>
 <node TEXT="SW Architectural Elements" ID="ID_1297553272" CREATED="1609881131483" MODIFIED="1610703679767">
-<node TEXT="Element 1" ID="ID_1659037005" CREATED="1609881203148" MODIFIED="1611077251508"/>
-<node TEXT="Element 2" ID="ID_1100078027" CREATED="1609881218794" MODIFIED="1611077254942"/>
+<node TEXT="SW Element 1" ID="ID_1659037005" CREATED="1609881203148" MODIFIED="1614814144211"/>
+<node TEXT="SW Element 2" ID="ID_1100078027" CREATED="1609881218794" MODIFIED="1614814148678"/>
 </node>
 <node TEXT="HW Architectural Elements" ID="ID_983665653" CREATED="1610478772917" MODIFIED="1610703679768">
-<node TEXT="Element 1" ID="ID_1264197492" CREATED="1610478968566" MODIFIED="1611077259980"/>
-<node TEXT="Element 2" ID="ID_760445418" CREATED="1611077260758" MODIFIED="1611077262993"/>
+<node TEXT="HW Element 1" ID="ID_1264197492" CREATED="1610478968566" MODIFIED="1614814154331"/>
+<node TEXT="HW Element 2" ID="ID_760445418" CREATED="1611077260758" MODIFIED="1614814158438"/>
 </node>
 </node>
 <node TEXT="Source code monitoring" POSITION="left" ID="ID_197895921" CREATED="1610823383222" MODIFIED="1611078617693" HGAP_QUANTITY="7.25000020116567 pt" VSHIFT_QUANTITY="35.249998949468164 pt">
