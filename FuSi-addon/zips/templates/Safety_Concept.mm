@@ -1,7 +1,7 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
-<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1614814354049"><hook NAME="MapStyle" zoom="1.213">
+<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1614887656052"><hook NAME="MapStyle" zoom="0.912">
     <properties show_icon_for_attributes="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
@@ -95,6 +95,24 @@
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="QM[D]" LAST="false">
         <attribute_compare_condition VALUE="QM[D]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="QM" LAST="false">
+        <attribute_compare_condition VALUE="QM" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="PL a" LAST="false">
+        <attribute_compare_condition VALUE="a" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="PL b" LAST="false">
+        <attribute_compare_condition VALUE="b" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="PL c" LAST="false">
+        <attribute_compare_condition VALUE="c" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="PL d" LAST="false">
+        <attribute_compare_condition VALUE="d" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="PL e" LAST="false">
+        <attribute_compare_condition VALUE="e" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="FSR" LAST="false">
         <attribute_compare_condition VALUE="FSR" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
@@ -245,6 +263,26 @@
 <stylenode TEXT="Shared" BACKGROUND_COLOR="#ffcc99">
 <edge COLOR="#007c00"/>
 </stylenode>
+<stylenode TEXT="PL a">
+<icon BUILTIN="PL_a"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="PL b">
+<icon BUILTIN="PL_b"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="PL c">
+<icon BUILTIN="PL_c"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="PL d">
+<icon BUILTIN="PL_d"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="PL e">
+<icon BUILTIN="PL_e"/>
+<edge COLOR="#007c00"/>
+</stylenode>
 </stylenode>
 <stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000" STYLE="oval" SHAPE_HORIZONTAL_MARGIN="10.0 pt" SHAPE_VERTICAL_MARGIN="10.0 pt">
@@ -268,7 +306,6 @@
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level,8"/>
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level,9"/>
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level,10"/>
-<stylenode LOCALIZED_TEXT="AutomaticLayout.level,11"/>
 </stylenode>
 </stylenode>
 </map_styles>
@@ -277,6 +314,8 @@
 <attribute_layout NAME_WIDTH="108.74999675899754 pt" VALUE_WIDTH="108.74999675899754 pt"/>
 <attribute NAME="FuSi-Addon-version" VALUE="0.5" OBJECT="org.freeplane.features.format.FormattedNumber|0.5|#0.####"/>
 <attribute NAME="Enable Tainting" VALUE="true"/>
+<attribute NAME="ISO_26262_mode" VALUE="true"/>
+<attribute NAME="ISO_13849_mode" VALUE="false"/>
 <node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1613244387041" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
 <attribute NAME="ASIL" VALUE="B"/>
 <attribute NAME="Type" VALUE="SZ"/>
@@ -320,7 +359,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="System Architectural Elements" ID="ID_647993701" CREATED="1609881262680" MODIFIED="1610703679766">
 <node TEXT="Sys Element 1" GLOBALLY_VISIBLE="true" ALIAS="Sys:Telltale-requester" ID="ID_176572829" CREATED="1609881457571" MODIFIED="1614814132994"/>

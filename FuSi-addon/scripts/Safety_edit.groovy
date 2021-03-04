@@ -15,6 +15,17 @@ import javax.swing.BoxLayout as BXL
 import javax.swing.JFrame
 import javax.swing.JOptionPane
 
+//detect if ISO26262 mode is active, default value true for backwards compatibility
+def ISO26262_mode=true
+if (node.map.getRoot().attributes.containsKey("ISO_26262_mode")) {
+ 	ISO26262_mode=(node.map.getRoot()["ISO_26262_mode"]=="true")
+}
+//detect if ISO13849 mode is active, default value false
+def ISO13849_mode=false
+if (node.map.getRoot().attributes.containsKey("ISO_13849_mode")) {
+ 	ISO13849_mode=(node.map.getRoot()["ISO_13849_mode"]=="true")
+}
+
 //Current_type=node['Type']
 if (node.attributes.containsKey('Type')) {
 	Current_type=node['Type']
@@ -23,6 +34,11 @@ if (node.attributes.containsKey('Type')) {
 if (node.attributes.containsKey('ASIL')) {
 	Current_ASIL=node['ASIL']
 } else Current_ASIL=null
+// Current PL
+if (node.attributes.containsKey('PL')) {
+	Current_PL=node['PL']
+} else Current_PL=null
+
 
 def Tainted_by_child = node['Tainted_by_child']
 def Tainted_by_parent = node['Tainted_by_parent']
@@ -111,6 +127,34 @@ if (node.getParent().isRoot()) {
 }
 if (!(node['ASIL'] in ASILlist)) { ASILlist+=node['ASIL']}
 
+// assemble PL list
+def PLlist=['QM','a', 'b', 'c', 'd', 'e']
+if (ISO13849_mode) {
+	if (!node.getParent().isRoot()) {
+		// not a decendent of the rootnode
+		if (node.getParent()['PL'] =='QM') {
+			PLlist=['','QM']
+		}
+		if (node.getParent()['PL'] =='a') {
+			PLlist=['','QM','a']
+		}
+		if (node.getParent()['PL'] =='b') {
+			PLlist=['','QM','a','b']
+		}
+		if (node.getParent()['PL'] =='c') {
+			PLlist=['','QM','a','b','c']
+		}
+		if (node.getParent()['PL'] =='d') {
+			PLlist=['','QM','a','b','c','d']
+		}
+		if (node.getParent()['PL'] =='e') {
+			PLlist=['','QM','a','b','c','d','e']
+		}		
+	}
+	// clone exception
+	if (!(node['PL'] in PLlist)) { PLlist+=node['PL']}
+}
+
 // Fallback list for Types
 Typelist=['SZ', 'FSR', 'TSR', 'Information', 'HW', 'SW']
 // restrict types to acceptable types, based on the parent nodes type.
@@ -189,12 +233,23 @@ def dial = s.dialog(title:'Safety Properties', id:'myDialog', minimumSize: [300,
 	    vars.type.selectedItem=Current_type
         }
 
-        panel(alignmentX:0f) {
-            flowLayout(alignment:FL.LEFT)
-            label('ASIL Level')
-            comboBox(id:'ASIL', items:ASILlist)
-	    vars.ASIL.selectedItem=Current_ASIL
-        }
+	if (ISO26262_mode) {
+		panel(alignmentX:0f) {
+		flowLayout(alignment:FL.LEFT)
+		label('ASIL Level')
+		comboBox(id:'ASIL', items:ASILlist)
+		vars.ASIL.selectedItem=Current_ASIL
+		}
+	}
+
+	if (ISO13849_mode) {
+		panel(alignmentX:0f) {
+		flowLayout(alignment:FL.LEFT)
+		label('Performance Level')
+		comboBox(id:'PL', items:PLlist)
+		vars.PL.selectedItem=Current_PL
+		}		
+	}
         
 	Architecture_names.eachWithIndex{name,index->
 		panel(alignmentX:0f) {
@@ -226,13 +281,26 @@ if (vars.ok){
 	
 	node.attributes.set('Type',vars.type.selectedItem)
 	if (newNode) {node.attributes.set('Type_sc',vars.type.selectedItem)}
-	// set ASIL attribute for all types except information
-	if ( (vars.type.selectedItem == 'SZ') || (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
-		node.attributes.set('ASIL',vars.ASIL.selectedItem)
-		if (newNode) {node.attributes.set('ASIL_sc',vars.ASIL.selectedItem)}
-	} else {
-		node.attributes.set('ASIL', '')
+	// Saving ASIL if ISO26262 mode is set
+	if (ISO26262_mode) {
+		// set ASIL attribute for all types except information
+		if ( (vars.type.selectedItem == 'SZ') || (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
+			node.attributes.set('ASIL',vars.ASIL.selectedItem)
+			if (newNode) {node.attributes.set('ASIL_sc',vars.ASIL.selectedItem)}
+		} else {
+			node.attributes.set('ASIL', '')
+		}
 	}
+	// Saving PL if ISO13849 mode is set
+	if (ISO13849_mode) {
+		// set PL attribute for all types except information
+		if ( (vars.type.selectedItem == 'SZ') || (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
+			node.attributes.set('PL',vars.PL.selectedItem)
+			if (newNode) {node.attributes.set('PL_sc',vars.PL.selectedItem)}
+		} else {
+			node.attributes.set('PL', '')
+		}
+	}	
 	// set Allocation parameter for all types except SZ and Information
 	if (  (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
 		AllocationAttributenames.eachWithIndex{it,index->
