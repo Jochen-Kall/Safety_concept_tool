@@ -256,7 +256,7 @@ def dial = s.dialog(title:'Safety Properties', id:'myDialog', minimumSize: [300,
             		flowLayout(alignment:FL.LEFT)
             		label("$name")
             		allocboxes << comboBox(id:"${AllocationAttributenames[index]}", items:Alloclists[index])
-			vars."${AllocationAttributenames[index]}".selectedItem='bla'
+			vars."${AllocationAttributenames[index]}".selectedItem=node["${AllocationAttributenames[index]}"]
 		}		
 	}
 
