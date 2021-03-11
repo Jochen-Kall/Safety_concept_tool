@@ -321,8 +321,12 @@ if (vars.ok){
 			node.attributes.removeAll('Tainted_by_parent')
 		}
 	}
-	node['Shared']= '= node.getCountNodesSharingContent()>0'		
-	node.style.name='Requirement'
-	
+	node['Shared']= '= node.getCountNodesSharingContent()>0'
+	try {node.style.name='Requirement'} catch (ex) {
+		JOptionPane.showMessageDialog(null, 
+                              "Warning: The current Map does not contain a Style required for the Safety Addon, conditional node formatting inactive. \nMake sure the styles are present by basing your safety concepts on the template provided by the addon or import the styles from the safety_concept template into your map to fix this problem.", 
+                              "Style Requirement missing", 
+                              JOptionPane.WARNING_MESSAGE);		
+	}	
 }
 
