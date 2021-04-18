@@ -1,8 +1,8 @@
-<map version="freeplane 1.7.0">
+<map version="freeplane 1.8.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1615445587180" LINK="https://github.com/Jochen-Kall/Safety_concept_tool" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
+<node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1618759979381" LINK="https://github.com/Jochen-Kall/Safety_concept_tool" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
-<hook NAME="MapStyle" zoom="1.1">
+<hook NAME="MapStyle">
     <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_icon_for_attributes="true" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
@@ -108,7 +108,7 @@
 </html>
 
 </richcontent>
-<node TEXT="changes" POSITION="left" ID="ID_645554915" CREATED="1609274211245" MODIFIED="1615445587194">
+<node TEXT="changes" POSITION="left" ID="ID_645554915" CREATED="1609274211245" MODIFIED="1618759979403">
 <edge COLOR="#0000ff"/>
 <richcontent TYPE="NOTE">
 
@@ -129,7 +129,7 @@
 <node TEXT="Added support for HW and SW requirements" ID="ID_1117473821" CREATED="1610652472026" MODIFIED="1610652481447"/>
 <node TEXT="Added Icons for ASIL X[X]" ID="ID_1406193037" CREATED="1610812586353" MODIFIED="1610812611209"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_749694744" CREATED="1609274211247" MODIFIED="1615445587196">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_749694744" CREATED="1609274211247" MODIFIED="1618759979404">
 <edge COLOR="#00ff00"/>
 <richcontent TYPE="NOTE">
 
@@ -145,7 +145,7 @@
       
     </p>
     <p>
-      The License text has to be entered as a child of the <i>'license'</i>&#160;node, either as plain text or as HTML.
+      The License text has to be entered as a child of the <i>'license'</i>&nbsp;node, either as plain text or as HTML.
     </p>
   </body>
 </html>
@@ -153,7 +153,7 @@
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xa;GNU General Public License for more details." ID="ID_957272066" CREATED="1609274211253" MODIFIED="1611076593930"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_146217099" CREATED="1609274211269" MODIFIED="1615445587198">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_146217099" CREATED="1609274211269" MODIFIED="1618759979406">
 <edge COLOR="#ff00ff"/>
 <richcontent TYPE="NOTE">
 
@@ -166,14 +166,14 @@
       <font color="#000000" face="SansSerif, sans-serif">The child node contains the add-on configuration as an extension to mindmapmodemenu.xml (in Tools-&gt;Preferences-&gt;Add-ons). </font>
     </p>
     <p>
-      <font color="#000000" face="SansSerif, sans-serif">Every property in the configuration should receive a default value in <i>default.properties</i>&#160;node.</font>
+      <font color="#000000" face="SansSerif, sans-serif">Every property in the configuration should receive a default value in <i>default.properties</i>&nbsp;node.</font>
     </p>
   </body>
 </html>
 
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1237073425" CREATED="1609274211273" MODIFIED="1615445587200">
+<node TEXT="default.properties" POSITION="left" ID="ID_1237073425" CREATED="1609274211273" MODIFIED="1618759979408">
 <edge COLOR="#00ffff"/>
 <richcontent TYPE="NOTE">
 
@@ -198,7 +198,7 @@
 
 </richcontent>
 </node>
-<node TEXT="description" POSITION="left" ID="ID_938954240" CREATED="1609274211239" MODIFIED="1615445587192">
+<node TEXT="description" POSITION="left" ID="ID_938954240" CREATED="1609274211239" MODIFIED="1618759979402">
 <edge COLOR="#ff0000"/>
 <richcontent TYPE="NOTE">
 
@@ -211,7 +211,7 @@
       Description would be awkward to edit as an attribute.
     </p>
     <p>
-      So you have to put the add-on description as a child of the <i>'description'</i>&#160;node.
+      So you have to put the add-on description as a child of the <i>'description'</i>&nbsp;node.
     </p>
     <p>
       To translate the description you have to define a translation for the key 'addons.${name}.description'.
@@ -222,7 +222,7 @@
 </richcontent>
 <node TEXT="Functional Safety Addon for Freeplane, to support designing Open Source Safety Concepts with Freeplane" ID="ID_1867477143" CREATED="1609321484661" MODIFIED="1611074898621"/>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1891165789" CREATED="1609274211275" MODIFIED="1615445587202">
+<node TEXT="translations" POSITION="left" ID="ID_1891165789" CREATED="1609274211275" MODIFIED="1618759979410">
 <edge COLOR="#7c0000"/>
 <richcontent TYPE="NOTE">
 
@@ -249,7 +249,7 @@
 </html>
 
 </richcontent>
-<node TEXT="en" ID="ID_693758551" CREATED="1609274211285" MODIFIED="1613806219620">
+<node TEXT="en" ID="ID_693758551" CREATED="1609274211285" MODIFIED="1618760030163">
 <attribute_layout NAME_WIDTH="263.9999921321871 pt" VALUE_WIDTH="263.9999921321871 pt"/>
 <attribute NAME="addons.${name}" VALUE="FuSi-addon"/>
 <attribute NAME="addons.${name}.Export_Safety_concept_markdown" VALUE="Export Safety Concept to markdown"/>
@@ -259,9 +259,11 @@
 <attribute NAME="addons.${name}.Extract_Tag_mapping" VALUE="Refresh Tag Mapping"/>
 <attribute NAME="addons.${name}.remove_taint_selection" VALUE="Remove Taint from selected nodes"/>
 <attribute NAME="addons.${name}.remove_all_taint" VALUE="Remove Taint from all nodes"/>
+<attribute NAME="addons.${name}.generate_clones_matrix" VALUE="Generate csv Matrix containing clone information"/>
+<attribute NAME="addons.${name}.generate_adjacency_matrix" VALUE="Generate csv Matrix containing child relationship information"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_662706713" CREATED="1609274211300" MODIFIED="1615445587203">
+<node TEXT="deinstall" POSITION="left" ID="ID_662706713" CREATED="1609274211300" MODIFIED="1618759987592">
 <edge COLOR="#00007c"/>
 <richcontent TYPE="NOTE">
 
@@ -319,8 +321,10 @@
 <attribute NAME="delete" VALUE="${installationbase}/icons/PL_c.svg"/>
 <attribute NAME="delete" VALUE="${installationbase}/icons/PL_d.svg"/>
 <attribute NAME="delete" VALUE="${installationbase}/icons/PL_e.svg"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/generate_clones_matrix.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/generate_adjacency_matrix.groovy"/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_1631106833" CREATED="1609274211315" MODIFIED="1615445587207">
+<node TEXT="scripts" POSITION="right" ID="ID_1631106833" CREATED="1609274211315" MODIFIED="1618759979419">
 <edge COLOR="#007c00"/>
 <richcontent TYPE="NOTE">
 
@@ -339,13 +343,13 @@
       * menuLocation: &lt;locationkey&gt;
     </p>
     <p>
-      &#160;&#160;&#160;- Defines the menu location, defaults a sub menu 'main_menu_scripting/addons.${name}'.
+      &nbsp;&nbsp;&nbsp;- Defines the menu location, defaults a sub menu 'main_menu_scripting/addons.${name}'.
     </p>
     <p>
-      &#160;&#160;&#160;-&#160;Use developer tool menuItemInfo to inspect menu location keys.
+      &nbsp;&nbsp;&nbsp;-&nbsp;Use developer tool menuItemInfo to inspect menu location keys.
     </p>
     <p>
-      &#160;&#160;&#160;- This attribute is mandatory
+      &nbsp;&nbsp;&nbsp;- This attribute is mandatory
     </p>
     <p>
       
@@ -354,10 +358,10 @@
       * menuTitleKey: &lt;key&gt;
     </p>
     <p>
-      &#160;&#160;&#160;- The menu item title will be looked up under the translation key &lt;key&gt; - don't forget to define its translation.
+      &nbsp;&nbsp;&nbsp;- The menu item title will be looked up under the translation key &lt;key&gt; - don't forget to define its translation.
     </p>
     <p>
-      &#160;&#160;&#160;- This attribute is mandatory
+      &nbsp;&nbsp;&nbsp;- This attribute is mandatory
     </p>
     <p>
       
@@ -366,22 +370,22 @@
       * executionMode: &lt;mode&gt;
     </p>
     <p>
-      &#160;&#160;&#160;- The execution mode as described in the Freeplane wiki (http://freeplane.sourceforge.net/wiki/index.php/Scripting)
+      &nbsp;&nbsp;&nbsp;- The execution mode as described in the Freeplane wiki (http://freeplane.sourceforge.net/wiki/index.php/Scripting)
     </p>
     <p>
-      &#160;&#160;&#160;- ON_SINGLE_NODE: Execute the script once. The <i>node</i>&#160;variable is set to the selected node.
+      &nbsp;&nbsp;&nbsp;- ON_SINGLE_NODE: Execute the script once. The <i>node</i>&nbsp;variable is set to the selected node.
     </p>
     <p>
-      &#160;&#160;&#160;- ON_SELECTED_NODE: Execute the script n times for n selected nodes, once for each node.
+      &nbsp;&nbsp;&nbsp;- ON_SELECTED_NODE: Execute the script n times for n selected nodes, once for each node.
     </p>
     <p>
-      &#160;&#160;&#160;- ON_SELECTED_NODE_RECURSIVELY: Execute the script on every selected node and recursively on all of its children.
+      &nbsp;&nbsp;&nbsp;- ON_SELECTED_NODE_RECURSIVELY: Execute the script on every selected node and recursively on all of its children.
     </p>
     <p>
-      &#160;&#160;&#160;- In doubt use ON_SINGLE_NODE.
+      &nbsp;&nbsp;&nbsp;- In doubt use ON_SINGLE_NODE.
     </p>
     <p>
-      &#160;&#160;&#160;- This attribute is mandatory
+      &nbsp;&nbsp;&nbsp;- This attribute is mandatory
     </p>
     <p>
       
@@ -390,52 +394,52 @@
       * keyboardShortcut: &lt;shortcut&gt;
     </p>
     <p>
-      &#160;&#160;&#160;- Optional: keyboard combination / accelerator for this script, e.g. control alt I
+      &nbsp;&nbsp;&nbsp;- Optional: keyboard combination / accelerator for this script, e.g. control alt I
     </p>
     <p>
-      &#160;&#160;&#160;- Use lowercase letters for modifiers and uppercase for letters. Use no + signs.
+      &nbsp;&nbsp;&nbsp;- Use lowercase letters for modifiers and uppercase for letters. Use no + signs.
     </p>
     <p>
-      &#160;&#160;&#160;- The available key names are listed at http://download.oracle.com/javase/1.4.2/docs/api/java/awt/event/KeyEvent.html#VK_0
+      &nbsp;&nbsp;&nbsp;- The available key names are listed at http://download.oracle.com/javase/1.4.2/docs/api/java/awt/event/KeyEvent.html#VK_0
     </p>
     <p>
-      &#160;&#160;&#160;&#160;&#160;In the list only entries with a 'VK_' prefix count. Omit the prefix in the shortcut definition.
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In the list only entries with a 'VK_' prefix count. Omit the prefix in the shortcut definition.
     </p>
     <p>
       
     </p>
     <p>
-      * Permissions&#160;that the script(s) require, each either false or true:
+      * Permissions&nbsp;that the script(s) require, each either false or true:
     </p>
     <p>
-      &#160;&#160;&#160;- execute_scripts_without_asking
+      &nbsp;&nbsp;&nbsp;- execute_scripts_without_asking
     </p>
     <p>
-      &#160;&#160;&#160;- execute_scripts_without_file_restriction: permission to read files
+      &nbsp;&nbsp;&nbsp;- execute_scripts_without_file_restriction: permission to read files
     </p>
     <p>
-      &#160;&#160;&#160;- execute_scripts_without_write_restriction: permission to create/change/delete files
+      &nbsp;&nbsp;&nbsp;- execute_scripts_without_write_restriction: permission to create/change/delete files
     </p>
     <p>
-      &#160;&#160;&#160;- execute_scripts_without_exec_restriction: permission to execute other programs
+      &nbsp;&nbsp;&nbsp;- execute_scripts_without_exec_restriction: permission to execute other programs
     </p>
     <p>
-      &#160;&#160;&#160;- execute_scripts_without_network_restriction: permission to access the network
+      &nbsp;&nbsp;&nbsp;- execute_scripts_without_network_restriction: permission to access the network
     </p>
     <p>
-      &#160;&#160;Notes:
+      &nbsp;&nbsp;Notes:
     </p>
     <p>
-      &#160;&#160;- The set of permissions is fixed.
+      &nbsp;&nbsp;- The set of permissions is fixed.
     </p>
     <p>
-      &#160;&#160;- Don't change the attribute names, don't omit one.
+      &nbsp;&nbsp;- Don't change the attribute names, don't omit one.
     </p>
     <p>
-      &#160;&#160;- Set the values either to true or to false
+      &nbsp;&nbsp;- Set the values either to true or to false
     </p>
     <p>
-      &#160;&#160;- In any case set execute_scripts_without_asking to true unless you want to annoy users.
+      &nbsp;&nbsp;- In any case set execute_scripts_without_asking to true unless you want to annoy users.
     </p>
   </body>
 </html>
@@ -525,8 +529,32 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
+<node TEXT="generate_clones_matrix.groovy" ID="ID_649277206" CREATED="1618759979425" MODIFIED="1618760079308">
+<attribute_layout NAME_WIDTH="226.49999324977418 pt" VALUE_WIDTH="226.49999324977418 pt"/>
+<attribute NAME="menuTitleKey" VALUE="addons.${name}.generate_clones_matrix"/>
+<attribute NAME="menuLocation" VALUE="main_menu/addons.${name}/Export"/>
+<attribute NAME="executionMode" VALUE="on_single_node"/>
+<attribute NAME="keyboardShortcut" VALUE=""/>
+<attribute NAME="execute_scripts_without_asking" VALUE="true"/>
+<attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="lib" POSITION="right" ID="ID_1650646113" CREATED="1609274211327" MODIFIED="1615445587220">
+<node TEXT="generate_adjacency_matrix.groovy" ID="ID_689014032" CREATED="1618759979430" MODIFIED="1618760091381">
+<attribute_layout NAME_WIDTH="226.49999324977418 pt" VALUE_WIDTH="233.2499930486085 pt"/>
+<attribute NAME="menuTitleKey" VALUE="addons.${name}.generate_adjacency_matrix"/>
+<attribute NAME="menuLocation" VALUE="main_menu/addons.${name}/Export"/>
+<attribute NAME="executionMode" VALUE="on_single_node"/>
+<attribute NAME="keyboardShortcut" VALUE=""/>
+<attribute NAME="execute_scripts_without_asking" VALUE="true"/>
+<attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
+</node>
+</node>
+<node TEXT="lib" POSITION="right" ID="ID_1650646113" CREATED="1609274211327" MODIFIED="1618759979490">
 <edge COLOR="#7c007c"/>
 <richcontent TYPE="NOTE">
 
@@ -542,32 +570,32 @@
       
     </p>
     <p>
-      &#160;- The immediate child nodes contain the name of the file, e.g. 'mysql-connector-java-5.1.25.jar'). Put the file into a 'lib' subdirectory of the add-on base directory.
+      &nbsp;- The immediate child nodes contain the name of the file, e.g. 'mysql-connector-java-5.1.25.jar'). Put the file into a 'lib' subdirectory of the add-on base directory.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- The child nodes of these nodes contain the actual files.
+      &nbsp;- The child nodes of these nodes contain the actual files.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- Any lib file will be extracted in &lt;installationbase&gt;/&lt;addonname&gt;/lib.
+      &nbsp;- Any lib file will be extracted in &lt;installationbase&gt;/&lt;addonname&gt;/lib.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- The files will be processed in the sequence as seen in the map.
+      &nbsp;- The files will be processed in the sequence as seen in the map.
     </p>
   </body>
 </html>
 
 </richcontent>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_1150015076" CREATED="1609274211332" MODIFIED="1615445587222">
+<node TEXT="zips" POSITION="right" ID="ID_1150015076" CREATED="1609274211332" MODIFIED="1618759979492">
 <edge COLOR="#007c7c"/>
 <richcontent TYPE="NOTE">
 
@@ -583,25 +611,25 @@
       
     </p>
     <p>
-      &#160;- The immediate child nodes contain a description of the zip. The devtools script releaseAddOn.groovy allows automatic zip creation if the name of this node matches a directory in the current directory.
+      &nbsp;- The immediate child nodes contain a description of the zip. The devtools script releaseAddOn.groovy allows automatic zip creation if the name of this node matches a directory in the current directory.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- The child nodes of these nodes contain the actual zip files.
+      &nbsp;- The child nodes of these nodes contain the actual zip files.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- Any zip file will be extracted in the &lt;installationbase&gt;. Currently, &lt;installationbase&gt; is always Freeplane's &lt;userhome&gt;, e.g. ~/.freeplane/1.3.
+      &nbsp;- Any zip file will be extracted in the &lt;installationbase&gt;. Currently, &lt;installationbase&gt; is always Freeplane's &lt;userhome&gt;, e.g. ~/.freeplane/1.3.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- The files will be processed in the sequence as seen in the map.
+      &nbsp;- The files will be processed in the sequence as seen in the map.
     </p>
   </body>
 </html>
@@ -611,7 +639,7 @@
 <node TEXT="templates" ID="ID_870861486" CREATED="1611078669458" MODIFIED="1611078692599"/>
 <node TEXT="scripts" ID="ID_360567109" CREATED="1613223305807" MODIFIED="1613223305809"/>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_1397463527" CREATED="1609274211335" MODIFIED="1615445587229">
+<node TEXT="images" POSITION="right" ID="ID_1397463527" CREATED="1609274211335" MODIFIED="1618759979505">
 <edge COLOR="#7c7c00"/>
 <richcontent TYPE="NOTE">
 
@@ -624,7 +652,7 @@
       An add-on may define any number of images as child nodes of the images node. The actual image data has to be placed as base64 encoded binary data into the text of a subnode.
     </p>
     <p>
-      The images are saved to the <i>${installationbase}/resources/images</i>&#160;directory.
+      The images are saved to the <i>${installationbase}/resources/images</i>&nbsp;directory.
     </p>
     <p>
       
@@ -641,7 +669,7 @@
       </li>
     </ul>
     <p>
-      Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
+      Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&nbsp;since they have to be (base64) encoded as simple strings.
     </p>
   </body>
 </html>
