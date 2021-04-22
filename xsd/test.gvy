@@ -30,13 +30,13 @@ xml.'REQ-IF'(xmlns:"http://www.omg.org/spec/ReqIF/20110401/reqif.xsd", "xmlns:re
         xml.'REQ-IF-CONTENT' {
             xml.'DATATYPES'{
                 // Datatype for text elements
-                xml."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Text","IDENTIFIER":"dt_text") {}
+                xml."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Text","IDENTIFIER":"dt_text", "LAST-CHANGE":"2021-04-26T10:00:00", "MAX-LENGTH":100) {}
                 // Enumeration for ASILs.
         // In a first step, we might just export ASILs as plain text, instead of going through the trouble of defining the enumeration
-                xml."DATATYPE-DEFINITION-ENUMERATION"("LONG-NAME":"ASIL","IDENTIFIER":"dt_ASIL") {
+                xml."DATATYPE-DEFINITION-ENUMERATION"("LONG-NAME":"ASIL","IDENTIFIER":"dt_ASIL", "LAST-CHANGE":"2021-04-26T10:00:00") {
                     xml."SPECIFIED-VALUES"{
-                        xml."ENUM-VALUE"("LONG-NAME":"QM","IDENTIFIER":"ev_ASIL_QM"){}
-                        xml."ENUM-VALUE"("LONG-NAME":"QM","IDENTIFIER":"ev_ASIL_QM[A]"){}
+//                        xml."ENUM-VALUE"("LONG-NAME":"QM","IDENTIFIER":"ev_ASIL_QM"){}
+//                        xml."ENUM-VALUE"("LONG-NAME":"QM","IDENTIFIER":"ev_ASIL_QM[A]"){}
                         // all the rest of the ASILs still missing
                         
                     }
