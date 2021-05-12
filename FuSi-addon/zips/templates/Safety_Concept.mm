@@ -1,4 +1,4 @@
-<map version="freeplane 1.7.0">
+<map version="freeplane 1.8.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
 <node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1614887656052"><hook NAME="MapStyle" zoom="0.912">
@@ -36,101 +36,105 @@
 </stylenode>
 <stylenode TEXT="Requirement">
 <edge COLOR="#007c00"/>
+<attribute_layout VALUE_WIDTH="100.0 pt"/>
 <attribute NAME="ASIL" VALUE=""/>
 <attribute NAME="Type" VALUE=""/>
 <hook NAME="NodeConditionalStyles">
     <conditional_style ACTIVE="true" STYLE_REF="ASIL A" LAST="false">
-        <attribute_compare_condition VALUE="A" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="A" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL A[A]" LAST="false">
-        <attribute_compare_condition VALUE="A[A]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="A[A]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL A[B]" LAST="false">
-        <attribute_compare_condition VALUE="A[B]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="A[B]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL A[C]" LAST="false">
-        <attribute_compare_condition VALUE="A[C]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="A[C]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL A[D]" LAST="false">
-        <attribute_compare_condition VALUE="A[D]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="A[D]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL B" LAST="false">
-        <attribute_compare_condition VALUE="B" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="B" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL B[B]" LAST="false">
-        <attribute_compare_condition VALUE="B[B]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="B[B]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL B[C]" LAST="false">
-        <attribute_compare_condition VALUE="B[C]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="B[C]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL B[D]" LAST="false">
-        <attribute_compare_condition VALUE="B[D]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="B[D]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL C" LAST="false">
-        <attribute_compare_condition VALUE="C" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="C" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL C[C]" LAST="false">
-        <attribute_compare_condition VALUE="C[C]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="C[C]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL C[D]" LAST="false">
-        <attribute_compare_condition VALUE="C[D]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="C[D]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL D" LAST="false">
-        <attribute_compare_condition VALUE="D" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="D" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="ASIL D[D]" LAST="false">
-        <attribute_compare_condition VALUE="D[D]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="D[D]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="QM" LAST="false">
-        <attribute_compare_condition VALUE="QM" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="QM" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="QM[A]" LAST="false">
-        <attribute_compare_condition VALUE="QM[A]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="QM[A]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="QM[B]" LAST="false">
-        <attribute_compare_condition VALUE="QM[B]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="QM[B]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="QM[C]" LAST="false">
-        <attribute_compare_condition VALUE="QM[C]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="QM[C]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="QM[D]" LAST="false">
-        <attribute_compare_condition VALUE="QM[D]" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="QM[D]" ATTRIBUTE="ASIL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="QM" LAST="false">
-        <attribute_compare_condition VALUE="QM" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="QM" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="PL a" LAST="false">
-        <attribute_compare_condition VALUE="a" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="a" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="PL b" LAST="false">
-        <attribute_compare_condition VALUE="b" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="b" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="PL c" LAST="false">
-        <attribute_compare_condition VALUE="c" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="c" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="PL d" LAST="false">
-        <attribute_compare_condition VALUE="d" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="d" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="PL e" LAST="false">
-        <attribute_compare_condition VALUE="e" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="e" ATTRIBUTE="PL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="FSR" LAST="false">
-        <attribute_compare_condition VALUE="FSR" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="FSR" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="TSR" LAST="false">
-        <attribute_compare_condition VALUE="TSR" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="TSR" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="Info" LAST="false">
-        <attribute_compare_condition VALUE="Information" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="Information" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="SZ" LAST="false">
-        <attribute_compare_condition VALUE="SZ" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <disjunct_condition>
+            <attribute_compare_condition VALUE="SZ" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
+            <attribute_compare_condition VALUE="SG" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
+        </disjunct_condition>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="HW" LAST="false">
-        <attribute_compare_condition VALUE="HW" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="HW" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="SW" LAST="false">
-        <attribute_compare_condition VALUE="SW" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="SW" ATTRIBUTE="Type" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="Tainted_by_child" LAST="false">
         <attribute_exists_condition ATTRIBUTE="Tainted_by_child"/>
@@ -139,7 +143,7 @@
         <attribute_exists_condition ATTRIBUTE="Tainted_by_parent"/>
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="Shared" LAST="false">
-        <attribute_compare_condition VALUE="true" MATCH_CASE="false" MATCH_APPROXIMATELY="false" ATTRIBUTE="Shared" COMPARATION_RESULT="0" SUCCEED="true"/>
+        <attribute_compare_condition VALUE="true" ATTRIBUTE="Shared" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
 </hook>
 </stylenode>
@@ -316,26 +320,29 @@
 <attribute NAME="Enable Tainting" VALUE="true"/>
 <attribute NAME="ISO_26262_mode" VALUE="true"/>
 <attribute NAME="ISO_13849_mode" VALUE="false"/>
-<node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1613244387041" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
+<node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1620808984073" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
+<attribute_layout VALUE_WIDTH="100.0 pt"/>
 <attribute NAME="ASIL" VALUE="B"/>
-<attribute NAME="Type" VALUE="SZ"/>
+<attribute NAME="Type" VALUE="SG"/>
 <attribute NAME="Allocation" VALUE=""/>
 <attribute NAME="ASIL_sc" VALUE="B"/>
-<attribute NAME="Type_sc" VALUE="SZ"/>
+<attribute NAME="Type_sc" VALUE="SG"/>
 <attribute NAME="Allocation_sc" VALUE=""/>
 <attribute NAME="Shared" VALUE="= node.getCountNodesSharingContent()&gt;0"/>
 </node>
-<node TEXT="Safety Goal 2" STYLE_REF="Requirement" POSITION="right" ID="ID_759203603" CREATED="1611077204015" MODIFIED="1613244389296">
-<attribute NAME="Type" VALUE="SZ"/>
+<node TEXT="Safety Goal 2" STYLE_REF="Requirement" POSITION="right" ID="ID_759203603" CREATED="1611077204015" MODIFIED="1620808993868">
+<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute NAME="Type" VALUE="SG"/>
 <attribute NAME="ASIL" VALUE="A"/>
 <attribute NAME="Allocation" VALUE=""/>
 <attribute NAME="ASIL_sc" VALUE="A"/>
-<attribute NAME="Type_sc" VALUE="SZ"/>
+<attribute NAME="Type_sc" VALUE="SG"/>
 <attribute NAME="Allocation_sc" VALUE=""/>
 <attribute NAME="Shared" VALUE="= node.getCountNodesSharingContent()&gt;0"/>
 </node>
 <node TEXT="Architecture" POSITION="left" ID="ID_1988403535" CREATED="1609881073321" MODIFIED="1614814447007" HGAP_QUANTITY="76.99999812245375 pt" VSHIFT_QUANTITY="217.49999351799508 pt">
 <edge COLOR="#0000ff"/>
+<attribute_layout VALUE_WIDTH="100.0 pt"/>
 <attribute NAME="Type" VALUE="Architecture"/>
 <attribute NAME="AllocationAttributeName" VALUE="Allocation"/>
 <richcontent TYPE="DETAILS">

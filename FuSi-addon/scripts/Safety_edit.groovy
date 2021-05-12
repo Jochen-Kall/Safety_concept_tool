@@ -156,24 +156,27 @@ if (ISO13849_mode) {
 }
 
 // Fallback list for Types
-Typelist=['SZ', 'FSR', 'TSR', 'Information', 'HW', 'SW']
+Typelist=['SG', 'FSR', 'TSR', 'Information', 'HW', 'SW']
 // restrict types to acceptable types, based on the parent nodes type.
-if (node.getParent()['Type']=='SZ'){
+def Parenttype=node.getParent()['Type']
+if (Parenttype=='SZ') {Parenttype='SG'} 	// backwards compatibility
+
+if (Parenttype=='SG'){
 	Typelist= ['FSR', 'Information']
 }
-if (node.getParent()['Type']=='FSR'){
+if (Parenttype=='FSR'){
 	Typelist= ['FSR','TSR', 'Information']
 }
-if (node.getParent()['Type']=='TSR'){
+if (Parenttype=='TSR'){
 	Typelist= ['TSR','HW','SW', 'Information']
 }
-if (node.getParent()['Type']=='Information'){
+if (Parenttype=='Information'){
 	Typelist= ['Information']
 }
-if (node.getParent()['Type']=='HW'){
+if (Parenttype=='HW'){
 	Typelist= ['Information', 'HW']
 }
-if (node.getParent()['Type']=='SW'){
+if (Parenttype=='SW'){
 	Typelist= ['Information', 'SW']
 }
 
@@ -284,7 +287,7 @@ if (vars.ok){
 	// Saving ASIL if ISO26262 mode is set
 	if (ISO26262_mode) {
 		// set ASIL attribute for all types except information
-		if ( (vars.type.selectedItem == 'SZ') || (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
+		if ( (vars.type.selectedItem == 'SG') || (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
 			node.attributes.set('ASIL',vars.ASIL.selectedItem)
 			if (newNode) {node.attributes.set('ASIL_sc',vars.ASIL.selectedItem)}
 		} else {
@@ -294,14 +297,14 @@ if (vars.ok){
 	// Saving PL if ISO13849 mode is set
 	if (ISO13849_mode) {
 		// set PL attribute for all types except information
-		if ( (vars.type.selectedItem == 'SZ') || (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
+		if ( (vars.type.selectedItem == 'SG') || (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
 			node.attributes.set('PL',vars.PL.selectedItem)
 			if (newNode) {node.attributes.set('PL_sc',vars.PL.selectedItem)}
 		} else {
 			node.attributes.set('PL', '')
 		}
 	}	
-	// set Allocation parameter for all types except SZ and Information
+	// set Allocation parameter for all types except SG and Information
 	if (  (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
 		AllocationAttributenames.eachWithIndex{it,index->
 			node.attributes.set("$it", allocboxes[index].selectedItem)
