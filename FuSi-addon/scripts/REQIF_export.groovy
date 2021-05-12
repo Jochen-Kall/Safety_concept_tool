@@ -7,6 +7,8 @@
 Export the mindmap to the reqif format.
 WIP
 */
+import javax.swing.*;
+
 import groovy.xml.*
 
 def writer = new StringWriter()
@@ -19,57 +21,159 @@ import javax.xml.validation.SchemaFactory
 
 // Constructing an Requif conforming .xml file.
 
-xml.'Req-IF'(asdf:12,"Outer node"){
-    xml.'THE-HEADER'{
-        xml.'REQ-IF-HEADER'('IDENTIFIER':0){
-            xml.'CREATION-TIME'('jetzt')
-            xml.'REPOSITORY-ID'('?')
-            xml.'REQ-IF-TOOL-ID'('Freemind FuSa Extension v0.5')
-            xml.'REQ-IF-VERSION'('1.0')
-            xml.'SOURCE-TOOL-ID'('I guess this is only relevant for a round trip')
-            xml.'TITLE'('TITLE of the Document to be exported')
+def modifiedtime   
+
+def showDialog(String content) {
+    //create new dialog and set size
+    def dialog = new JDialog(ui.frame)
+    dialog.setSize(750, 600)
+    dialog.setLocationRelativeTo(ui.frame)
+    // dialog close operation
+    dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE)
+    // add panel to dialog
+    dialog.add(new JScrollPane(new JTextArea(content)))
+    ui.addEscapeActionToDialog(dialog)
+    dialog.setVisible(true)
+}
+
+def makeHeader(XML)
+{
+    XML.'THE-HEADER'{
+        XML.'REQ-IF-HEADER'('IDENTIFIER':'_adkamo'){
+            XML.'CREATION-TIME'('2021-04-26T10:00:00')
+            XML.'REPOSITORY-ID'('?')
+            XML.'REQ-IF-TOOL-ID'('Freemind FuSa Extension v0.5')
+            XML.'REQ-IF-VERSION'('1.0')
+            XML.'SOURCE-TOOL-ID'('I guess this is only relevant for a round trip')
+            XML.'TITLE'('TITLE of the Document to be exported')
         }
     }
-    xml.'CORE-CONTENT'{
-        xml.'REQ-IF-CONTENT' {
-            xml.'DATATYPES'{
-                // Datatype for text elements
-                xml."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Text","IDENTIFIER":"dt_text") {}
-                // Enumeration for ASILs.
-		// In a first step, we might just export ASILs as plain text, instead of going through the trouble of defining the enumeration
-                xml."DATATYPE-DEFINITION-ENUMERATION"("LONG-NAME":"ASIL","IDENTIFIER":"dt_ASIL") {
-                    xml."SPECIFIED-VALUES"{
-                        xml."ENUM-VALUE"("LONG-NAME":"QM","IDENTIFIER":"ev_ASIL_QM"){}
-                        xml."ENUM-VALUE"("LONG-NAME":"QM","IDENTIFIER":"ev_ASIL_QM[A]"){}
-                        // all the rest of the ASILs still missing
-                        
+}
+
+def makeDataTypes(XML)
+{
+    XML.'DATATYPES'{
+    // Datatype for text elements
+    XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"ID","IDENTIFIER":"dt_id", "LAST-CHANGE":"2021-04-26T10:00:00", "MAX-LENGTH":100) {}
+    XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Text","IDENTIFIER":"dt_text", "LAST-CHANGE":"2021-04-26T10:00:00", "MAX-LENGTH":100) {}
+    XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"ASIL","IDENTIFIER":"dt_asil", "LAST-CHANGE":"2021-04-26T10:00:00", "MAX-LENGTH":100) {}
+    XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Type","IDENTIFIER":"dt_type", "LAST-CHANGE":"2021-04-26T10:00:00", "MAX-LENGTH":100) {}
+    XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Allocation","IDENTIFIER":"dt_allocation", "LAST-CHANGE":"2021-04-26T10:00:00", "MAX-LENGTH":100) {}
+    }
+}
+
+def makeSpecTypes(XML)
+{
+    modifiedtime = node.getLastModifiedAt()
+    XML.'SPEC-TYPES'{
+        XML.'SPEC-OBJECT-TYPE'("LONG-NAME":"LIST","IDENTIFIER":"sot_List", "LAST-CHANGE":"2021-04-26T10:00:00"){
+            XML.'SPEC-ATTRIBUTES'{
+                XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"id","IDENTIFIER":"sa_id", "LAST-CHANGE":"2021-04-26T10:00:00", "IS-EDITABLE":"false", "DESC":"ID"){
+                    XML.'TYPE'{
+                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_id")
+                    }
+                }
+                XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"text","IDENTIFIER":"sa_text", "LAST-CHANGE":"2021-04-26T10:00:00", "IS-EDITABLE":"false", "DESC":"Contents"){
+                    XML.'TYPE'{
+                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_text")
+                    }
+                }
+                XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"asil","IDENTIFIER":"sa_asil", "LAST-CHANGE":"2021-04-26T10:00:00", "IS-EDITABLE":"false", "DESC":"ASIL"){
+                    XML.'TYPE'{
+                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_asil")
+                    }
+                }
+                XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"type","IDENTIFIER":"sa_type", "LAST-CHANGE":"2021-04-26T10:00:00", "IS-EDITABLE":"false", "DESC":"TYPE"){
+                    XML.'TYPE'{
+                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_type")
+                    }
+                }
+                XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"allocation","IDENTIFIER":"sa_allocation", "LAST-CHANGE":"2021-04-26T10:00:00", "IS-EDITABLE":"false", "DESC":"ALLOCATE"){
+                    XML.'TYPE'{
+                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_allocation")
                     }
                 }
             }
         }
-    }       
-    
+    }
 }
-writer.toString()
 
-// this is geting a bit hard to read... It might be smarter to mirror the xml structure as freeplane subtree as well, basically the inverse of the .xml import applied to a reqif .xml file.
-// on the other hand... that might be the only good way for importing arbitrary reqifs...
+def nodelist
+def nownode
 
-node.createChild(writer.toString())
-
-// attempt at using the xml validation file, so far no luck, couldn't get it to work at all
-def attempt_to_validate=false
-if (attempt_to_validate) {
-	def xsd = "/home/jochen/Desktop/Freeplane project/reqif.xsd"
-	def xmlFileLocation ="/home/jochen/Desktop/Freeplane project/"
-	def xmlFileName = "Data_to_validate.xml"
-	def xml_to_validate = (xmlFileLocation+xmlFileName).trim()
-
-	def factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI)
-	File schemaLocation = new File(xsd);
-	def schema = factory.newSchema(new StreamSource(new FileReader(schemaLocation)))
-	datafile = new File(xml_to_validate)
-	// print datafile.getText()
-	def validator = schema.newValidator()
-	node.text = validator.validate(new StreamSource(new FileReader(datafile)))
+def makeObjects(thisNode, XML)
+{
+    if(thisNode.getParent() == null)
+    {
+        thisNode.children.each{
+            makeObjects(it, XML)
+        }
+    }
+    else
+    {
+        makeSpecObject(thisNode, XML)
+//        nodelist = thisNode.getChildren()
+        thisNode.children.each{
+            makeObjects(it, XML)
+            }
+    }
 }
+
+def makeSpecObject(thisNode, XML)
+{
+    XML.'SPEC-OBJECT'("IDENTIFIER":"aaa1111", "LAST-CHANGE":"2021-04-26T10:00:00"){
+        XML.'TYPE'{
+            XML.'SPEC-OBJECT-TYPE-REF'("sot_list")
+        }
+        XML.'VALUES'{
+            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode.nodeID){
+                XML.'DEFINITION'{
+                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_id")
+                }
+            }
+            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode.text){
+                XML.'DEFINITION'{
+                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_text")
+                }
+            }
+            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['ASIL']){
+               XML.'DEFINITION'{
+                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_asil")
+                }
+            }
+            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['Type']){
+                XML.'DEFINITION'{
+                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_type")
+                }
+            }
+//            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['Allocation']){
+//                XML.'DEFINITION'{
+//                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_allocation")
+//                }
+//            }                        
+        }
+    }
+}
+
+xml.'REQ-IF'(xmlns:"http://www.omg.org/spec/ReqIF/20110401/reqif.xsd", "xmlns:reqif":"http://www.omg.org/spec/ReqIF/20110401/reqif.xsd"){
+    makeHeader(xml)
+    xml.'CORE-CONTENT'{
+        xml.'REQ-IF-CONTENT' {
+            makeDataTypes(xml)
+            makeSpecTypes(xml)
+            xml.'SPEC-OBJECTS'{
+                makeObjects(node, xml)
+            }
+        }
+    }   
+}
+
+//def xsd = "reqif.xsd"
+//
+//def factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI)
+//File schemaLocation = new File(xsd);
+//def schema = factory.newSchema(new StreamSource(new FileReader(schemaLocation)))
+//def validator = schema.newValidator()
+def xmlstring = writer.toString()
+showDialog(xmlstring)
+//println(validator.validate(new StreamSource(new StringReader(xmlstring))))
