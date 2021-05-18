@@ -102,35 +102,22 @@ def makeSpecTypes(XML,DATE)
     }
 }
 
-//def relationlist = []
+relationlist = []
 
 def makeObjects(thisNode, XML, DATE)
 {
-    if(thisNode.getParent() == null) // root node
-    {
-        thisNode.children.each{
-//            relationlist.add new Tuple(thisNode.nodeID, it.nodeID)
-            if(it['Type']=='SG' || it['Type']=='FSR' || it['Type']=='TSR' || it['Type']=='HW' || it['Type']=='SW' ){
-	            makeObjects(it, XML, DATE)
-	        }
-        }
+    if(thisNode['Type'] in ['SG','SZ', 'FSR', 'TSR', 'HW', 'SW'] ){
+        makeSpecObject(thisNode, XML, DATE)
     }
-    else // each node
-    {
-        if(thisNode['Type']=='SG' || thisNode['Type']=='FSR' || thisNode['Type']=='TSR' || thisNode['Type']=='HW' || thisNode['Type']=='SW' ){
-//            relationlist.add new Tuple(thisNode.nodeID, it.nodeID)
-            makeSpecObject(thisNode, XML, DATE)
-//          nodelist = thisNode.getChildren()
-            thisNode.children.each{
-                makeObjects(it, XML, DATE)
-            }
-        }
+    thisNode.children.each{
+        relationlist.add new Tuple(thisNode.nodeID, it.nodeID)
+        makeObjects(it, XML, DATE)
     }
 }
 
 def makeSpecObject(thisNode, XML, DATE)
 {
-def randid = '_' + RandomStringUtils.randomAlphanumeric(20)//make object ID(random 20 characters)
+    def randid = '_' + RandomStringUtils.randomAlphanumeric(20)//make object ID(random 20 characters)
     XML.'SPEC-OBJECT'("IDENTIFIER":randid, "LAST-CHANGE":DATE){
         XML.'TYPE'{
             XML.'SPEC-OBJECT-TYPE-REF'("sot_list")
