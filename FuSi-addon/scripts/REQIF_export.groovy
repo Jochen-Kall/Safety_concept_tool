@@ -19,6 +19,7 @@ import javax.xml.XMLConstants
 import javax.xml.transform.stream.StreamSource
 import javax.xml.validation.SchemaFactory
 import java.text.SimpleDateFormat
+import org.apache.commons.lang.RandomStringUtils;
 
 // Constructing an Requif conforming .xml file.
 
@@ -101,14 +102,14 @@ def makeSpecTypes(XML,DATE)
     }
 }
 
-def nodelist
-def nownode
+//def relationlist = []
 
 def makeObjects(thisNode, XML, DATE)
 {
     if(thisNode.getParent() == null) // root node
     {
         thisNode.children.each{
+//            relationlist.add new Tuple(thisNode.nodeID, it.nodeID)
             if(it['Type']=='SG' || it['Type']=='FSR' || it['Type']=='TSR' || it['Type']=='HW' || it['Type']=='SW' ){
 	            makeObjects(it, XML, DATE)
 	        }
@@ -117,6 +118,7 @@ def makeObjects(thisNode, XML, DATE)
     else // each node
     {
         if(thisNode['Type']=='SG' || thisNode['Type']=='FSR' || thisNode['Type']=='TSR' || thisNode['Type']=='HW' || thisNode['Type']=='SW' ){
+//            relationlist.add new Tuple(thisNode.nodeID, it.nodeID)
             makeSpecObject(thisNode, XML, DATE)
 //          nodelist = thisNode.getChildren()
             thisNode.children.each{
@@ -128,7 +130,8 @@ def makeObjects(thisNode, XML, DATE)
 
 def makeSpecObject(thisNode, XML, DATE)
 {
-    XML.'SPEC-OBJECT'("IDENTIFIER":thisNode.text, "LAST-CHANGE":DATE){
+def randid = '_' + RandomStringUtils.randomAlphanumeric(20)//make object ID(random 20 characters)
+    XML.'SPEC-OBJECT'("IDENTIFIER":randid, "LAST-CHANGE":DATE){
         XML.'TYPE'{
             XML.'SPEC-OBJECT-TYPE-REF'("sot_list")
         }
@@ -162,6 +165,10 @@ def makeSpecObject(thisNode, XML, DATE)
     }
 }
 
+def makeRelation()
+{
+}
+
 xml.'REQ-IF'(xmlns:"http://www.omg.org/spec/ReqIF/20110401/reqif.xsd", "xmlns:reqif":"http://www.omg.org/spec/ReqIF/20110401/reqif.xsd"){
     makeHeader(xml,datestring)
     xml.'CORE-CONTENT'{
@@ -171,6 +178,7 @@ xml.'REQ-IF'(xmlns:"http://www.omg.org/spec/ReqIF/20110401/reqif.xsd", "xmlns:re
             xml.'SPEC-OBJECTS'{
                 makeObjects(node, xml, datestring)
             }
+//            makeRelation()
         }
     }   
 }
