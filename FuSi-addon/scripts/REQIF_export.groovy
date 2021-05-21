@@ -13,7 +13,6 @@ import javax.xml.XMLConstants
 import javax.xml.transform.stream.StreamSource
 import javax.xml.validation.SchemaFactory
 import java.text.SimpleDateFormat
-import org.apache.commons.lang.RandomStringUtils
 
 def writer = new StringWriter()
 def xml = new MarkupBuilder(writer)
@@ -179,7 +178,7 @@ def makeSpecObject(thisNode, identifier, XML, DATE)
 
 def makeSpecRelation(XML, DATE)
 {
-	def source, target, randrelationid 
+    def source, target, randrelationid 
 
     relationlist.each{
 
@@ -187,20 +186,20 @@ def makeSpecRelation(XML, DATE)
         source = it[0] 
         target = it[1]
         randrelationid = "_" + UUID.randomUUID().toString()
-/*
-        spec_relation_list.add new Tupple(randrelationid, source, target)
-*/        
-		XML. 'SPEC-RELATION'("IDENTIFIER":randrelationid, "LAST-CHANGE":DATE){
-			XML. 'SOURCE'{
-				XML.'SPEC-OBJECT-REF'(source)
-			}
-			XML. 'TARGET'{
-				XML.'SPEC-OBJECT-REF'(target)
-			}
-			XML. 'TYPE'{
-				XML.'SPEC-RELATION-TYPE-REF'("spec_rel_List")
-			}
-		}
+
+        spec_relation_list.add new Tuple(randrelationid, source, target)
+        
+        XML. 'SPEC-RELATION'("IDENTIFIER":randrelationid, "LAST-CHANGE":DATE){
+            XML. 'SOURCE'{
+                XML.'SPEC-OBJECT-REF'(source)
+            }
+            XML. 'TARGET'{
+                XML.'SPEC-OBJECT-REF'(target)
+            }
+            XML. 'TYPE'{
+                XML.'SPEC-RELATION-TYPE-REF'("spec_rel_List")
+            }
+        }
         // <SPEC-RELATION IDENTIFIER="_7E659CDC-769E-4335-B05A-A1EC9955679A" LAST-CHANGE="2021-05-18T18:00:00+09:00">
         //   <SOURCE>
         //     <SPEC-OBJECT-REF>source</SPEC-OBJECT-REF>
@@ -220,25 +219,30 @@ def makeSpecRelation(XML, DATE)
 
 def makeSpecification(XML, DATE)
 {
+    def randhierid
+    def tmp
     //SG
         // <SPECIFICATION LONG-NAME="Safety Goal" IDENTIFIER="_EF515D9D-7636-4F06-AC52-C12F15A11919" LAST-CHANGE="2021-05-18T18:00:00+09:00">
         //   <CHILDREN>
         //     <SPEC-HIERARCHY IDENTIFIER="_AD7805BB-4327-4CDD-917C-E82916CB69BD" LAST-CHANGE="2021-05-18T18:00:00+09:00">
         //       <OBJECT>
-	XML. 'SPECIFICATION'("LONG-NAME":"Safety Goal","IDENTIFIER":"spec_sg_id", "LAST-CHANGE":DATE){
-		XML. 'CHILDREN'{
-			XML. 'SPEC-HIERARCHY'("IDENTIFIER":"hier_sg", "LAST-CHANGE":DATE){
-			    requirementlists.each{
-        			if(it.value['Type'] in ['SZ', 'SG'])
-        			{
-        				XML.'SPEC-OBJECT-REF'(it.key)
-        			}
-        		}
-        	}
+    XML. 'SPECIFICATION'("LONG-NAME":"Safety Goal","IDENTIFIER":"spec_sg_id", "LAST-CHANGE":DATE){
+        XML. 'CHILDREN'{
+            requirementlists.each{
+                if(it.value['Type'] in ['SZ', 'SG']){
+                    randhierid = "_" + UUID.randomUUID().toString()
+                     tmp = it.key
+                    XML. 'SPEC-HIERARCHY'("IDENTIFIER":randhierid, "LAST-CHANGE":DATE){
+                        XML. 'OBJECT'{
+                            XML.'SPEC-OBJECT-REF'(tmp)
+	            }
+	        }
+                }
+            }
         }
-		XML. 'TYPE'{
-			XML.'SPECIFICATION-TYPE-REF'("spec_List")
-		}
+        XML. 'TYPE'{
+            XML.'SPECIFICATION-TYPE-REF'("spec_List")
+        }
     }
         //       </OBJECT>
         //     </SPEC-HIERARCHY>
@@ -249,71 +253,83 @@ def makeSpecification(XML, DATE)
         // </SPECIFICATION>
 
     //FSR
-	XML. 'SPECIFICATION'("LONG-NAME":"Functional safety Requirements Specification","IDENTIFIER":"spec_fsr_id", "LAST-CHANGE":DATE){
-		XML. 'CHILDREN'{
-			XML. 'SPEC-HIERARCHY'("IDENTIFIER":"hier_fsr", "LAST-CHANGE":DATE){
-			    requirementlists.each{
-        			if(it.value['Type'] in ['FSR'])
-        			{
-        				XML.'SPEC-OBJECT-REF'(it.key)
-        			}
-        		}
-        	}
+    XML. 'SPECIFICATION'("LONG-NAME":"Functional safety Requirements Specification","IDENTIFIER":"spec_fsr_id", "LAST-CHANGE":DATE){
+        XML. 'CHILDREN'{
+            requirementlists.each{
+                if(it.value['Type'] in ['FSR']){
+                    randhierid = "_" + UUID.randomUUID().toString()
+                     tmp = it.key
+                    XML. 'SPEC-HIERARCHY'("IDENTIFIER":randhierid, "LAST-CHANGE":DATE){
+                        XML. 'OBJECT'{
+                            XML.'SPEC-OBJECT-REF'(tmp)
+	            }
+	        }
+                }
+            }
         }
-		XML. 'TYPE'{
-			XML.'SPECIFICATION-TYPE-REF'("spec_List")
-		}
+        XML. 'TYPE'{
+            XML.'SPECIFICATION-TYPE-REF'("spec_List")
+        }
     }
 
     //TSR
-	XML. 'SPECIFICATION'("LONG-NAME":"Technical safety Requirements Specification","IDENTIFIER":"spec_tsr_id", "LAST-CHANGE":DATE){
-		XML. 'CHILDREN'{
-			XML. 'SPEC-HIERARCHY'("IDENTIFIER":"hier_tsr", "LAST-CHANGE":DATE){
-			    requirementlists.each{
-        			if(it.value['Type'] in ['TSR'])
-        			{
-        				XML.'SPEC-OBJECT-REF'(it.key)
-        			}
-        		}
-        	}
+    XML. 'SPECIFICATION'("LONG-NAME":"Technical safety Requirements Specification","IDENTIFIER":"spec_tsr_id", "LAST-CHANGE":DATE){
+        XML. 'CHILDREN'{
+            requirementlists.each{
+                if(it.value['Type'] in ['TSR']){
+                    randhierid = "_" + UUID.randomUUID().toString()
+                     tmp = it.key
+                    XML. 'SPEC-HIERARCHY'("IDENTIFIER":randhierid, "LAST-CHANGE":DATE){
+                        XML. 'OBJECT'{
+                            XML.'SPEC-OBJECT-REF'(tmp)
+	            }
+	        }
+                }
+            }
         }
-		XML. 'TYPE'{
-			XML.'SPECIFICATION-TYPE-REF'("spec_List")
-		}
+        XML. 'TYPE'{
+            XML.'SPECIFICATION-TYPE-REF'("spec_List")
+        }
     }
 
     //HSR
-	XML. 'SPECIFICATION'("LONG-NAME":"Hardware safety Requirements Specification","IDENTIFIER":"spec_hsr_id", "LAST-CHANGE":DATE){
-		XML. 'CHILDREN'{
-			XML. 'SPEC-HIERARCHY'("IDENTIFIER":"hier_hsr", "LAST-CHANGE":DATE){
-			    requirementlists.each{
-        			if(it.value['Type'] in ['HSR'])
-        			{
-        				XML.'SPEC-OBJECT-REF'(it.key)
-        			}
-        		}
-        	}
+    XML. 'SPECIFICATION'("LONG-NAME":"Hardware safety Requirements Specification","IDENTIFIER":"spec_hsr_id", "LAST-CHANGE":DATE){
+        XML. 'CHILDREN'{
+            requirementlists.each{
+                if(it.value['Type'] in ['HSR']){
+                    randhierid = "_" + UUID.randomUUID().toString()
+                     tmp = it.key
+                    XML. 'SPEC-HIERARCHY'("IDENTIFIER":randhierid, "LAST-CHANGE":DATE){
+                        XML. 'OBJECT'{
+                            XML.'SPEC-OBJECT-REF'(tmp)
+	            }
+	        }
+                }
+            }
         }
-		XML. 'TYPE'{
-			XML.'SPECIFICATION-TYPE-REF'("spec_List")
-		}
+        XML. 'TYPE'{
+            XML.'SPECIFICATION-TYPE-REF'("spec_List")
+        }
     }
 
     //SSR
-	XML. 'SPECIFICATION'("LONG-NAME":"Software safety Requirements Specification","IDENTIFIER":"spec_ssr_id", "LAST-CHANGE":DATE){
-		XML. 'CHILDREN'{
-			XML. 'SPEC-HIERARCHY'("IDENTIFIER":"hier_ssr", "LAST-CHANGE":DATE){
-			    requirementlists.each{
-        			if(it.value['Type'] in ['SSR'])
-        			{
-        				XML.'SPEC-OBJECT-REF'(it.key)
-        			}
-        		}
-        	}
+    XML. 'SPECIFICATION'("LONG-NAME":"Software safety Requirements Specification","IDENTIFIER":"spec_ssr_id", "LAST-CHANGE":DATE){
+        XML. 'CHILDREN'{
+            requirementlists.each{
+                if(it.value['Type'] in ['HSR']){
+                    randhierid = "_" + UUID.randomUUID().toString()
+                     tmp = it.key
+                    XML. 'SPEC-HIERARCHY'("IDENTIFIER":randhierid, "LAST-CHANGE":DATE){
+                        XML. 'OBJECT'{
+                            XML.'SPEC-OBJECT-REF'(tmp)
+	            }
+	        }
+                }
+            }
         }
-		XML. 'TYPE'{
-			XML.'SPECIFICATION-TYPE-REF'("spec_List")
-		}
+        XML. 'TYPE'{
+            XML.'SPECIFICATION-TYPE-REF'("spec_List")
+        }
     }
 }
 
@@ -328,25 +344,25 @@ def makeSpecRelationGroup(XML, DATE)
         //     <SPECIFICATION-REF>_EF515D9D-7636-4F06-AC52-C12F15A11919</SPECIFICATION-REF>
         //   </SOURCE-SPECIFICATION>
         //   <SPEC-RELATIONS>
-		XML. 'RELATION-GROUP'("IDENTIFIER":"rel_sg_fsr_id", "LAST-CHANGE":DATE, "DESC":"SG and FSR"){
-			XML. 'SOURCE-SPECIFICATION'{
-				XML.'SPECIFICATION-REF'("spec_sg_id")
-			}
-			XML. 'SPEC-RELATIONS'{
-//			    spec_relation_list.each{
-//	        		if(requirementlists[it[1]]['Type'] in ['SG', 'SZ'] && requirementlists[it[2]]['Type'] == "FSR" )
-//	        		{
-//	        			XML.'SPEC-RELATION-REF'(it[0])
-//    	    		}
-//				}
-			}
-			XML. 'TARGET-SPECIFICATION'{
-				XML.'SPECIFICATION-REF'("spec_fsr_id")
-			}
-			XML. 'TYPE'{
-				XML.'SPECIFICATION-TYPE-REF'("spec_List")
-			}
-		}
+        XML. 'RELATION-GROUP'("IDENTIFIER":"rel_sg_fsr_id", "LAST-CHANGE":DATE, "DESC":"SG and FSR"){
+            XML. 'SOURCE-SPECIFICATION'{
+                XML.'SPECIFICATION-REF'("spec_sg_id")
+            }
+            XML. 'SPEC-RELATIONS'{
+                spec_relation_list.each{
+                    if(requirementlists[it[1]]['Type'] in ['SG', 'SZ'] && requirementlists[it[2]]['Type'] == "FSR" )
+                    {
+                        XML.'SPEC-RELATION-REF'(it[0])
+                    }
+                }
+            }
+            XML. 'TARGET-SPECIFICATION'{
+                XML.'SPECIFICATION-REF'("spec_fsr_id")
+            }
+            XML. 'TYPE'{
+                XML.'RELATION-GROUP-TYPE-REF'("rel_group_List")
+            }
+        }
 
         //   </SPEC-RELATIONS>
         //   <TARGET-SPECIFICATION>
@@ -358,67 +374,67 @@ def makeSpecRelationGroup(XML, DATE)
         // </RELATION-GROUP>
 
     //FSR - TSR
-		XML. 'RELATION-GROUP'("IDENTIFIER":"rel_fsr_tsr_id", "LAST-CHANGE":DATE, "DESC":"FSR and TSR"){
-			XML. 'SOURCE-SPECIFICATION'{
-				XML.'SPECIFICATION-REF'("spec_fsr_id")
-			}
-			XML. 'SPEC-RELATIONS'{
-//			    spec_relation_list.each{
-//	        		if(requirementlists[it[1]]['Type'] in ['FSR'] && requirementlists[it[2]]['Type'] == "TSR" )
-//	        		{
-//	        			XML.'SPEC-RELATION-REF'(it[0])
-//  	    		}
-//				}
-			}
-			XML. 'TARGET-SPECIFICATION'{
-				XML.'SPECIFICATION-REF'("spec_tsr_id")
-			}
-			XML. 'TYPE'{
-				XML.'SPECIFICATION-TYPE-REF'("spec_List")
-			}
-		}
+        XML. 'RELATION-GROUP'("IDENTIFIER":"rel_fsr_tsr_id", "LAST-CHANGE":DATE, "DESC":"FSR and TSR"){
+            XML. 'SOURCE-SPECIFICATION'{
+                XML.'SPECIFICATION-REF'("spec_fsr_id")
+            }
+            XML. 'SPEC-RELATIONS'{
+              spec_relation_list.each{
+                  if(requirementlists[it[1]]['Type'] in ['FSR'] && requirementlists[it[2]]['Type'] == "TSR" )
+                  {
+                      XML.'SPEC-RELATION-REF'(it[0])
+                  }
+              }
+            }
+            XML. 'TARGET-SPECIFICATION'{
+                XML.'SPECIFICATION-REF'("spec_tsr_id")
+            }
+            XML. 'TYPE'{
+                XML.'RELATION-GROUP-TYPE-REF'("rel_group_List")
+            }
+        }
 
     //TSR - HSR
-		XML. 'RELATION-GROUP'("IDENTIFIER":"rel_tsr_hsr_id", "LAST-CHANGE":DATE, "DESC":"TSR and HSR"){
-			XML. 'SOURCE-SPECIFICATION'{
-				XML.'SPECIFICATION-REF'("spec_tsr_id")
-			}
-			XML. 'SPEC-RELATIONS'{
-//			    spec_relation_list.each{
-//	        		if(requirementlists[it[1]]['Type'] in ['TSR'] && requirementlists[it[2]]['Type'] == "HSR" )
-//	        		{
-//	        			XML.'SPEC-RELATION-REF'(it[0])
-//  	    		}
-//				}
-			}
-			XML. 'TARGET-SPECIFICATION'{
-				XML.'SPECIFICATION-REF'("spec_hsr_id")
-			}
-			XML. 'TYPE'{
-				XML.'SPECIFICATION-TYPE-REF'("spec_List")
-			}
-		}
+        XML. 'RELATION-GROUP'("IDENTIFIER":"rel_tsr_hsr_id", "LAST-CHANGE":DATE, "DESC":"TSR and HSR"){
+            XML. 'SOURCE-SPECIFICATION'{
+                XML.'SPECIFICATION-REF'("spec_tsr_id")
+            }
+            XML. 'SPEC-RELATIONS'{
+              spec_relation_list.each{
+                  if(requirementlists[it[1]]['Type'] in ['TSR'] && requirementlists[it[2]]['Type'] == "HSR" )
+                  {
+                      XML.'SPEC-RELATION-REF'(it[0])
+                  }
+              }
+            }
+            XML. 'TARGET-SPECIFICATION'{
+                XML.'SPECIFICATION-REF'("spec_hsr_id")
+            }
+            XML. 'TYPE'{
+                XML.'RELATION-GROUP-TYPE-REF'("rel_group_List")
+            }
+        }
 
     //TSR - SSR
-    	XML. 'RELATION-GROUP'("IDENTIFIER":"rel_tsr_ssr_id", "LAST-CHANGE":DATE, "DESC":"TSR and SSR"){
-			XML. 'SOURCE-SPECIFICATION'{
-				XML.'SPECIFICATION-REF'("spec_tsr_id")
-			}
-			XML. 'SPEC-RELATIONS'{
-//			    spec_relation_list.each{
-//	        		if(requirementlists[it[1]]['Type'] in ['TSR'] && requirementlists[it[2]]['Type'] == "SSR" )
-//	        		{
-//	        			XML.'SPEC-RELATION-REF'(it[0])
-//    	    		}
-//				}
-			}
-			XML. 'TARGET-SPECIFICATION'{
-				XML.'SPECIFICATION-REF'("spec_ssr_id")
-			}
-			XML. 'TYPE'{
-				XML.'SPECIFICATION-TYPE-REF'("spec_List")
-			}
-		}
+        XML. 'RELATION-GROUP'("IDENTIFIER":"rel_tsr_ssr_id", "LAST-CHANGE":DATE, "DESC":"TSR and SSR"){
+            XML. 'SOURCE-SPECIFICATION'{
+                XML.'SPECIFICATION-REF'("spec_tsr_id")
+            }
+            XML. 'SPEC-RELATIONS'{
+              spec_relation_list.each{
+                  if(requirementlists[it[1]]['Type'] in ['TSR'] && requirementlists[it[2]]['Type'] == "SSR" )
+                  {
+                      XML.'SPEC-RELATION-REF'(it[0])
+                  }
+              }
+            }
+            XML. 'TARGET-SPECIFICATION'{
+                XML.'SPECIFICATION-REF'("spec_ssr_id")
+            }
+            XML. 'TYPE'{
+                XML.'RELATION-GROUP-TYPE-REF'("rel_group_List")
+            }
+        }
 }
 
 
