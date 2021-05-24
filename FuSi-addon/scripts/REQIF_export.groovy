@@ -236,7 +236,7 @@ def makeSpecObject(thisNode, identifier, XML, DATE)
 {
     XML.'SPEC-OBJECT'("IDENTIFIER":identifier, "LAST-CHANGE":DATE){
         XML.'TYPE'{
-            XML.'SPEC-OBJECT-TYPE-REF'("sot_list")
+            XML.'SPEC-OBJECT-TYPE-REF'("sot_List")
         }
         XML.'VALUES'{
             XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode.nodeID){
