@@ -39,7 +39,7 @@ def showDialog(String content) {
 
 def traverseTree(thisNode, parent_identifier)
 {
-    identifier = null
+    def identifier = null
 
     if(thisNode['Type'] in ['SG','SZ', 'FSR', 'TSR', 'HW', 'SW'] ){
         identifier = "_" + UUID.randomUUID().toString()
@@ -249,20 +249,22 @@ def makeSpecObject(thisNode, identifier, XML, DATE)
                     XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_text")
                 }
             }
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['ASIL']){
+            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['ASIL'].toString()){
                XML.'DEFINITION'{
                     XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_asil")
                 }
             }
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['Type']){
+            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['Type'].toString()){
                 XML.'DEFINITION'{
                     XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_type")
                 }
             }
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['Allocation']){
+            if(thisNode.attributes.size() != 2){
+            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['Allocation'].toString()){
                 XML.'DEFINITION'{
                     XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_allocation")
                 }
+            }
             }
         }
     }
