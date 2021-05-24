@@ -45,10 +45,10 @@ ASIL_map['C[D]'] = 'ASIL C[D]'
 ASIL_map['D'] = 'ASIL D'
 ASIL_map['D[D]'] = 'ASIL D[D]'
 
-// Start export for passt Safety goal node
+// Start export for passed Safety goal node
 def process_SG(thisNode, level) {
 	def result=[]
-	if (thisNode['Type']=='SZ') {
+	if ((thisNode['Type']=='SZ')||(thisNode['Type']=='SG')) {
 		result=['## Safety goal: ' + thisNode.text]
 		result+="""<details><summary>Unfold Safety Goal</summary><p>\n"""
 		thisNode.children.each{
@@ -85,7 +85,7 @@ def process_reqs(thisNode,level){
 
 def process_start_node(thisNode) {
 	def result=[]
-	if (thisNode['Type']=='SZ') {
+	if ((thisNode['Type']=='SZ')||(thisNode['Type']=='SG')) {
 		// Start node already is a Safety goal
 		result= process_SG(thisNode,1)
 	} else {

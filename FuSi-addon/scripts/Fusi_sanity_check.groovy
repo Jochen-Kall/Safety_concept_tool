@@ -84,7 +84,7 @@ def Check_base_ASIL(thisNode){
 // Verify that if there is a decomposition, the ASIL values add up
 def Check_decomposition(thisNode) {
 	// check if any child has a lower actual asil than the node itself, indicating a decomposition
-	def ch=thisNode.children.findAll{it['Type'] in ['SZ','FSR','TSR','HW','SW']}
+	def ch=thisNode.children.findAll{it['Type'] in ['SZ','SG','FSR','TSR','HW','SW']}
 	if (ch.any{ASIL_num(Act_ASIL(it['ASIL']))<ASIL_num(Act_ASIL(thisNode['ASIL']))}){	
 		// check if the sum of actual ASILs of the children is smaller than the actual ASIL of the parent
 		if (ASIL_num(Act_ASIL(thisNode['ASIL'])) > ch.collect{ASIL_num(Act_ASIL(it['ASIL']))}.sum() ) {
@@ -109,7 +109,8 @@ def Check_ASIL_source(thisNode) {
 
 // permisseable type relationships
 Allowed_derivation=[:]
-Allowed_derivation['SZ']=['Information','FSR']
+Allowed_derivation['SZ']=['Information','FSR'] 	// Backwards compatibility
+Allowed_derivation['SG']=['Information','FSR']
 Allowed_derivation['FSR']=['Information','FSR','TSR']
 Allowed_derivation['TSR']=['Information','TSR','HW','SW']
 Allowed_derivation['HW']=['Information','HW']
@@ -134,8 +135,8 @@ c.find{(it.style.name=='Requirement') && (it['Type'] in ['FSR','TSR','HW','SW'])
 	Check_base_ASIL(it)
 }
 
-// Find all Requirement nodes that are of type ['SZ','FSR','TSR','HW','SW'], i.e. excluding Information artifacts
-c.find{(it.style.name=='Requirement') && (it['Type'] in ['SZ','FSR','TSR','HW','SW']) }.each{
+// Find all Requirement nodes that are of type ['SG','FSR','TSR','HW','SW'], i.e. excluding Information artifacts
+c.find{(it.style.name=='Requirement') && (it['Type'] in ['SZ','SG','FSR','TSR','HW','SW']) }.each{ 	// SZ in there for backwards compatibility
 	// Execute decomposition check on all requirements with children
 	if (it.children.any{it.style.name=='Requirement'}) {
 		Check_decomposition(it)
