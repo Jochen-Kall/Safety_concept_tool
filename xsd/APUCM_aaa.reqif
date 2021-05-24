@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:doors="http://www.ibm.com/rdm/doors/REQIF/xmlns/1.0" xmlns:reqif="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:reqif-common="http://www.prostep.org/reqif" xmlns:reqif-xhtml="http://www.w3.org/1999/xhtml" xmlns:rm="http://www.ibm.com/rm" xmlns:rm-jama="http://www.jamasoftware.com/rm" xmlns:rm-reqif="http://www.ibm.com/rm/reqif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <THE-HEADER>
+        <REQ-IF-HEADER IDENTIFIER="_63686923-bc6f-4c38-8b85-57b4538d8d96">
+            <CREATION-TIME>2021-04-21T15:04:05.301+09:00</CREATION-TIME>
+            <REQ-IF-TOOL-ID>Data Exchange 3.5.1</REQ-IF-TOOL-ID>
+            <REQ-IF-VERSION>1.0</REQ-IF-VERSION>
+            <SOURCE-TOOL-ID>Jama Connect</SOURCE-TOOL-ID>
+            <TITLE>APUCM</TITLE>
+        </REQ-IF-HEADER>
+    </THE-HEADER>
+    <CORE-CONTENT>
+        <REQ-IF-CONTENT>
+            <DATATYPES>
+                <DATATYPE-DEFINITION-INTEGER DESC="Integer" IDENTIFIER="_4804401c-d7ed-3c5d-a35e-822166ad11ca" LAST-CHANGE="2021-04-21T15:04:05.305+09:00" LONG-NAME="INTEGER" MAX="2147483647" MIN="-2147483648"/>
+                <DATATYPE-DEFINITION-STRING DESC="Text Field" IDENTIFIER="_c8059309-6dda-379d-8a9d-0bf5cec7f49f" LAST-CHANGE="2021-04-21T15:04:05.305+09:00" LONG-NAME="STRING" MAX-LENGTH="255"/>
+                <DATATYPE-DEFINITION-XHTML DESC="Rich Text" IDENTIFIER="_3cb3f485-bc64-3d59-a2e1-c2257c343fb0" LAST-CHANGE="2021-04-21T15:04:05.306+09:00" LONG-NAME="TEXT"/>
+                <DATATYPE-DEFINITION-ENUMERATION DESC="Valid or Draft" IDENTIFIER="_2157ab17-6313-4302-b8e1-4e23baf59551" LAST-CHANGE="2021-04-21T15:04:05.325+09:00" LONG-NAME="AUTOSAR RS Type">
+                    <SPECIFIED-VALUES>
+                        <ENUM-VALUE IDENTIFIER="_99c0c75b-f8d1-4bb5-9071-fba853ce027c" LAST-CHANGE="2021-04-21T15:04:05.325+09:00" LONG-NAME="Draft">
+                            <PROPERTIES>
+                                <EMBEDDED-VALUE KEY="1" OTHER-CONTENT="Draft"/>
+                            </PROPERTIES>
+                        </ENUM-VALUE>
+                        <ENUM-VALUE IDENTIFIER="_502ce749-51bb-4744-8cc2-73ac14596f06" LAST-CHANGE="2021-04-21T15:04:05.325+09:00" LONG-NAME="Valid">
+                            <PROPERTIES>
+                                <EMBEDDED-VALUE KEY="2" OTHER-CONTENT=""/>
+                            </PROPERTIES>
+                        </ENUM-VALUE>
+                    </SPECIFIED-VALUES>
+                </DATATYPE-DEFINITION-ENUMERATION>
+                <DATATYPE-DEFINITION-ENUMERATION DESC="Default Item Status" IDENTIFIER="_902038c6-0c4b-4876-aa8e-a5257d061696" LAST-CHANGE="2021-04-21T15:04:05.317+09:00" LONG-NAME="Status">
+                    <SPECIFIED-VALUES>
+                        <ENUM-VALUE IDENTIFIER="_8e74d132-210a-48d0-8c44-d187e4ce0301" LAST-CHANGE="2021-04-21T15:04:05.318+09:00" LONG-NAME="Draft">
+                            <PROPERTIES>
+                                <EMBEDDED-VALUE KEY="1" OTHER-CONTENT=""/>
+                            </PROPERTIES>
+                        </ENUM-VALUE>
+                        <ENUM-VALUE IDENTIFIER="_9ca2a768-b3df-4cc8-8c58-1e85fcfb5698" LAST-CHANGE="2021-04-21T15:04:05.319+09:00" LONG-NAME="Unassigned">
+                            <PROPERTIES>
+                                <EMBEDDED-VALUE KEY="2" OTHER-CONTENT=""/>
+                            </PROPERTIES>
+                        </ENUM-VALUE>
+                        <ENUM-VALUE IDENTIFIER="_a069bc5f-ca10-40c5-a2ae-31a647c7410e" LAST-CHANGE="2021-04-21T15:04:05.319+09:00" LONG-NAME="Review">
+                            <PROPERTIES>
+                                <EMBEDDED-VALUE KEY="3" OTHER-CONTENT=""/>
+                            </PROPERTIES>
+                        </ENUM-VALUE>
+                        <ENUM-VALUE IDENTIFIER="_477798ae-31d4-4e21-954f-7dc495be31cb" LAST-CHANGE="2021-04-21T15:04:05.319+09:00" LONG-NAME="Approved">
+                            <PROPERTIES>
+                                <EMBEDDED-VALUE KEY="4" OTHER-CONTENT=""/>
+                            </PROPERTIES>
+                        </ENUM-VALUE>
+                        <ENUM-VALUE IDENTIFIER="_63800b90-da9c-40c9-86df-d40098d45978" LAST-CHANGE="2021-04-21T15:04:05.319+09:00" LONG-NAME="Rejected">
+                            <PROPERTIES>
+                                <EMBEDDED-VALUE KEY="5" OTHER-CONTENT=""/>
+                            </PROPERTIES>
+                        </ENUM-VALUE>
+                        <ENUM-VALUE IDENTIFIER="_24569078-d028-4592-aac5-f986ae065023" LAST-CHANGE="2021-04-21T15:04:05.319+09:00" LONG-NAME="Deleted">
+                            <PROPERTIES>
+                                <EMBEDDED-VALUE KEY="6" OTHER-CONTENT=""/>
+                            </PROPERTIES>
+                        </ENUM-VALUE>
+                        <ENUM-VALUE IDENTIFIER="_2a28c8aa-0f5e-4dfa-9b6c-e5f41c213f81" LAST-CHANGE="2021-04-21T15:04:05.319+09:00" LONG-NAME="Deferred">
+                            <PROPERTIES>
+                                <EMBEDDED-VALUE KEY="7" OTHER-CONTENT=""/>
+                            </PROPERTIES>
+                        </ENUM-VALUE>
+                        <ENUM-VALUE IDENTIFIER="_a1b1cacd-749b-4e93-a1d0-b4b24eaa8fca" LAST-CHANGE="2021-04-21T15:04:05.319+09:00" LONG-NAME="Completed">
+                            <PROPERTIES>
+                                <EMBEDDED-VALUE KEY="8" OTHER-CONTENT=""/>
+                            </PROPERTIES>
+                        </ENUM-VALUE>
+                    </SPECIFIED-VALUES>
+                </DATATYPE-DEFINITION-ENUMERATION>
+            </DATATYPES>
+            <SPEC-TYPES>
+                <SPEC-OBJECT-TYPE IDENTIFIER="_7df951c8-88e2-4e35-9a64-aaf1b91efa3e" LAST-CHANGE="2021-04-21T15:04:05.322+09:00" LONG-NAME="AUTOSAR RS import">
+                    <SPEC-ATTRIBUTES>
+                        <ATTRIBUTE-DEFINITION-INTEGER IDENTIFIER="_49ea744c-f230-497f-b31e-22c38b027f64" IS-EDITABLE="false" LAST-CHANGE="2021-04-21T15:04:05.323+09:00" LONG-NAME="id">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-INTEGER-REF>_4804401c-d7ed-3c5d-a35e-822166ad11ca</DATATYPE-DEFINITION-INTEGER-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-INTEGER>
+                        <ATTRIBUTE-DEFINITION-INTEGER IDENTIFIER="_2759fe52-4073-4577-8cb2-e30cc94193bc" IS-EDITABLE="false" LAST-CHANGE="2021-04-21T15:04:05.323+09:00" LONG-NAME="project">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-INTEGER-REF>_4804401c-d7ed-3c5d-a35e-822166ad11ca</DATATYPE-DEFINITION-INTEGER-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-INTEGER>
+                        <ATTRIBUTE-DEFINITION-STRING DESC="Applies to" IDENTIFIER="_e8732a51-47e8-4d21-8d13-bcc645d859e3" IS-EDITABLE="true" LAST-CHANGE="2021-04-21T15:04:05.323+09:00" LONG-NAME="applies_to">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-STRING-REF>_c8059309-6dda-379d-8a9d-0bf5cec7f49f</DATATYPE-DEFINITION-STRING-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-STRING>
+                        <ATTRIBUTE-DEFINITION-STRING DESC="AUTOSAR ID" IDENTIFIER="_1c4317fe-b408-4754-a744-b013b159a470" IS-EDITABLE="true" LAST-CHANGE="2021-04-21T15:04:05.323+09:00" LONG-NAME="name">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-STRING-REF>_c8059309-6dda-379d-8a9d-0bf5cec7f49f</DATATYPE-DEFINITION-STRING-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-STRING>
+                        <ATTRIBUTE-DEFINITION-STRING DESC="Dependencies" IDENTIFIER="_4ef6c7f4-2d80-47f8-9f05-8265b472563a" IS-EDITABLE="true" LAST-CHANGE="2021-04-21T15:04:05.324+09:00" LONG-NAME="dependencies">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-STRING-REF>_c8059309-6dda-379d-8a9d-0bf5cec7f49f</DATATYPE-DEFINITION-STRING-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-STRING>
+                        <ATTRIBUTE-DEFINITION-STRING DESC="Description" IDENTIFIER="_0afeef4f-5dc9-4367-b5b3-d8ed772deff6" IS-EDITABLE="true" LAST-CHANGE="2021-04-21T15:04:05.324+09:00" LONG-NAME="description">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-STRING-REF>_c8059309-6dda-379d-8a9d-0bf5cec7f49f</DATATYPE-DEFINITION-STRING-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-STRING>
+                        <ATTRIBUTE-DEFINITION-STRING DESC="Global ID" IDENTIFIER="_ecb478b9-89a3-4d44-8544-e2efb5402d43" IS-EDITABLE="false" LAST-CHANGE="2021-04-21T15:04:05.324+09:00" LONG-NAME="globalId">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-STRING-REF>_c8059309-6dda-379d-8a9d-0bf5cec7f49f</DATATYPE-DEFINITION-STRING-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-STRING>
+                        <ATTRIBUTE-DEFINITION-STRING DESC="Project ID" IDENTIFIER="_e757b71c-5c0f-4e0d-960f-23bd7cf9459f" IS-EDITABLE="false" LAST-CHANGE="2021-04-21T15:04:05.324+09:00" LONG-NAME="documentKey">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-STRING-REF>_c8059309-6dda-379d-8a9d-0bf5cec7f49f</DATATYPE-DEFINITION-STRING-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-STRING>
+                        <ATTRIBUTE-DEFINITION-STRING DESC="Rationale" IDENTIFIER="_169131c2-7958-469a-b6df-c6d4708eeac2" IS-EDITABLE="true" LAST-CHANGE="2021-04-21T15:04:05.324+09:00" LONG-NAME="rationale">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-STRING-REF>_c8059309-6dda-379d-8a9d-0bf5cec7f49f</DATATYPE-DEFINITION-STRING-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-STRING>
+                        <ATTRIBUTE-DEFINITION-STRING DESC="Requirement" IDENTIFIER="_6562e605-ccee-4a3d-bdb8-553edf5f1268" IS-EDITABLE="true" LAST-CHANGE="2021-04-21T15:04:05.324+09:00" LONG-NAME="requirement">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-STRING-REF>_c8059309-6dda-379d-8a9d-0bf5cec7f49f</DATATYPE-DEFINITION-STRING-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-STRING>
+                        <ATTRIBUTE-DEFINITION-STRING DESC="Supporting Material" IDENTIFIER="_e30d8004-9261-4456-a69d-722a17fe6834" IS-EDITABLE="true" LAST-CHANGE="2021-04-21T15:04:05.324+09:00" LONG-NAME="supporting_material">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-STRING-REF>_c8059309-6dda-379d-8a9d-0bf5cec7f49f</DATATYPE-DEFINITION-STRING-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-STRING>
+                        <ATTRIBUTE-DEFINITION-ENUMERATION DESC="Type" IDENTIFIER="_23ddc0ce-3c33-44e6-8cd9-2417ec8327d4" IS-EDITABLE="true" LAST-CHANGE="2021-04-21T15:04:05.325+09:00" LONG-NAME="type" MULTI-VALUED="false">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-ENUMERATION-REF>_2157ab17-6313-4302-b8e1-4e23baf59551</DATATYPE-DEFINITION-ENUMERATION-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-ENUMERATION>
+                        <ATTRIBUTE-DEFINITION-STRING DESC="Up Trace Link" IDENTIFIER="_75179b7e-b0f5-41d6-80e5-9acd6e4b7a1d" IS-EDITABLE="true" LAST-CHANGE="2021-04-21T15:04:05.325+09:00" LONG-NAME="up_trace_link">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-STRING-REF>_c8059309-6dda-379d-8a9d-0bf5cec7f49f</DATATYPE-DEFINITION-STRING-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-STRING>
+                        <ATTRIBUTE-DEFINITION-STRING DESC="Use Case" IDENTIFIER="_901d0c86-ab21-4b5f-b4e4-d8880d07beb8" IS-EDITABLE="true" LAST-CHANGE="2021-04-21T15:04:05.325+09:00" LONG-NAME="use_case">
+                            <TYPE>
+                                <DATATYPE-DEFINITION-STRING-REF>_c8059309-6dda-379d-8a9d-0bf5cec7f49f</DATATYPE-DEFINITION-STRING-REF>
+                            </TYPE>
+                        </ATTRIBUTE-DEFINITION-STRING>
+                    </SPEC-ATTRIBUTES>
+                </SPEC-OBJECT-TYPE>
+            </SPEC-TYPES>
+            <SPEC-OBJECTS>
+                <SPEC-OBJECT IDENTIFIER="_0346e5e9-bba8-396d-b966-7da781d710b0" LAST-CHANGE="2021-04-21T15:04:05.485+09:00">
+                    <TYPE>
+                        <SPEC-OBJECT-TYPE-REF>_7df951c8-88e2-4e35-9a64-aaf1b91efa3e</SPEC-OBJECT-TYPE-REF>
+                    </TYPE>
+                    <VALUES>
+                        <ATTRIBUTE-VALUE-INTEGER THE-VALUE="8116">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-INTEGER-REF>_49ea744c-f230-497f-b31e-22c38b027f64</ATTRIBUTE-DEFINITION-INTEGER-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-INTEGER>
+                        <ATTRIBUTE-VALUE-INTEGER THE-VALUE="29">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-INTEGER-REF>_2759fe52-4073-4577-8cb2-e30cc94193bc</ATTRIBUTE-DEFINITION-INTEGER-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-INTEGER>
+                        <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-STRING-REF>_e8732a51-47e8-4d21-8d13-bcc645d859e3</ATTRIBUTE-DEFINITION-STRING-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-STRING>
+                        <ATTRIBUTE-VALUE-STRING THE-VALUE="RS_UCM_00015">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-STRING-REF>_1c4317fe-b408-4754-a744-b013b159a470</ATTRIBUTE-DEFINITION-STRING-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-STRING>
+                        <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-STRING-REF>_4ef6c7f4-2d80-47f8-9f05-8265b472563a</ATTRIBUTE-DEFINITION-STRING-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-STRING>
+                        <ATTRIBUTE-VALUE-STRING THE-VALUE="UCM shall remove all unneeded data such as logs, possible backups after Software Package processing has finished.">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-STRING-REF>_0afeef4f-5dc9-4367-b5b3-d8ed772deff6</ATTRIBUTE-DEFINITION-STRING-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-STRING>
+                        <ATTRIBUTE-VALUE-STRING THE-VALUE="GID-60202">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-STRING-REF>_ecb478b9-89a3-4d44-8544-e2efb5402d43</ATTRIBUTE-DEFINITION-STRING-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-STRING>
+                        <ATTRIBUTE-VALUE-STRING THE-VALUE="AreneOS-RefAPUCM-7">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-STRING-REF>_e757b71c-5c0f-4e0d-960f-23bd7cf9459f</ATTRIBUTE-DEFINITION-STRING-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-STRING>
+                        <ATTRIBUTE-VALUE-STRING THE-VALUE="UCM shall make sure all unneeded resources are freed after Software Package processing has finished.">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-STRING-REF>_169131c2-7958-469a-b6df-c6d4708eeac2</ATTRIBUTE-DEFINITION-STRING-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-STRING>
+                        <ATTRIBUTE-VALUE-STRING THE-VALUE="UCM shall remove all unneeded data after Software Package processing has finished.">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-STRING-REF>_6562e605-ccee-4a3d-bdb8-553edf5f1268</ATTRIBUTE-DEFINITION-STRING-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-STRING>
+                        <ATTRIBUTE-VALUE-STRING THE-VALUE="-">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-STRING-REF>_e30d8004-9261-4456-a69d-722a17fe6834</ATTRIBUTE-DEFINITION-STRING-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-STRING>
+                        <ATTRIBUTE-VALUE-ENUMERATION>
+                            <VALUES>
+                                <ENUM-VALUE-REF>_99c0c75b-f8d1-4bb5-9071-fba853ce027c</ENUM-VALUE-REF>
+                            </VALUES>
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_23ddc0ce-3c33-44e6-8cd9-2417ec8327d4</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-ENUMERATION>
+                        <ATTRIBUTE-VALUE-STRING THE-VALUE="RS_Main_00150, RS_Main_00503">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-STRING-REF>_75179b7e-b0f5-41d6-80e5-9acd6e4b7a1d</ATTRIBUTE-DEFINITION-STRING-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-STRING>
+                        <ATTRIBUTE-VALUE-STRING THE-VALUE="At the end of update process UCM shall remove log files, stored backups for Software Package and other temporary items created during update process.">
+                            <DEFINITION>
+                                <ATTRIBUTE-DEFINITION-STRING-REF>_901d0c86-ab21-4b5f-b4e4-d8880d07beb8</ATTRIBUTE-DEFINITION-STRING-REF>
+                            </DEFINITION>
+                        </ATTRIBUTE-VALUE-STRING>
+                    </VALUES>
+                </SPEC-OBJECT>
+            </SPEC-OBJECTS>
+            <SPEC-RELATIONS/>
+            <SPEC-RELATION-GROUPS/>
+        </REQ-IF-CONTENT>
+    </CORE-CONTENT>
+</REQ-IF>

@@ -1,7 +1,7 @@
 <REQ-IF xmlns='http://www.omg.org/spec/ReqIF/20110401/reqif.xsd' xmlns:reqif='http://www.omg.org/spec/ReqIF/20110401/reqif.xsd'>
   <THE-HEADER>
     <REQ-IF-HEADER IDENTIFIER='_adkamo'>
-      <CREATION-TIME>2021-04-26T10:00:00</CREATION-TIME>
+      <CREATION-TIME>2021-05-24T17:21:33</CREATION-TIME>
       <REPOSITORY-ID>?</REPOSITORY-ID>
       <REQ-IF-TOOL-ID>Freemind FuSa Extension v0.5</REQ-IF-TOOL-ID>
       <REQ-IF-VERSION>1.0</REQ-IF-VERSION>
@@ -12,45 +12,443 @@
   <CORE-CONTENT>
     <REQ-IF-CONTENT>
       <DATATYPES>
-        <DATATYPE-DEFINITION-STRING LONG-NAME='ID' IDENTIFIER='dt_id' LAST-CHANGE='2021-04-26T10:00:00' MAX-LENGTH='100' />
-        <DATATYPE-DEFINITION-STRING LONG-NAME='Text' IDENTIFIER='dt_text' LAST-CHANGE='2021-04-26T10:00:00' MAX-LENGTH='100' />
-        <DATATYPE-DEFINITION-STRING LONG-NAME='ASIL' IDENTIFIER='dt_asil' LAST-CHANGE='2021-04-26T10:00:00' MAX-LENGTH='100' />
-        <DATATYPE-DEFINITION-STRING LONG-NAME='Type' IDENTIFIER='dt_type' LAST-CHANGE='2021-04-26T10:00:00' MAX-LENGTH='100' />
-        <DATATYPE-DEFINITION-STRING LONG-NAME='Allocation' IDENTIFIER='dt_allocation' LAST-CHANGE='2021-04-26T10:00:00' MAX-LENGTH='100' />
+        <DATATYPE-DEFINITION-STRING LONG-NAME='MindMap ID' IDENTIFIER='dt_id' LAST-CHANGE='2021-05-24T17:21:33' MAX-LENGTH='100' />
+        <DATATYPE-DEFINITION-STRING LONG-NAME='Text' IDENTIFIER='dt_text' LAST-CHANGE='2021-05-24T17:21:33' MAX-LENGTH='100' />
+        <DATATYPE-DEFINITION-STRING LONG-NAME='ASIL' IDENTIFIER='dt_asil' LAST-CHANGE='2021-05-24T17:21:33' MAX-LENGTH='100' />
+        <DATATYPE-DEFINITION-STRING LONG-NAME='Type' IDENTIFIER='dt_type' LAST-CHANGE='2021-05-24T17:21:33' MAX-LENGTH='100' />
+        <DATATYPE-DEFINITION-STRING LONG-NAME='Allocation' IDENTIFIER='dt_allocation' LAST-CHANGE='2021-05-24T17:21:33' MAX-LENGTH='100' />
       </DATATYPES>
       <SPEC-TYPES>
-        <SPEC-OBJECT-TYPE LONG-NAME='LIST' IDENTIFIER='sot_List' LAST-CHANGE='2021-04-26T10:00:00'>
+        <SPECIFICATION-TYPE LONG-NAME='Requirement Specification' IDENTIFIER='spec_List' LAST-CHANGE='2021-05-24T17:21:33'>
           <SPEC-ATTRIBUTES>
-            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='id' IDENTIFIER='sa_id' LAST-CHANGE='2021-04-26T10:00:00' IS-EDITABLE='false' DESC='ID'>
-              <TYPE>
-                <DATATYPE-DEFINITION-STRING-REF>dt_id</DATATYPE-DEFINITION-STRING-REF>
-              </TYPE>
-            </ATTRIBUTE-DEFINITION-STRING>
-            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='text' IDENTIFIER='sa_text' LAST-CHANGE='2021-04-26T10:00:00' IS-EDITABLE='false' DESC='Contents'>
+            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='name' IDENTIFIER='cmp_name' LAST-CHANGE='2021-05-24T17:21:33' DESC='Contents'>
               <TYPE>
                 <DATATYPE-DEFINITION-STRING-REF>dt_text</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
-            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='asil' IDENTIFIER='sa_asil' LAST-CHANGE='2021-04-26T10:00:00' IS-EDITABLE='false' DESC='ASIL'>
+            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='description' IDENTIFIER='cmp_desc' LAST-CHANGE='2021-05-24T17:21:33' DESC='Contents'>
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>dt_text</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+        <SPEC-OBJECT-TYPE LONG-NAME='set' IDENTIFIER='set' LAST-CHANGE='2021-05-24T17:21:33'>
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='name' IDENTIFIER='set_name' LAST-CHANGE='2021-05-24T17:21:33' DESC='Contents'>
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>dt_text</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='description' IDENTIFIER='set_desc' LAST-CHANGE='2021-05-24T17:21:33' DESC='Contents'>
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>dt_text</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE LONG-NAME='Safety Requirement' IDENTIFIER='sot_List' LAST-CHANGE='2021-05-24T17:21:33'>
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='Requirement_id' IDENTIFIER='sa_id' LAST-CHANGE='2021-05-24T17:21:33' IS-EDITABLE='false' DESC='ID'>
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>dt_id</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='text' IDENTIFIER='sa_text' LAST-CHANGE='2021-05-24T17:21:33' IS-EDITABLE='false' DESC='Contents'>
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>dt_text</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='asil' IDENTIFIER='sa_asil' LAST-CHANGE='2021-05-24T17:21:33' IS-EDITABLE='false' DESC='ASIL'>
               <TYPE>
                 <DATATYPE-DEFINITION-STRING-REF>dt_asil</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
-            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='type' IDENTIFIER='sa_type' LAST-CHANGE='2021-04-26T10:00:00' IS-EDITABLE='false' DESC='TYPE'>
+            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='type' IDENTIFIER='sa_type' LAST-CHANGE='2021-05-24T17:21:33' IS-EDITABLE='false' DESC='TYPE'>
               <TYPE>
                 <DATATYPE-DEFINITION-STRING-REF>dt_type</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
-            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='allocation' IDENTIFIER='sa_allocation' LAST-CHANGE='2021-04-26T10:00:00' IS-EDITABLE='false' DESC='ALLOCATE'>
+            <ATTRIBUTE-DEFINITION-STRING LONG-NAME='allocation' IDENTIFIER='sa_allocation' LAST-CHANGE='2021-05-24T17:21:33' IS-EDITABLE='false' DESC='ALLOCATE'>
               <TYPE>
                 <DATATYPE-DEFINITION-STRING-REF>dt_allocation</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
           </SPEC-ATTRIBUTES>
         </SPEC-OBJECT-TYPE>
+        <SPEC-RELATION-TYPE LONG-NAME='Derive Relationship' IDENTIFIER='spec_rel_List' LAST-CHANGE='2021-05-24T17:21:33' />
+        <RELATION-GROUP-TYPE LONG-NAME='Relationship Gruop' IDENTIFIER='rel_group_List' LAST-CHANGE='2021-05-24T17:21:33' />
       </SPEC-TYPES>
       <SPEC-OBJECTS>
-        <SPEC-OBJECT IDENTIFIER='aaa1111' LAST-CHANGE='2021-04-26T10:00:00'>
+        <SPEC-OBJECT IDENTIFIER='safety_goal_set' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>set</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Safety Goal'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>set_name</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE=''>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>set_desc</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='fsr_set' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>set</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Functional Safety Requirement'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>set_name</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE=''>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>set_desc</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='tsr_set' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>set</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Technical Safety Requirement'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>set_name</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='hsr_set' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>set</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Hardware Safety Requirement'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>set_name</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE=''>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>set_desc</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='ssr_set' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>set</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Software Safety Requirement'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>set_name</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE=''>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>set_desc</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='_32cffa83-6fff-4865-b811-6fbf0565c4cd' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>sot_list</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='ID_971613141'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_id</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Safety Goal 1'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_text</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='B'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_asil</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='SG'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_type</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE=''>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_allocation</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='_ec1bbac5-c681-45f7-9289-d6d226f68564' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>sot_list</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='ID_284275189'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_id</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='AAAA'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_text</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='B'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_asil</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='FSR'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_type</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Sys Element 1'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_allocation</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='_f1df938c-8f5c-4876-9b5b-3dfdbcd31f21' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>sot_list</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='ID_1880247567'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_id</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='BBBBB'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_text</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='B'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_asil</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='TSR'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_type</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Sys Element 1'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_allocation</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='_471444e2-a959-4dd4-8171-45cde32e13b4' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>sot_list</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='ID_1226725815'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_id</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='DDDDD'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_text</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='B'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_asil</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='HW'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_type</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='HW Element 1'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_allocation</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='_60bf9fb0-72b9-4efb-8cad-68b354bc5070' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>sot_list</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='ID_166025809'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_id</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='EEEEE'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_text</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='B'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_asil</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='SW'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_type</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='SW Element 2'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_allocation</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='_0ba39d7a-357f-4b69-b9b5-d4853060db56' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>sot_list</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='ID_1489745809'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_id</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='CCCCC'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_text</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='B'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_asil</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='TSR'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_type</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Sys Element 2'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_allocation</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='_9cbd14a4-0d1e-4176-9b08-e34a069ef328' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>sot_list</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='ID_1516169837'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_id</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='FFFFF'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_text</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='B'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_asil</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='HW'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_type</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='HW Element 2'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_allocation</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='_66762269-3f40-4f35-993e-5e4991be921e' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>sot_list</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='ID_685136060'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_id</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='GGGGG'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_text</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='B'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_asil</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='SW'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_type</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='SW Element 2'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_allocation</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='_0adbc236-5b0b-4b9f-96cd-98a9622bf6e6' LAST-CHANGE='2021-05-24T17:21:33'>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>sot_list</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='ID_248064249'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_id</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='HHHHHH'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_text</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='B'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_asil</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='FSR'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_type</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Not Allocated'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>sa_allocation</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER='_ea783649-f41e-4f5f-b3c8-5e59f3d4031b' LAST-CHANGE='2021-05-24T17:21:33'>
           <TYPE>
             <SPEC-OBJECT-TYPE-REF>sot_list</SPEC-OBJECT-TYPE-REF>
           </TYPE>
@@ -70,7 +468,7 @@
                 <ATTRIBUTE-DEFINITION-STRING-REF>sa_asil</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE='SZ'>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='SG'>
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>sa_type</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -83,6 +481,346 @@
           </VALUES>
         </SPEC-OBJECT>
       </SPEC-OBJECTS>
+      <SPEC-RELATIONS>
+        <SPEC-RELATION IDENTIFIER='_df5bbd16-3406-4234-8b19-1aa8d314ca1d' LAST-CHANGE='2021-05-24T17:21:33'>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_32cffa83-6fff-4865-b811-6fbf0565c4cd</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TARGET>
+            <SPEC-OBJECT-REF>_ec1bbac5-c681-45f7-9289-d6d226f68564</SPEC-OBJECT-REF>
+          </TARGET>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>spec_rel_List</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER='_ef7fc7af-0ab2-4dfb-9145-b441a001e930' LAST-CHANGE='2021-05-24T17:21:33'>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_ec1bbac5-c681-45f7-9289-d6d226f68564</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TARGET>
+            <SPEC-OBJECT-REF>_f1df938c-8f5c-4876-9b5b-3dfdbcd31f21</SPEC-OBJECT-REF>
+          </TARGET>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>spec_rel_List</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER='_0d407928-b5fb-4365-b337-0d793831dcda' LAST-CHANGE='2021-05-24T17:21:33'>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_f1df938c-8f5c-4876-9b5b-3dfdbcd31f21</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TARGET>
+            <SPEC-OBJECT-REF>_471444e2-a959-4dd4-8171-45cde32e13b4</SPEC-OBJECT-REF>
+          </TARGET>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>spec_rel_List</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER='_41065fea-93e1-4abe-8c98-82d17ad4f8d7' LAST-CHANGE='2021-05-24T17:21:33'>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_471444e2-a959-4dd4-8171-45cde32e13b4</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TARGET>
+            <SPEC-OBJECT-REF>_60bf9fb0-72b9-4efb-8cad-68b354bc5070</SPEC-OBJECT-REF>
+          </TARGET>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>spec_rel_List</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER='_e9ff9e06-d740-4acb-a5b2-10942c1a990d' LAST-CHANGE='2021-05-24T17:21:33'>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_60bf9fb0-72b9-4efb-8cad-68b354bc5070</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TARGET>
+            <SPEC-OBJECT-REF>_0ba39d7a-357f-4b69-b9b5-d4853060db56</SPEC-OBJECT-REF>
+          </TARGET>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>spec_rel_List</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER='_5775a389-7c6e-4395-a6e8-97e92c429537' LAST-CHANGE='2021-05-24T17:21:33'>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_0ba39d7a-357f-4b69-b9b5-d4853060db56</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TARGET>
+            <SPEC-OBJECT-REF>_9cbd14a4-0d1e-4176-9b08-e34a069ef328</SPEC-OBJECT-REF>
+          </TARGET>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>spec_rel_List</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER='_cff8ba69-2725-4e46-b42a-a464786c0072' LAST-CHANGE='2021-05-24T17:21:33'>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_9cbd14a4-0d1e-4176-9b08-e34a069ef328</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TARGET>
+            <SPEC-OBJECT-REF>_66762269-3f40-4f35-993e-5e4991be921e</SPEC-OBJECT-REF>
+          </TARGET>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>spec_rel_List</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER='_a3af600e-9d40-4faf-9534-356f9094baed' LAST-CHANGE='2021-05-24T17:21:33'>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_66762269-3f40-4f35-993e-5e4991be921e</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TARGET>
+            <SPEC-OBJECT-REF>_0adbc236-5b0b-4b9f-96cd-98a9622bf6e6</SPEC-OBJECT-REF>
+          </TARGET>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>spec_rel_List</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER='_ce4d6ac1-f1dd-4224-afcb-9cbaf5b83196' LAST-CHANGE='2021-05-24T17:21:33'>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_0adbc236-5b0b-4b9f-96cd-98a9622bf6e6</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TARGET>
+            <SPEC-OBJECT-REF>_ea783649-f41e-4f5f-b3c8-5e59f3d4031b</SPEC-OBJECT-REF>
+          </TARGET>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>spec_rel_List</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+      </SPEC-RELATIONS>
+      <SPECIFICATIONS>
+        <SPECIFICATION LONG-NAME='Safety Goal' IDENTIFIER='spec_sg_id' LAST-CHANGE='2021-05-24T17:21:33'>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER='_dd6b2559-16c1-47ef-8f41-75745da120bc' LAST-CHANGE='2021-05-24T17:21:33'>
+              <OBJECT>
+                <SPEC-OBJECT-REF>safety_goal_set</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER='_31fb991b-2832-4640-93ab-e48d700f9f47' LAST-CHANGE='2021-05-24T17:21:33'>
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_32cffa83-6fff-4865-b811-6fbf0565c4cd</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER='_815867e0-c9f1-4d2a-b07c-7c8772906a4a' LAST-CHANGE='2021-05-24T17:21:33'>
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_ea783649-f41e-4f5f-b3c8-5e59f3d4031b</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>spec_List</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Safety Goal'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>cmp_name</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Safety Goal'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>cmp_desc</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPECIFICATION>
+        <SPECIFICATION LONG-NAME='Functional safety Requirements' IDENTIFIER='spec_fsr_id' LAST-CHANGE='2021-05-24T17:21:33'>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER='_91f089bb-acc8-4f6b-a1fe-89c0fffc4a47' LAST-CHANGE='2021-05-24T17:21:33'>
+              <OBJECT>
+                <SPEC-OBJECT-REF>fsr_set</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER='_126f7e2a-b35f-437a-b0c0-2cbbdb85be0c' LAST-CHANGE='2021-05-24T17:21:33'>
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_ec1bbac5-c681-45f7-9289-d6d226f68564</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER='_9e0e438c-28ba-4cf9-9144-7e5d0ad67a52' LAST-CHANGE='2021-05-24T17:21:33'>
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_0adbc236-5b0b-4b9f-96cd-98a9622bf6e6</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>spec_List</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Functional safety Requirements'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>cmp_name</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Functional safety Requirements'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>cmp_desc</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPECIFICATION>
+        <SPECIFICATION LONG-NAME='Technical safety Requirements' IDENTIFIER='spec_tsr_id' LAST-CHANGE='2021-05-24T17:21:33'>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER='_94df5995-68cb-4bd1-b879-fec0975c0e18' LAST-CHANGE='2021-05-24T17:21:33'>
+              <OBJECT>
+                <SPEC-OBJECT-REF>tsr_set</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER='_7b5c7fef-9257-4076-b8ee-8f8d21ead14e' LAST-CHANGE='2021-05-24T17:21:33'>
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_f1df938c-8f5c-4876-9b5b-3dfdbcd31f21</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER='_6a47140d-7f82-43ba-a630-100a12e43ad8' LAST-CHANGE='2021-05-24T17:21:33'>
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_0ba39d7a-357f-4b69-b9b5-d4853060db56</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>spec_List</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Technical safety Requirements'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>cmp_name</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Technical safety Requirements'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>cmp_desc</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPECIFICATION>
+        <SPECIFICATION LONG-NAME='Hardware safety Requirements' IDENTIFIER='spec_hsr_id' LAST-CHANGE='2021-05-24T17:21:33'>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER='_1a655e72-8eda-46f1-9edb-5eb9b79ffaf1' LAST-CHANGE='2021-05-24T17:21:33'>
+              <OBJECT>
+                <SPEC-OBJECT-REF>hsr_set</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER='_f82aa5f4-244a-4a85-a9d1-9acbb570e5ee' LAST-CHANGE='2021-05-24T17:21:33'>
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_471444e2-a959-4dd4-8171-45cde32e13b4</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER='_852d2b76-04a1-495d-8f58-b095d87750d3' LAST-CHANGE='2021-05-24T17:21:33'>
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_9cbd14a4-0d1e-4176-9b08-e34a069ef328</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>spec_List</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Hardware safety Requirements'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>cmp_name</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Hardware safety Requirements'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>cmp_desc</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPECIFICATION>
+        <SPECIFICATION LONG-NAME='Software safety Requirements' IDENTIFIER='spec_ssr_id' LAST-CHANGE='2021-05-24T17:21:33'>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER='_28a3579b-dc78-42e3-af5f-bb6530a787af' LAST-CHANGE='2021-05-24T17:21:33'>
+              <OBJECT>
+                <SPEC-OBJECT-REF>ssr_set</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER='_bb5c06db-6f49-4199-acf3-5c59babd2418' LAST-CHANGE='2021-05-24T17:21:33'>
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_60bf9fb0-72b9-4efb-8cad-68b354bc5070</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER='_919e360e-b26f-4a7c-acc0-f6031e42c90c' LAST-CHANGE='2021-05-24T17:21:33'>
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_66762269-3f40-4f35-993e-5e4991be921e</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>spec_List</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Software safety Requirements'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>cmp_name</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE='Software safety Requirements'>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>cmp_desc</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+      <SPEC-RELATION-GROUPS>
+        <RELATION-GROUP IDENTIFIER='rel_sg_fsr_id' LAST-CHANGE='2021-05-24T17:21:33' DESC='SG and FSR'>
+          <SOURCE-SPECIFICATION>
+            <SPECIFICATION-REF>spec_sg_id</SPECIFICATION-REF>
+          </SOURCE-SPECIFICATION>
+          <SPEC-RELATIONS>
+            <SPEC-RELATION-REF>_df5bbd16-3406-4234-8b19-1aa8d314ca1d</SPEC-RELATION-REF>
+          </SPEC-RELATIONS>
+          <TARGET-SPECIFICATION>
+            <SPECIFICATION-REF>spec_fsr_id</SPECIFICATION-REF>
+          </TARGET-SPECIFICATION>
+          <TYPE>
+            <RELATION-GROUP-TYPE-REF>rel_group_List</RELATION-GROUP-TYPE-REF>
+          </TYPE>
+        </RELATION-GROUP>
+        <RELATION-GROUP IDENTIFIER='rel_fsr_tsr_id' LAST-CHANGE='2021-05-24T17:21:33' DESC='FSR and TSR'>
+          <SOURCE-SPECIFICATION>
+            <SPECIFICATION-REF>spec_fsr_id</SPECIFICATION-REF>
+          </SOURCE-SPECIFICATION>
+          <SPEC-RELATIONS>
+            <SPEC-RELATION-REF>_ef7fc7af-0ab2-4dfb-9145-b441a001e930</SPEC-RELATION-REF>
+          </SPEC-RELATIONS>
+          <TARGET-SPECIFICATION>
+            <SPECIFICATION-REF>spec_tsr_id</SPECIFICATION-REF>
+          </TARGET-SPECIFICATION>
+          <TYPE>
+            <RELATION-GROUP-TYPE-REF>rel_group_List</RELATION-GROUP-TYPE-REF>
+          </TYPE>
+        </RELATION-GROUP>
+        <RELATION-GROUP IDENTIFIER='rel_tsr_hsr_id' LAST-CHANGE='2021-05-24T17:21:33' DESC='TSR and HSR'>
+          <SOURCE-SPECIFICATION>
+            <SPECIFICATION-REF>spec_tsr_id</SPECIFICATION-REF>
+          </SOURCE-SPECIFICATION>
+          <SPEC-RELATIONS>
+            <SPEC-RELATION-REF>_0d407928-b5fb-4365-b337-0d793831dcda</SPEC-RELATION-REF>
+            <SPEC-RELATION-REF>_5775a389-7c6e-4395-a6e8-97e92c429537</SPEC-RELATION-REF>
+          </SPEC-RELATIONS>
+          <TARGET-SPECIFICATION>
+            <SPECIFICATION-REF>spec_hsr_id</SPECIFICATION-REF>
+          </TARGET-SPECIFICATION>
+          <TYPE>
+            <RELATION-GROUP-TYPE-REF>rel_group_List</RELATION-GROUP-TYPE-REF>
+          </TYPE>
+        </RELATION-GROUP>
+        <RELATION-GROUP IDENTIFIER='rel_tsr_ssr_id' LAST-CHANGE='2021-05-24T17:21:33' DESC='TSR and SSR'>
+          <SOURCE-SPECIFICATION>
+            <SPECIFICATION-REF>spec_tsr_id</SPECIFICATION-REF>
+          </SOURCE-SPECIFICATION>
+          <SPEC-RELATIONS />
+          <TARGET-SPECIFICATION>
+            <SPECIFICATION-REF>spec_ssr_id</SPECIFICATION-REF>
+          </TARGET-SPECIFICATION>
+          <TYPE>
+            <RELATION-GROUP-TYPE-REF>rel_group_List</RELATION-GROUP-TYPE-REF>
+          </TYPE>
+        </RELATION-GROUP>
+      </SPEC-RELATION-GROUPS>
     </REQ-IF-CONTENT>
   </CORE-CONTENT>
 </REQ-IF>
