@@ -66,17 +66,17 @@ def makeDataTypes(XML,DATE, plEnumeration, asilEnumeration)
     XML.'DATATYPES'{
         XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Text","IDENTIFIER":"dt_text", "LAST-CHANGE":DATE, "MAX-LENGTH":255) 
         
-        makeDatatypeDefinitionEnumeration(XML, "dt_pl", "PL", DATE, "PL Selection", plEnumeration)
-        makeDatatypeDefinitionEnumeration(XML, "dt_asil", "ASIL", DATE, "ASIL Selection", asilEnumeration)
+        makeDatatypeDefinitionEnumeration(XML, "dt_pl", DATE, "PL Selection", plEnumeration)
+        makeDatatypeDefinitionEnumeration(XML, "dt_asil", DATE, "ASIL Selection", asilEnumeration)
     }
 }
-def makeDatatypeDefinitionEnumeration(xml, identifier ,DESC, dateString, LongName, EnumerationList)
+def makeDatatypeDefinitionEnumeration(xml, identifier , dateString, LongName, EnumerationList)
 {
-    xml.'DATATYPE-DEFINITION-ENUMERATION'('DESC': DESC, identifier, "LAST-CHANGE":dateString , "LONG-NAME": LongName){
+    xml.'DATATYPE-DEFINITION-ENUMERATION'('IDENTIFIER': identifier, "LAST-CHANGE":dateString , "LONG-NAME": LongName){
         xml.'SPECIFIED-VALUES'{
             EnumerationList.eachWithIndex{sil, index ->
-                def enum_identifier = sil.key
-                def content = sil.value
+                def enum_identifier = sil.value
+                def content = sil.key
                 xml.'ENUM-VALUE'('IDENTIFIER':enum_identifier,  "LAST-CHANGE":dateString, "LONG-NAME": content){
                     xml.'PROPERTIES'{
                         xml."EMBEDDED-VALUE" ("KEY" : index + 1, "OTHER-CONTENT" : content)
