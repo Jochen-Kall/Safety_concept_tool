@@ -66,11 +66,11 @@ def makeDataTypes(XML,DATE, plEnumeration, asilEnumeration)
     XML.'DATATYPES'{
         XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Text","IDENTIFIER":"dt_text", "LAST-CHANGE":DATE, "MAX-LENGTH":255) 
         
-        makeDatatypeDefinitionEnumeration(XML, "dt_pl", DATE, "PL Selection", plEnumeration)
-        makeDatatypeDefinitionEnumeration(XML, "dt_asil", DATE, "ASIL Selection", asilEnumeration)
+        makeDatatypeDefinitionEnumeration(XML, "dt_pl", "PL", DATE, "PL Selection", plEnumeration)
+        makeDatatypeDefinitionEnumeration(XML, "dt_asil", "ASIL", DATE, "ASIL Selection", asilEnumeration)
     }
 }
-def makeDatatypeDefinitionEnumeration(xml, identifier , dateString, LongName, EnumerationList)
+def makeDatatypeDefinitionEnumeration(xml, identifier ,DESC, dateString, LongName, EnumerationList)
 {
     xml.'DATATYPE-DEFINITION-ENUMERATION'('IDENTIFIER': identifier, "LAST-CHANGE":dateString , "LONG-NAME": LongName){
         xml.'SPECIFIED-VALUES'{
@@ -130,14 +130,14 @@ def makeSpecTypes(XML,DATE)
                         XML.'DATATYPE-DEFINITION-STRING-REF'("dt_text")
                     }
                 }
-                XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"asil","IDENTIFIER":"sa_asil", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"ASIL"){
+                XML.'ATTRIBUTE-DEFINITION-ENUMERATION'("LONG-NAME":"asil","IDENTIFIER":"sa_asil", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"ASIL"){
                     XML.'TYPE'{
-                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_asil")
+                        XML.'DATATYPE-DEFINITION-ENUMERATION-REF'("dt_asil")
                     }
                 }
-                XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"asil","IDENTIFIER":"sa_pl", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"ASIL"){
+                XML.'ATTRIBUTE-DEFINITION-ENUMERATION'("LONG-NAME":"pl","IDENTIFIER":"sa_pl", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"PL"){
                     XML.'TYPE'{
-                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_pl")
+                        XML.'DATATYPE-DEFINITION-ENUMERATION-REF'("dt_pl")
                     }
                 }
                 XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"type","IDENTIFIER":"sa_type", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"TYPE"){
