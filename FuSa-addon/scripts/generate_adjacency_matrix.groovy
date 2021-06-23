@@ -6,21 +6,6 @@
 /*
 Creates Adjacency matrix between all Requirements in the map
 */
-import javax.swing.*;
-
-// Dialog window for easy copy and pasting
-def showDialog(String content) {
-    //create new dialog and set size
-    def dialog = new JDialog(ui.frame)
-    dialog.setSize(750, 600)
-    dialog.setLocationRelativeTo(ui.frame)
-    // dialog close operation
-    dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE)
-    // add panel to dialog
-    dialog.add(new JScrollPane(new JTextArea(content)))
-    ui.addEscapeActionToDialog(dialog)
-    dialog.setVisible(true)
-}
 
 // find all requirements
 def reqs = c.find{it.style.name=="Requirement"}
@@ -39,6 +24,6 @@ reqs.eachWithIndex{req_node,index_r->
     }
 }
 
-showDialog(matrix.collect{it.join(",")}.join("\n"))
+FuSa_lib.showDialog(matrix.collect{it.join(",")}.join("\n"),ui)
 
 

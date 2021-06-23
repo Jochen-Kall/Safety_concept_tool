@@ -7,20 +7,6 @@
 Searches all files under source code monitoring for [ID_xxx] tags of all requirements nodes.
 Constructs and adds Github links in the details of nodes for each identified requirement tag in the monitored source code files.
 */
-import javax.swing.*;
-// Dialog window for easy copy and pasting
-def showDialog(String content) {
-    //create new dialog and set size
-    def dialog = new JDialog(ui.frame)
-    dialog.setSize(750, 600)
-    dialog.setLocationRelativeTo(ui.frame)
-    // dialog close operation
-    dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE)
-    // add panel to dialog
-    dialog.add(new JScrollPane(new JTextArea(content)))
-    ui.addEscapeActionToDialog(dialog)
-    dialog.setVisible(true)
-}
 
 // Read the folder that is monitored
 def Dirname=ID_1158912197.children[0].link.file

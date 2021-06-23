@@ -7,21 +7,6 @@
  intended to output the concept in markdown language for human reading.
  Full Safety concept structure, duplicates are exported as well to ensure good readibility
 */
-import javax.swing.*;
-
-// Dialog window for easy copy and pasting
-def showDialog(String content) {
-    //create new dialog and set size
-    def dialog = new JDialog(ui.frame)
-    dialog.setSize(750, 600)
-    dialog.setLocationRelativeTo(ui.frame)
-    // dialog close operation
-    dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE)
-    // add panel to dialog
-    dialog.add(new JScrollPane(new JTextArea(content)))
-    ui.addEscapeActionToDialog(dialog)
-    dialog.setVisible(true)
-}
 
 // map for printing ASILs
 ASIL_map=[:]
@@ -101,4 +86,4 @@ def process_start_node(thisNode) {
 def result = ['# Safety concept']
 result += process_start_node(node);
 
-showDialog(result.join("\n"))
+FuSa_lib.showDialog(result.join("\n"),ui)
