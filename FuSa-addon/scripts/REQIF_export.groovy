@@ -53,10 +53,9 @@ def makeHeader(XML)
     XML.'THE-HEADER'{
         XML.'REQ-IF-HEADER'('IDENTIFIER':"_" + UUID.randomUUID().toString()){
             XML.'CREATION-TIME'("${format.format(new Date())}")
-            XML.'REPOSITORY-ID'("__73f2bb4d-760e-44d9-99d3-5807d44b4928")
-            XML.'REQ-IF-TOOL-ID'("_5021db30-dd57-4612-bb75-98c4801619c0")
-            XML.'REQ-IF-VERSION'('1.1')
-            XML.'SOURCE-TOOL-ID'("_63165248-e740-4271-a5e1-03ddc648d5eb")
+            XML.'REQ-IF-TOOL-ID'('Freeplane FuSa Extension v0.5')
+            XML.'REQ-IF-VERSION'('1.0')
+            XML.'SOURCE-TOOL-ID'('Freeplane')
             XML.'TITLE'('TITLE of the Document to be exported')
         }
     }
