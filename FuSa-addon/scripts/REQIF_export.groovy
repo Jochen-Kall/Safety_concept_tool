@@ -14,14 +14,7 @@ import javax.xml.transform.stream.StreamSource
 import javax.xml.validation.SchemaFactory
 import java.text.SimpleDateFormat
 
-def writer = new StringWriter()
-def xml = new MarkupBuilder(writer)
-def date = new Date()
-def format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-def datestring = "${format.format(date)}"
-spec_relation_list = []
-relationlist = []
-requirementlists = [:]
+format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
 
 // Constructing an Requif conforming .xml file.
 def showDialog(String content) {
@@ -37,7 +30,7 @@ def showDialog(String content) {
     dialog.setVisible(true)
 }
 
-def traverseTree(thisNode, parent_identifier)
+def traverseTree(thisNode, parent_identifier, requirementlists, relationlist)
 {
     def identifier = null
 
@@ -51,33 +44,45 @@ def traverseTree(thisNode, parent_identifier)
     }
 
     thisNode.children.each{
-        traverseTree(it, identifier)
+        traverseTree(it, identifier, requirementlists, relationlist)
     }
 }
 
-def makeHeader(XML, DATE)
+def makeHeader(XML)
 {
     XML.'THE-HEADER'{
-        XML.'REQ-IF-HEADER'('IDENTIFIER':'_adkamo'){
-            XML.'CREATION-TIME'(DATE)
-            XML.'REPOSITORY-ID'('?')
-            XML.'REQ-IF-TOOL-ID'('Freemind FuSa Extension v0.5')
+        XML.'REQ-IF-HEADER'('IDENTIFIER':"_" + UUID.randomUUID().toString()){
+            XML.'CREATION-TIME'("${format.format(new Date())}")
+            XML.'REQ-IF-TOOL-ID'('Freeplane FuSa Extension v0.5')
             XML.'REQ-IF-VERSION'('1.0')
-            XML.'SOURCE-TOOL-ID'('I guess this is only relevant for a round trip')
+            XML.'SOURCE-TOOL-ID'('Freeplane')
             XML.'TITLE'('TITLE of the Document to be exported')
         }
     }
 }
-
-def makeDataTypes(XML,DATE)
+def makeDataTypes(XML,DATE, plEnumeration, asilEnumeration)
 {
     XML.'DATATYPES'{
-    // Datatype for text elements
-    XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"MindMap ID","IDENTIFIER":"dt_id", "LAST-CHANGE":DATE, "MAX-LENGTH":100) {}
-    XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Text","IDENTIFIER":"dt_text", "LAST-CHANGE":DATE, "MAX-LENGTH":100) {}
-    XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"ASIL","IDENTIFIER":"dt_asil", "LAST-CHANGE":DATE, "MAX-LENGTH":100) {}
-    XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Type","IDENTIFIER":"dt_type", "LAST-CHANGE":DATE, "MAX-LENGTH":100) {}
-    XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Allocation","IDENTIFIER":"dt_allocation", "LAST-CHANGE":DATE, "MAX-LENGTH":100) {}
+        XML."DATATYPE-DEFINITION-STRING"("LONG-NAME":"Text","IDENTIFIER":"dt_text", "LAST-CHANGE":DATE, "MAX-LENGTH":255) 
+        
+        makeDatatypeDefinitionEnumeration(XML, "dt_pl", "PL", DATE, "PL Selection", plEnumeration)
+        makeDatatypeDefinitionEnumeration(XML, "dt_asil", "ASIL", DATE, "ASIL Selection", asilEnumeration)
+    }
+}
+def makeDatatypeDefinitionEnumeration(xml, identifier ,DESC, dateString, LongName, EnumerationList)
+{
+    xml.'DATATYPE-DEFINITION-ENUMERATION'('IDENTIFIER': identifier, "LAST-CHANGE":dateString , "LONG-NAME": LongName){
+        xml.'SPECIFIED-VALUES'{
+            EnumerationList.eachWithIndex{sil, index ->
+                def enum_identifier = sil.value
+                def content = sil.key
+                xml.'ENUM-VALUE'('IDENTIFIER':enum_identifier,  "LAST-CHANGE":dateString, "LONG-NAME": content){
+                    xml.'PROPERTIES'{
+                        xml."EMBEDDED-VALUE" ("KEY" : index + 1, "OTHER-CONTENT" : content)
+                    }
+                }
+            }
+        } 
     }
 }
 
@@ -116,7 +121,7 @@ def makeSpecTypes(XML,DATE)
             XML.'SPEC-ATTRIBUTES'{
                 XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"Requirement_id","IDENTIFIER":"sa_id", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"ID"){
                     XML.'TYPE'{
-                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_id")
+                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_text")
                     }
                 }
                 XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"text","IDENTIFIER":"sa_text", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"Contents"){
@@ -124,19 +129,24 @@ def makeSpecTypes(XML,DATE)
                         XML.'DATATYPE-DEFINITION-STRING-REF'("dt_text")
                     }
                 }
-                XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"asil","IDENTIFIER":"sa_asil", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"ASIL"){
+                XML.'ATTRIBUTE-DEFINITION-ENUMERATION'("LONG-NAME":"asil","IDENTIFIER":"sa_asil", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"ASIL"){
                     XML.'TYPE'{
-                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_asil")
+                        XML.'DATATYPE-DEFINITION-ENUMERATION-REF'("dt_asil")
+                    }
+                }
+                XML.'ATTRIBUTE-DEFINITION-ENUMERATION'("LONG-NAME":"pl","IDENTIFIER":"sa_pl", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"PL"){
+                    XML.'TYPE'{
+                        XML.'DATATYPE-DEFINITION-ENUMERATION-REF'("dt_pl")
                     }
                 }
                 XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"type","IDENTIFIER":"sa_type", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"TYPE"){
                     XML.'TYPE'{
-                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_type")
+                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_text")
                     }
                 }
                 XML.'ATTRIBUTE-DEFINITION-STRING'("LONG-NAME":"allocation","IDENTIFIER":"sa_allocation", "LAST-CHANGE":DATE, "IS-EDITABLE":"false", "DESC":"ALLOCATE"){
                     XML.'TYPE'{
-                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_allocation")
+                        XML.'DATATYPE-DEFINITION-STRING-REF'("dt_text")
                     }
                 }
             }
@@ -145,96 +155,45 @@ def makeSpecTypes(XML,DATE)
         XML.'RELATION-GROUP-TYPE'("LONG-NAME":"Relationship Gruop","IDENTIFIER":"rel_group_List", "LAST-CHANGE":DATE){}
     }
 }
-def makeObjects(XML, DATE)
+
+def makeSpecObjects(XML, DATE, requirementlists, plEnumeration, asilEnumeration)
 {
-    XML.'SPEC-OBJECT'("IDENTIFIER":"safety_goal_set", "LAST-CHANGE":DATE){
-        XML.'TYPE'{
-            XML.'SPEC-OBJECT-TYPE-REF'("set")
-        }
-        XML.'VALUES'{
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":"Safety Goal"){
-                XML.'DEFINITION'{
-                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("set_name")
-                }
+    def specObjectList = [
+        ["safety_goal_set", "Safety Goal"],
+        ["fsr_set", "Functional Safety Requirement"],
+        ["tsr_set", "Technical Safety Requirement"],
+        ["hsr_set", "Hardware Safety Requirement"],
+        ["ssr_set", "Software Safety Requirement"]
+    ]
+    specObjectList.each{
+        def identifier = it[0] 
+        def name = it[1]
+        XML.'SPEC-OBJECT'("IDENTIFIER":identifier, "LAST-CHANGE":DATE){
+            XML.'TYPE'{
+                XML.'SPEC-OBJECT-TYPE-REF'("set")
             }
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":""){
-                XML.'DEFINITION'{
-                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("set_desc")
+            XML.'VALUES'{
+                XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":name){
+                    XML.'DEFINITION'{
+                        XML.'ATTRIBUTE-DEFINITION-STRING-REF'("set_name")
+                    }
                 }
-            }
-        }
-    }
-    XML.'SPEC-OBJECT'("IDENTIFIER":"fsr_set", "LAST-CHANGE":DATE){
-        XML.'TYPE'{
-            XML.'SPEC-OBJECT-TYPE-REF'("set")
-        }
-        XML.'VALUES'{
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":"Functional Safety Requirement"){
-                XML.'DEFINITION'{
-                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("set_name")
-                }
-            }
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":""){
-                XML.'DEFINITION'{
-                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("set_desc")
-                }
-            }
-        }
-    }
-    XML.'SPEC-OBJECT'("IDENTIFIER":"tsr_set", "LAST-CHANGE":DATE){
-        XML.'TYPE'{
-            XML.'SPEC-OBJECT-TYPE-REF'("set")
-        }
-        XML.'VALUES'{
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":"Technical Safety Requirement"){
-                XML.'DEFINITION'{
-                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("set_name")
-                }
-            }
-        }
-    }
-    XML.'SPEC-OBJECT'("IDENTIFIER":"hsr_set", "LAST-CHANGE":DATE){
-        XML.'TYPE'{
-            XML.'SPEC-OBJECT-TYPE-REF'("set")
-        }
-        XML.'VALUES'{
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":"Hardware Safety Requirement"){
-                XML.'DEFINITION'{
-                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("set_name")
-                }
-            }
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":""){
-                XML.'DEFINITION'{
-                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("set_desc")
-                }
-            }
-        }
-    }
-    XML.'SPEC-OBJECT'("IDENTIFIER":"ssr_set", "LAST-CHANGE":DATE){
-        XML.'TYPE'{
-            XML.'SPEC-OBJECT-TYPE-REF'("set")
-        }
-        XML.'VALUES'{
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":"Software Safety Requirement"){
-                XML.'DEFINITION'{
-                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("set_name")
-                }
-            }
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":""){
-                XML.'DEFINITION'{
-                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("set_desc")
+                XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":""){
+                    XML.'DEFINITION'{
+                        XML.'ATTRIBUTE-DEFINITION-STRING-REF'("set_desc")
+                    }
                 }
             }
         }
     }
     requirementlists.each {
-        makeSpecObject(it.value, it.key,  XML, DATE)
+        makeSpecObject(it.value, it.key,  XML, plEnumeration, asilEnumeration)
     }
 }
 
-def makeSpecObject(thisNode, identifier, XML, DATE)
+def makeSpecObject(thisNode, identifier, XML, plEnumeration, asilEnumeration)
 {
-    XML.'SPEC-OBJECT'("IDENTIFIER":identifier, "LAST-CHANGE":DATE){
+    XML.'SPEC-OBJECT'("IDENTIFIER":identifier, "LAST-CHANGE":"${format.format(thisNode.getLastModifiedAt())}"){
         XML.'TYPE'{
             XML.'SPEC-OBJECT-TYPE-REF'("sot_List")
         }
@@ -249,28 +208,47 @@ def makeSpecObject(thisNode, identifier, XML, DATE)
                     XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_text")
                 }
             }
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['ASIL'].toString()){
-               XML.'DEFINITION'{
-                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_asil")
-                }
-            }
             XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['Type'].toString()){
                 XML.'DEFINITION'{
                     XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_type")
                 }
             }
             if(thisNode.attributes.size() != 2){
-            XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['Allocation'].toString()){
-                XML.'DEFINITION'{
-                    XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_allocation")
+                XML.'ATTRIBUTE-VALUE-STRING'("THE-VALUE":thisNode['Allocation'].toString()){
+                    XML.'DEFINITION'{
+                        XML.'ATTRIBUTE-DEFINITION-STRING-REF'("sa_allocation")
+                    }
                 }
             }
+            XML.'ATTRIBUTE-VALUE-ENUMERATION'{
+                XML.'VALUES'{
+                    def identifierRef = asilEnumeration[""]
+                    if (asilEnumeration.containsKey(thisNode['ASIL'].toString())){
+                        identifierRef = asilEnumeration[thisNode['ASIL'].toString()]
+                    }
+                    XML.'ENUM-VALUE-REF'(identifierRef)
+                }
+                XML.'DEFINITION'{
+                    XML.'ATTRIBUTE-DEFINITION-ENUMERATION-REF'("sa_asil")
+                }
+            }
+            XML.'ATTRIBUTE-VALUE-ENUMERATION'{
+                XML.'VALUES'{
+                    def identifierRef = plEnumeration[""]
+                    if (plEnumeration.containsKey(thisNode['PL'].toString())){
+                        identifierRef = plEnumeration[thisNode['PL'].toString()]
+                    }
+                    XML.'ENUM-VALUE-REF'(identifierRef)
+                }
+                XML.'DEFINITION'{
+                    XML.'ATTRIBUTE-DEFINITION-ENUMERATION-REF'("sa_pl")
+                }
             }
         }
     }
 }
 
-def makeSpecRelation(XML, DATE)
+def makeSpecRelation(XML, DATE, spec_relation_list, requirementlists, relationlist)
 {
     def source, target, randrelationid 
     relationlist.each{
@@ -279,7 +257,7 @@ def makeSpecRelation(XML, DATE)
         randrelationid = "_" + UUID.randomUUID().toString()
 
         spec_relation_list.add new Tuple(randrelationid, source, target)
-        XML. 'SPEC-RELATION'("IDENTIFIER":randrelationid, "LAST-CHANGE":DATE){
+        XML. 'SPEC-RELATION'("IDENTIFIER":randrelationid, "LAST-CHANGE":"${format.format(requirementlists[target].getLastModifiedAt())}"){
             XML. 'SOURCE'{
                 XML.'SPEC-OBJECT-REF'(source)
             }
@@ -293,7 +271,7 @@ def makeSpecRelation(XML, DATE)
     }
 }
 
-def makeSpecification(XML, DATE)
+def makeSpecification(XML, DATE, requirementlists)
 {
     def randhierid
     def tmp
@@ -448,7 +426,7 @@ def makeSpecification(XML, DATE)
                 }
             }
         }
-    }        
+    }
     XML. 'SPECIFICATION'("LONG-NAME":"Software safety Requirements","IDENTIFIER":"spec_ssr_id", "LAST-CHANGE":DATE){
         XML. 'CHILDREN'{
             randhierid = "_" + UUID.randomUUID().toString()
@@ -489,8 +467,7 @@ def makeSpecification(XML, DATE)
     }
 }
 
-
-def makeSpecRelationGroup(XML, DATE)
+def makeSpecRelationGroup(XML, DATE, spec_relation_list,requirementlists)
 {
     //SG - FSR
     XML. 'RELATION-GROUP'("IDENTIFIER":"rel_sg_fsr_id", "LAST-CHANGE":DATE, "DESC":"SG and FSR"){
@@ -577,38 +554,64 @@ def makeSpecRelationGroup(XML, DATE)
     }
 }
 
-
 // main routine
-traverseTree(node, null)
+relationlist = []
+requirementlists = [:]
+spec_relation_list = []
 
+plEnumeration = [   "" : "_B48D2745-6011-4662-BB6B-FC86C61D645E",
+                    "a": "_effbc44a-8993-4c78-8db3-377341b838b6",
+                    "b": "_ca0868c1-4358-4561-9555-ba928c5ab128",
+                    "c": "_b5341741-2c9b-498d-832f-828ba5651e00",
+                    "d": "_07549683-6bb4-4a27-bab1-0d622d973a3c",
+                    "e": "_a5d06d46-1640-4cf6-b2bc-d4da83b27ddc"]
+
+asilEnumeration =   ["" : "_F20CC573-F797-48DD-A3CE-9F1D7CDE4288",
+                    "QM": "_421d9b99-9763-4206-be33-1e8d2b03cbbc",
+                    "A": "_b6b03caa-1e9b-4da5-8e05-ecc13818463d",
+                    "B": "_ce51ec41-84c4-4b63-9b8a-7fa47ff97a75",
+                    "C": "_ef71593f-3ec0-4d71-885e-d2a221dcf5bb",
+                    "D": "_e2fa0ca8-18ed-4c96-98da-05303e57c0c8",
+                    "QM(A)": "_e345e8bc-5932-490a-afbf-002a49018241",
+                    "QM(B)": "_e51a2ec5-a8be-4454-b628-f2b7fcda5118",
+                    "QM(C)": "_c6891b9a-cd34-4f72-9fc5-d8dc44060d49",
+                    "QM(D)": "_7f854047-e867-4a00-a63a-4ab5b837ee2a",
+                    "A(A)": "_98453bc2-3545-4160-8631-58f077869560",
+                    "A(B)": "_0f7329e1-992b-4578-97b9-610f060373c6",
+                    "A(C)": "_1151a4a0-3cc2-4bf7-9881-6b222405e3fc",
+                    "A(D)": "_565906e4-9625-44c9-be27-d4cda6dc2792",
+                    "B(B)": "_3f0c3b0f-1a88-477a-b327-4560e829baae",
+                    "B(C)": "_26d1df9a-22a7-4477-9b9a-82db133d44af",
+                    "B(D)": "_797ecaf0-86c7-4033-82c5-250c17754877",
+                    "C(C)": "_d5628e96-7ec3-4ba6-9cb4-e0c8e4d5d96c",
+                    "C(D)": "_4509ac21-927c-4d66-864b-3ba2d3cb1c37",
+                    "D(D)": "_59e1a78c-78e8-4573-afa5-c153d64744b9"]
+
+traverseTree(node, null, requirementlists, relationlist)
+
+def writer = new StringWriter()
+def xml = new MarkupBuilder(writer)
+def datestring = "${format.format(new Date(1622797200000))}"
 xml.'REQ-IF'(xmlns:"http://www.omg.org/spec/ReqIF/20110401/reqif.xsd", "xmlns:reqif":"http://www.omg.org/spec/ReqIF/20110401/reqif.xsd"){
-    makeHeader(xml,datestring)
+    makeHeader(xml)
     xml.'CORE-CONTENT'{
         xml.'REQ-IF-CONTENT' {
-            makeDataTypes(xml, datestring)
+            makeDataTypes(xml, datestring, plEnumeration, asilEnumeration)
             makeSpecTypes(xml, datestring)
             xml.'SPEC-OBJECTS'{
-                makeObjects(xml, datestring)
+                makeSpecObjects(xml, datestring, requirementlists, plEnumeration, asilEnumeration)
             }
             xml.'SPEC-RELATIONS'{
-               makeSpecRelation(xml, datestring)
+               makeSpecRelation(xml, datestring, spec_relation_list, requirementlists, relationlist)
             }
             xml.'SPECIFICATIONS'{
-               makeSpecification(xml, datestring)
+               makeSpecification(xml, datestring, requirementlists)
             }
             xml.'SPEC-RELATION-GROUPS'{
-               makeSpecRelationGroup(xml, datestring)
+               makeSpecRelationGroup(xml, datestring, spec_relation_list, requirementlists)
             }
         }
     }   
 }
 
-//def xsd = "reqif.xsd"
-//
-//def factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI)
-//File schemaLocation = new File(xsd);
-//def schema = factory.newSchema(new StreamSource(new FileReader(schemaLocation)))
-//def validator = schema.newValidator()
-def xmlstring = writer.toString()
-showDialog(xmlstring)
-//println(validator.validate(new StreamSource(new StringReader(xmlstring))))
+showDialog(writer.toString())
