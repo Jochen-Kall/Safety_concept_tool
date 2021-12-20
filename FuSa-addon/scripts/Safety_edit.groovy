@@ -26,6 +26,12 @@ if (node.map.getRoot().attributes.containsKey("ISO_13849_mode")) {
  	ISO13849_mode=(node.map.getRoot()["ISO_13849_mode"]=="true")
 }
 
+//detect if ISO25119 mode is active, default value false
+def ISO25119_mode=false
+if (node.map.getRoot().attributes.containsKey("ISO_25119_mode")) {
+ 	ISO25119_mode=(node.map.getRoot()["ISO_25119_mode"]=="true")
+}
+
 //Current_type=node['Type']
 if (node.attributes.containsKey('Type')) {
 	Current_type=node['Type']
@@ -38,16 +44,27 @@ if (node.attributes.containsKey('ASIL')) {
 if (node.attributes.containsKey('PL')) {
 	Current_PL=node['PL']
 } else Current_PL=null
+// Current AgPL
+if (node.attributes.containsKey('AgPL')) {
+	Current_AgPL=node['AgPL']
+} else Current_AgPL=null
 
 
 def Tainted_by_child = node['Tainted_by_child']
 def Tainted_by_parent = node['Tainted_by_parent']
 
+// Default selection based on Parent node, if field is not present in the node already
 if (!Current_type){
 	Current_type=node.getParent()['Type']
 }
 if (!Current_ASIL){
 	Current_ASIL=node.getParent()['ASIL']
+}
+if (!Current_PL){
+	Current_PL=node.getParent()['PL']
+}
+if (!Current_AgPL){
+	Current_AgPL=node.getParent()['AgPL']
 }
 if (!Tainted_by_child){
 	Tainted_by_child=false
@@ -155,6 +172,34 @@ if (ISO13849_mode) {
 	if (!(node['PL'] in PLlist)) { PLlist+=node['PL']}
 }
 
+// assemble AgPL list
+def AgPLlist=['QM','a', 'b', 'c', 'd', 'e']
+if (ISO25119_mode) {
+	if (!node.getParent().isRoot()) {
+		// not a decendent of the rootnode
+		if (node.getParent()['AgPL'] =='QM') {
+			AgPLlist=['','QM']
+		}
+		if (node.getParent()['AgPL'] =='a') {
+			AgPLlist=['','QM','a']
+		}
+		if (node.getParent()['AgPL'] =='b') {
+			AgPLlist=['','QM','a','b']
+		}
+		if (node.getParent()['AgPL'] =='c') {
+			AgPLlist=['','QM','a','b','c']
+		}
+		if (node.getParent()['AgPL'] =='d') {
+			AgPLlist=['','QM','a','b','c','d']
+		}
+		if (node.getParent()['AgPL'] =='e') {
+			AgPLlist=['','QM','a','b','c','d','e']
+		}		
+	}
+	// clone exception
+	if (!(node['AgPL'] in AgPLlist)) { AgPLlist+=node['AgPL']}
+}
+
 // Fallback list for Types
 Typelist=['SG', 'FSR', 'TSR', 'Information', 'HW', 'SW']
 // restrict types to acceptable types, based on the parent nodes type.
@@ -253,6 +298,15 @@ def dial = s.dialog(title:'Safety Properties', id:'myDialog', minimumSize: [300,
 		vars.PL.selectedItem=Current_PL
 		}		
 	}
+
+	if (ISO25119_mode) {
+		panel(alignmentX:0f) {
+		flowLayout(alignment:FL.LEFT)
+		label('Agriculture Performance Level')
+		comboBox(id:'AgPL', items:AgPLlist)
+		vars.AgPL.selectedItem=Current_AgPL
+		}		
+	}	
         
 	Architecture_names.eachWithIndex{name,index->
 		panel(alignmentX:0f) {
@@ -303,7 +357,17 @@ if (vars.ok){
 		} else {
 			node.attributes.set('PL', '')
 		}
-	}	
+	}
+	// Saving AgPL if ISO25119 mode is set
+	if (ISO25119_mode) {
+		// set AgPL attribute for all types except information
+		if ( (vars.type.selectedItem == 'SG') || (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
+			node.attributes.set('AgPL',vars.AgPL.selectedItem)
+			if (newNode) {node.attributes.set('AgPL_sc',vars.AgPL.selectedItem)}
+		} else {
+			node.attributes.set('AgPL', '')
+		}
+	}		
 	// set Allocation parameter for all types except SG and Information
 	if (  (vars.type.selectedItem == 'FSR') || (vars.type.selectedItem == 'TSR')|| (vars.type.selectedItem == 'HW')|| (vars.type.selectedItem == 'SW') ) {
 		AllocationAttributenames.eachWithIndex{it,index->
