@@ -1,11 +1,11 @@
-<map version="freeplane 1.9.8">
-<!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
+<map version="freeplane 1.9.0">
+<!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
-<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1640032674203"><hook NAME="MapStyle" zoom="0.912">
-    <properties fit_to_viewport="false" show_icon_for_attributes="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
+<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1640038805804"><hook NAME="MapStyle" zoom="0.912">
+    <properties show_icon_for_attributes="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
-<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
+<stylenode LOCALIZED_TEXT="styles.root_node" ID="ID_1965934285" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
 <font SIZE="24"/>
 <stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="default" ID="ID_1609829545" ICON_SIZE="12 pt" COLOR="#000000" STYLE="fork">
@@ -36,7 +36,7 @@
 <stylenode LOCALIZED_TEXT="styles.important">
 <icon BUILTIN="yes"/>
 </stylenode>
-<stylenode TEXT="Requirement">
+<stylenode TEXT="Requirement" ID="ID_411784510">
 <edge COLOR="#007c00"/>
 <attribute_layout VALUE_WIDTH="100 pt"/>
 <attribute NAME="ASIL" VALUE=""/>
@@ -146,6 +146,21 @@
     </conditional_style>
     <conditional_style ACTIVE="true" STYLE_REF="Shared" LAST="false">
         <attribute_compare_condition VALUE="true" ATTRIBUTE="Shared" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="AgPL a" LAST="false">
+        <attribute_compare_condition VALUE="a" ATTRIBUTE="AgPL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="AgPL b" LAST="false">
+        <attribute_compare_condition VALUE="b" ATTRIBUTE="AgPL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="AgPL c" LAST="false">
+        <attribute_compare_condition VALUE="c" ATTRIBUTE="AgPL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="AgPL d" LAST="false">
+        <attribute_compare_condition VALUE="d" ATTRIBUTE="AgPL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="AgPL e" LAST="false">
+        <attribute_compare_condition VALUE="e" ATTRIBUTE="AgPL" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
 </hook>
 </stylenode>
@@ -269,11 +284,11 @@
 <stylenode TEXT="Shared" BACKGROUND_COLOR="#ffcc99">
 <edge COLOR="#007c00"/>
 </stylenode>
-<stylenode TEXT="PL a">
+<stylenode TEXT="PL a" ID="ID_551857925">
 <icon BUILTIN="PL_a"/>
 <edge COLOR="#007c00"/>
 </stylenode>
-<stylenode TEXT="PL b">
+<stylenode TEXT="PL b" ID="ID_1493435733">
 <icon BUILTIN="PL_b"/>
 <edge COLOR="#007c00"/>
 </stylenode>
@@ -287,6 +302,26 @@
 </stylenode>
 <stylenode TEXT="PL e">
 <icon BUILTIN="PL_e"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="AgPL a" ID="ID_536894011">
+<icon BUILTIN="AgPL_a"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="AgPL b" ID="ID_662991396">
+<icon BUILTIN="AgPL_b"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="AgPL c" ID="ID_24873353">
+<icon BUILTIN="AgPL_c"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="AgPL d" ID="ID_1699804892">
+<icon BUILTIN="AgPL_d"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="AgPL e" ID="ID_421651778">
+<icon BUILTIN="AgPL_e"/>
 <edge COLOR="#007c00"/>
 </stylenode>
 </stylenode>
