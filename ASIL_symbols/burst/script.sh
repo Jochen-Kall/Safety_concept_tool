@@ -31,4 +31,9 @@ inkscape --without-gui --file=pg_0027.pdf --export-plain-svg=output/PL_b.svg
 inkscape --without-gui --file=pg_0028.pdf --export-plain-svg=output/PL_c.svg
 inkscape --without-gui --file=pg_0029.pdf --export-plain-svg=output/PL_d.svg
 inkscape --without-gui --file=pg_0030.pdf --export-plain-svg=output/PL_e.svg
+inkscape --without-gui --file=pg_0031.pdf --export-plain-svg=output/AgPL_a.svg
+inkscape --without-gui --file=pg_0032.pdf --export-plain-svg=output/AgPL_b.svg
+inkscape --without-gui --file=pg_0033.pdf --export-plain-svg=output/AgPL_c.svg
+inkscape --without-gui --file=pg_0034.pdf --export-plain-svg=output/AgPL_d.svg
+inkscape --without-gui --file=pg_0035.pdf --export-plain-svg=output/AgPL_e.svg
 

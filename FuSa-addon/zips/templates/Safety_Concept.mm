@@ -1,14 +1,15 @@
-<map version="freeplane 1.8.0">
+<map version="freeplane 1.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
-<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1614887656052"><hook NAME="MapStyle" zoom="0.912">
+<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1640038805804"><hook NAME="MapStyle" zoom="0.912">
     <properties show_icon_for_attributes="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
-<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
+<stylenode LOCALIZED_TEXT="styles.root_node" ID="ID_1965934285" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
 <font SIZE="24"/>
 <stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right" STYLE="bubble">
-<stylenode LOCALIZED_TEXT="default" ICON_SIZE="12.0 pt" COLOR="#000000" STYLE="fork">
+<stylenode LOCALIZED_TEXT="default" ID="ID_1609829545" ICON_SIZE="12 pt" COLOR="#000000" STYLE="fork">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="200" DASH="" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_1609829545" STARTARROW="NONE" ENDARROW="DEFAULT"/>
 <font NAME="SansSerif" SIZE="10" BOLD="false" ITALIC="false"/>
 </stylenode>
 <stylenode LOCALIZED_TEXT="defaultstyle.details"/>
@@ -20,6 +21,7 @@
 <edge STYLE="hide_edge"/>
 <cloud COLOR="#f0f0f0" SHAPE="ROUND_RECT"/>
 </stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.selection" BACKGROUND_COLOR="#4e85f8" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#4e85f8"/>
 </stylenode>
 <stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="styles.topic" COLOR="#18898b" STYLE="fork">
@@ -34,9 +36,9 @@
 <stylenode LOCALIZED_TEXT="styles.important">
 <icon BUILTIN="yes"/>
 </stylenode>
-<stylenode TEXT="Requirement">
+<stylenode TEXT="Requirement" ID="ID_411784510">
 <edge COLOR="#007c00"/>
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 <attribute NAME="ASIL" VALUE=""/>
 <attribute NAME="Type" VALUE=""/>
 <hook NAME="NodeConditionalStyles">
@@ -145,6 +147,21 @@
     <conditional_style ACTIVE="true" STYLE_REF="Shared" LAST="false">
         <attribute_compare_condition VALUE="true" ATTRIBUTE="Shared" COMPARATION_RESULT="0" SUCCEED="true"/>
     </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="AgPL a" LAST="false">
+        <attribute_compare_condition VALUE="a" ATTRIBUTE="AgPL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="AgPL b" LAST="false">
+        <attribute_compare_condition VALUE="b" ATTRIBUTE="AgPL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="AgPL c" LAST="false">
+        <attribute_compare_condition VALUE="c" ATTRIBUTE="AgPL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="AgPL d" LAST="false">
+        <attribute_compare_condition VALUE="d" ATTRIBUTE="AgPL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
+    <conditional_style ACTIVE="true" STYLE_REF="AgPL e" LAST="false">
+        <attribute_compare_condition VALUE="e" ATTRIBUTE="AgPL" COMPARATION_RESULT="0" SUCCEED="true"/>
+    </conditional_style>
 </hook>
 </stylenode>
 <stylenode TEXT="QM">
@@ -251,27 +268,27 @@
 <icon BUILTIN="button_cancel"/>
 <edge COLOR="#007c00"/>
 </stylenode>
-<stylenode TEXT="Source code Tag" ICON_SIZE="12.0 pt" BACKGROUND_COLOR="#cccccc" STYLE="narrow_hexagon" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#0066ff">
+<stylenode TEXT="Source code Tag" ICON_SIZE="12 pt" BACKGROUND_COLOR="#cccccc" STYLE="narrow_hexagon" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#0066ff">
 <icon BUILTIN="very_positive"/>
 <font NAME="L M Mono Caps10" BOLD="true"/>
 <edge COLOR="#007c00"/>
 </stylenode>
-<stylenode TEXT="Tainted_by_child" STYLE="rectangle" BORDER_WIDTH="3.0 px" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#0000ff" BORDER_DASH="CLOSE_DOTS">
+<stylenode TEXT="Tainted_by_child" STYLE="rectangle" BORDER_WIDTH="3 px" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#0000ff" BORDER_DASH="CLOSE_DOTS">
 <icon BUILTIN="revision"/>
 <edge COLOR="#007c00"/>
 </stylenode>
-<stylenode TEXT="Tainted_by_parent" STYLE="rectangle" BORDER_WIDTH="3.0 px" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#ff0000" BORDER_DASH="CLOSE_DOTS">
+<stylenode TEXT="Tainted_by_parent" STYLE="rectangle" BORDER_WIDTH="3 px" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#ff0000" BORDER_DASH="CLOSE_DOTS">
 <icon BUILTIN="revision-red"/>
 <edge COLOR="#007c00"/>
 </stylenode>
 <stylenode TEXT="Shared" BACKGROUND_COLOR="#ffcc99">
 <edge COLOR="#007c00"/>
 </stylenode>
-<stylenode TEXT="PL a">
+<stylenode TEXT="PL a" ID="ID_551857925">
 <icon BUILTIN="PL_a"/>
 <edge COLOR="#007c00"/>
 </stylenode>
-<stylenode TEXT="PL b">
+<stylenode TEXT="PL b" ID="ID_1493435733">
 <icon BUILTIN="PL_b"/>
 <edge COLOR="#007c00"/>
 </stylenode>
@@ -287,9 +304,29 @@
 <icon BUILTIN="PL_e"/>
 <edge COLOR="#007c00"/>
 </stylenode>
+<stylenode TEXT="AgPL a" ID="ID_536894011">
+<icon BUILTIN="AgPL_a"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="AgPL b" ID="ID_662991396">
+<icon BUILTIN="AgPL_b"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="AgPL c" ID="ID_24873353">
+<icon BUILTIN="AgPL_c"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="AgPL d" ID="ID_1699804892">
+<icon BUILTIN="AgPL_d"/>
+<edge COLOR="#007c00"/>
+</stylenode>
+<stylenode TEXT="AgPL e" ID="ID_421651778">
+<icon BUILTIN="AgPL_e"/>
+<edge COLOR="#007c00"/>
+</stylenode>
 </stylenode>
 <stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
-<stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000" STYLE="oval" SHAPE_HORIZONTAL_MARGIN="10.0 pt" SHAPE_VERTICAL_MARGIN="10.0 pt">
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000" STYLE="oval" SHAPE_HORIZONTAL_MARGIN="10 pt" SHAPE_VERTICAL_MARGIN="10 pt">
 <font SIZE="18"/>
 </stylenode>
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level,1" COLOR="#0033ff">
@@ -315,13 +352,14 @@
 </map_styles>
 </hook>
 <hook NAME="AutomaticEdgeColor" COUNTER="57" RULE="ON_BRANCH_CREATION"/>
-<attribute_layout NAME_WIDTH="108.74999675899754 pt" VALUE_WIDTH="108.74999675899754 pt"/>
+<attribute_layout NAME_WIDTH="97.5 pt" VALUE_WIDTH="97.5 pt"/>
 <attribute NAME="FuSi-Addon-version" VALUE="0.5" OBJECT="org.freeplane.features.format.FormattedNumber|0.5|#0.####"/>
-<attribute NAME="Enable Tainting" VALUE="true"/>
+<attribute NAME="Enable Tainting" VALUE="false"/>
 <attribute NAME="ISO_26262_mode" VALUE="true"/>
 <attribute NAME="ISO_13849_mode" VALUE="false"/>
-<node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1620808984073" HGAP_QUANTITY="19.99999982118607 pt" VSHIFT_QUANTITY="2.9999999105930186 pt">
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute NAME="ISO_25119_mode" VALUE="false"/>
+<node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1620808984073" HGAP_QUANTITY="20 pt" VSHIFT_QUANTITY="3 pt">
+<attribute_layout VALUE_WIDTH="100 pt"/>
 <attribute NAME="ASIL" VALUE="B"/>
 <attribute NAME="Type" VALUE="SG"/>
 <attribute NAME="Allocation" VALUE=""/>
@@ -331,7 +369,7 @@
 <attribute NAME="Shared" VALUE="= node.getCountNodesSharingContent()&gt;0"/>
 </node>
 <node TEXT="Safety Goal 2" STYLE_REF="Requirement" POSITION="right" ID="ID_759203603" CREATED="1611077204015" MODIFIED="1620808993868">
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 <attribute NAME="Type" VALUE="SG"/>
 <attribute NAME="ASIL" VALUE="A"/>
 <attribute NAME="Allocation" VALUE=""/>
@@ -340,13 +378,12 @@
 <attribute NAME="Allocation_sc" VALUE=""/>
 <attribute NAME="Shared" VALUE="= node.getCountNodesSharingContent()&gt;0"/>
 </node>
-<node TEXT="Architecture" POSITION="left" ID="ID_1988403535" CREATED="1609881073321" MODIFIED="1614814447007" HGAP_QUANTITY="76.99999812245375 pt" VSHIFT_QUANTITY="217.49999351799508 pt">
+<node TEXT="Architecture" POSITION="left" ID="ID_1988403535" CREATED="1609881073321" MODIFIED="1614814447007" HGAP_QUANTITY="77 pt" VSHIFT_QUANTITY="217.49999 pt">
 <edge COLOR="#0000ff"/>
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 <attribute NAME="Type" VALUE="Architecture"/>
 <attribute NAME="AllocationAttributeName" VALUE="Allocation"/>
-<richcontent TYPE="DETAILS">
-
+<richcontent CONTENT-TYPE="xml/" TYPE="DETAILS">
 <html>
   <head>
     
@@ -365,8 +402,7 @@
       The Attribute &quot;AllocationAttributeName&quot; controls the attribute name under which the allocation is stored, default value is &quot;Allocation&quot;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="System Architectural Elements" ID="ID_647993701" CREATED="1609881262680" MODIFIED="1610703679766">
 <node TEXT="Sys Element 1" GLOBALLY_VISIBLE="true" ALIAS="Sys:Telltale-requester" ID="ID_176572829" CREATED="1609881457571" MODIFIED="1614814132994"/>
 <node TEXT="Sys Element 2" ID="ID_1992686079" CREATED="1609881092272" MODIFIED="1614814138768"/>
@@ -380,13 +416,12 @@
 <node TEXT="HW Element 2" ID="ID_760445418" CREATED="1611077260758" MODIFIED="1614814158438"/>
 </node>
 </node>
-<node TEXT="Source code monitoring" POSITION="left" ID="ID_197895921" CREATED="1610823383222" MODIFIED="1611078617693" HGAP_QUANTITY="7.25000020116567 pt" VSHIFT_QUANTITY="35.249998949468164 pt">
+<node TEXT="Source code monitoring" POSITION="left" ID="ID_197895921" CREATED="1610823383222" MODIFIED="1611078617693" HGAP_QUANTITY="7.25 pt" VSHIFT_QUANTITY="35.25 pt">
 <edge COLOR="#00ff00"/>
-<attribute_layout NAME_WIDTH="68.99999794363981 pt" VALUE_WIDTH="248.99999257922195 pt"/>
+<attribute_layout NAME_WIDTH="69 pt" VALUE_WIDTH="248.99999 pt"/>
 <attribute NAME="Github link" VALUE="https://github.com/Jochen-Kall/Safety-app/"/>
 <attribute NAME="revision" VALUE="8db75d886c915efc16e481e3fb63a09fd6e10eb6"/>
-<richcontent TYPE="DETAILS">
-
+<richcontent CONTENT-TYPE="xml/" TYPE="DETAILS">
 <html>
   <head>
     
@@ -405,8 +440,7 @@
       - Enter Github link and current revision in the Parameters of this node, to enable link creation
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="local repository" ID="ID_1158912197" CREATED="1610880491236" MODIFIED="1611078609857"/>
 <node TEXT="files under Monitoring" ID="ID_608165453" CREATED="1610880473633" MODIFIED="1611078601838"/>
 </node>
