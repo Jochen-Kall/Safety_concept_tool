@@ -10,25 +10,41 @@ Freeplane addon to build safety concepts within a freeplane mindmap.
 * Optional: For the code monitoring functionality to work, read access for .groovy scripts has to be enabled in the settings
 * Optional: Activate Display selected nodes in bubbles under Tools->Preferences->Appearance to avoid the node selection color interfering with node color coding
 
-# Getting started / Usage
+# Getting Started / Usage
 * Start a new map with the Template provided by the addon, it should work out of the box
 * Press F4 to open the Safety Edit GUI for selected node to turn it into a safety node or edit the properties of a safety node
 * Use ctrl + D instead of ctrl + V to create clones of nodes to avoid duplication
+## Map configuration happens via the properties of the root node, currently supported settings:
+  * Enable Tainting: Enables taint propagation, i.e. tainting children and parents of clones, if a requirement is edited
+  * ISO_26262_mode: Enable Automotive mode, i.e. tracking ASILs
+  * ISO_13849_mode: Enable Machinery mode, i.e. tracking PLs
+  * ISO_25119_mode: Enable Agriculture mode, i.e. tracking AgPLs
+
+Note: Any number of modes can be active simultaneously to support multi domain projects 
+## Architecture Trees and Allocation
+The Addon provides support for tracking one or more Architecture Trees and allocate Requirements to Architectural elements.
+The template map provided comes with one Architectural tree by default, to add additional architecture trees, copy the whole archictecture tree and edit according to your needs.
 
 ## Exporting
 * Currently supported:
   * Export of the Safety Concept to .md
   * Export of the Requirements and their properties to .csv
+  * Export to ReqIF (Experimental)
   
-## Sanity check
-* Currently the sanity check validates several concept properties
-  * Artefecact types derivation rules 
+## Sanity Check
+The Addon provides some consistency checking routines to help identify Mistakes in a safety Concept
+  * Artifact types derivation rules 
     * i.e. Deriving a Safety Goal from a TSR will trigger a warning
+* Automotive (ISO 26262)
   * ASIL flow warnings
     * Check for presence of the decomposition Base ASIL somewhere up the tree of decomposed requirements
     * Check for increasing (Base) ASILs along the tree
     * Check for insufficient decompositions, i.e. "Sum" of children ASILs too low
-
+* Agriculture (ISO 25119)
+  * AgPL flow warnings
+    * Check for Requirements with a higher AgPL than all its parents
+    * Check for Requirements having a lower AgPL than its parent 
+    
 # Code Monitoring
 For the purpose of Software Safety Analysis, the addon brings source code monitoring and Github integration.
 To set it up, the following steps are necessary.
