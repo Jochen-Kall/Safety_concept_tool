@@ -17,18 +17,6 @@ import java.text.SimpleDateFormat
 format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
 
 // Constructing an Requif conforming .xml file.
-def showDialog(String content) {
-    //create new dialog and set size
-    def dialog = new JDialog(ui.frame)
-    dialog.setSize(750, 600)
-    dialog.setLocationRelativeTo(ui.frame)
-    // dialog close operation
-    dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE)
-    // add panel to dialog
-    dialog.add(new JScrollPane(new JTextArea(content)))
-    ui.addEscapeActionToDialog(dialog)
-    dialog.setVisible(true)
-}
 
 def traverseTree(thisNode, parent_identifier, requirementlists, relationlist)
 {
@@ -614,4 +602,4 @@ xml.'REQ-IF'(xmlns:"http://www.omg.org/spec/ReqIF/20110401/reqif.xsd", "xmlns:re
     }   
 }
 
-showDialog(writer.toString())
+FuSa_lib.showDialog(writer.toString(),ui)
