@@ -2,7 +2,7 @@
 <!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
 <node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1640038805804"><hook NAME="MapStyle" zoom="0.912">
-    <properties fit_to_viewport="false" show_icon_for_attributes="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
+    <properties show_icon_for_attributes="false" fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" ID="ID_1965934285" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -358,21 +358,14 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="59" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="61" RULE="ON_BRANCH_CREATION"/>
 <attribute_layout NAME_WIDTH="97.5 pt" VALUE_WIDTH="97.5 pt"/>
 <attribute NAME="FuSi-Addon-version" VALUE="0.5" OBJECT="org.freeplane.features.format.FormattedNumber|0.5|#0.####"/>
 <attribute NAME="Enable Tainting" VALUE="false"/>
 <attribute NAME="ISO_26262_mode" VALUE="true"/>
 <attribute NAME="ISO_13849_mode" VALUE="false"/>
 <attribute NAME="ISO_25119_mode" VALUE="false"/>
-<node TEXT="Safety Goals" STYLE_REF="Caption" POSITION="right" ID="ID_471313066" CREATED="1640778811616" MODIFIED="1640784042363">
-<attribute NAME="Type" VALUE="Caption"/>
-<attribute NAME="Type_sc" VALUE="FSR"/>
-<attribute NAME="ASIL" VALUE="B"/>
-<attribute NAME="ASIL_sc" VALUE="B"/>
-<attribute NAME="Allocation" VALUE="Not Allocated"/>
-<attribute NAME="Shared" VALUE="= node.getCountNodesSharingContent()&gt;0"/>
-<node TEXT="Safety Goal 1" STYLE_REF="Requirement" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1620808984073" HGAP_QUANTITY="20 pt" VSHIFT_QUANTITY="3 pt">
+<node TEXT="Safety Goal 1" STYLE_REF="Requirement" POSITION="right" ID="ID_971613141" CREATED="1609106418278" MODIFIED="1640785105544" HGAP_QUANTITY="20 pt" VSHIFT_QUANTITY="3 pt">
 <attribute_layout VALUE_WIDTH="100 pt"/>
 <attribute NAME="ASIL" VALUE="B"/>
 <attribute NAME="Type" VALUE="SG"/>
@@ -381,8 +374,9 @@
 <attribute NAME="Type_sc" VALUE="SG"/>
 <attribute NAME="Allocation_sc" VALUE=""/>
 <attribute NAME="Shared" VALUE="= node.getCountNodesSharingContent()&gt;0"/>
+<edge COLOR="#00ffff"/>
 </node>
-<node TEXT="Safety Goal 2" STYLE_REF="Requirement" ID="ID_759203603" CREATED="1611077204015" MODIFIED="1620808993868">
+<node TEXT="Safety Goal 2" STYLE_REF="Requirement" POSITION="right" ID="ID_759203603" CREATED="1611077204015" MODIFIED="1640785105579">
 <attribute_layout VALUE_WIDTH="100 pt"/>
 <attribute NAME="Type" VALUE="SG"/>
 <attribute NAME="ASIL" VALUE="A"/>
@@ -391,7 +385,7 @@
 <attribute NAME="Type_sc" VALUE="SG"/>
 <attribute NAME="Allocation_sc" VALUE=""/>
 <attribute NAME="Shared" VALUE="= node.getCountNodesSharingContent()&gt;0"/>
-</node>
+<edge COLOR="#7c0000"/>
 </node>
 <node TEXT="Architecture" POSITION="left" ID="ID_1988403535" CREATED="1609881073321" MODIFIED="1614814447007" HGAP_QUANTITY="77 pt" VSHIFT_QUANTITY="217.49999 pt">
 <edge COLOR="#0000ff"/>

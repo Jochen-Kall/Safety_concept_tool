@@ -12,6 +12,9 @@ get_map_revision(node)
 	Queries Git for the head revision of the repo the map is saved in
 showDialog(String content,ui) 
 	Displays the string passed in an edit box for copy pasting	
+get_req_parent(node)
+	delivers the next non caption parent up the tree
+
 usage: library is automatically loaded in addon and user scripts, the static functions can be called the following way
 FuSa_lib.test_fun()
 */
@@ -23,6 +26,16 @@ import javax.swing.*;
 
 def static test_fun() {
 	def ret = "funzt das?"
+}
+
+// returns the next non caption parent node up the tree, needed to skip over caption levels for Safety logic
+def static get_req_parent(node) {
+	if (node.isRoot()) {return null}
+    if (node.parent.style.name=="Caption") {
+        return get_req_parent(node.parent)
+    } else {
+        return node.parent
+    }
 }
 
 // executes code passed in the shell and returns the results

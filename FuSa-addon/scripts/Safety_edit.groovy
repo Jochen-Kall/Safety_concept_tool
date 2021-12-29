@@ -55,16 +55,16 @@ def Tainted_by_parent = node['Tainted_by_parent']
 
 // Default selection based on Parent node, if field is not present in the node already
 if (!Current_type){
-	Current_type=node.getParent()['Type']
+	Current_type=FuSa_lib.get_req_parent(node)['Type']
 }
 if (!Current_ASIL){
-	Current_ASIL=node.getParent()['ASIL']
+	Current_ASIL=FuSa_lib.get_req_parent(node)['ASIL']
 }
 if (!Current_PL){
-	Current_PL=node.getParent()['PL']
+	Current_PL=FuSa_lib.get_req_parent(node)['PL']
 }
 if (!Current_AgPL){
-	Current_AgPL=node.getParent()['AgPL']
+	Current_AgPL=FuSa_lib.get_req_parent(node)['AgPL']
 }
 if (!Tainted_by_child){
 	Tainted_by_child=false
@@ -76,69 +76,69 @@ if (!Tainted_by_parent){
 // Backup selection list for ASILs
 def ASILlist=['QM', 'A', 'B', 'C', 'D']
 // Choose ASIL options based on the parent ASIL if it exists.
-if (node.getParent().isRoot()) {
+if (FuSa_lib.get_req_parent(node).isRoot()) {
 	ASILlist=['QM', 'A', 'B', 'C', 'D']	
 } else{
 	// possible children ASILs QM
-	if (node.getParent()['ASIL'] =='QM') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='QM') {
 		ASILlist=['','QM']
 	}
-	if (node.getParent()['ASIL'] =='QM[A]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='QM[A]') {
 		ASILlist=['','QM[A]']
 	}
-	if (node.getParent()['ASIL'] =='QM[B]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='QM[B]') {
 		ASILlist=['','QM[B]']
 	}
-	if (node.getParent()['ASIL'] =='QM[C]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='QM[C]') {
 		ASILlist=['','QM[C]']
 	}	
-	if (node.getParent()['ASIL'] =='QM[D]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='QM[D]') {
 		ASILlist=['','QM[D]']
 	}	
 	// possible children ASILs A
-	if (node.getParent()['ASIL'] =='A') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='A') {
 		ASILlist=['','QM[A]','A[A]','A']
 	}
-	if (node.getParent()['ASIL'] =='A[A]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='A[A]') {
 		ASILlist=['','QM[A]','A[A]']
 	}	
-	if (node.getParent()['ASIL'] =='A[B]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='A[B]') {
 		ASILlist=['','QM[B]','A[B]']
 	}
-	if (node.getParent()['ASIL'] =='A[C]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='A[C]') {
 		ASILlist=['','QM[C]','A[C]']
 	}			
-	if (node.getParent()['ASIL'] =='A[D]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='A[D]') {
 		ASILlist=['','QM[D]','A[D]']
 	}	
 	// possible children ASILs B
-	if (node.getParent()['ASIL'] =='B') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='B') {
 		ASILlist=['','QM[B]','A[B]','B[B]','B']
 	}
-	if (node.getParent()['ASIL'] =='B[B]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='B[B]') {
 		ASILlist=['','QM[B]','A[B]','B[B]']
 	}	
-	if (node.getParent()['ASIL'] =='B[C]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='B[C]') {
 		ASILlist=['','QM[C]','A[C]','B[C]']
 	}	
-	if (node.getParent()['ASIL'] =='B[D]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='B[D]') {
 		ASILlist=['','QM[D]','A[D]','B[D]']
 	}
 	// possible children ASILs C
-	if (node.getParent()['ASIL'] =='C') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='C') {
 		ASILlist=['','QM[C]','A[C]','B[C]','C[C]','C']
 	}
-	if (node.getParent()['ASIL'] =='C[C]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='C[C]') {
 		ASILlist=['','QM[C]','A[C]','B[C]','C[C]']
 	}	
-	if (node.getParent()['ASIL'] =='C[D]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='C[D]') {
 		ASILlist=['','QM[D]','A[D]','B[D]','C[D]']
 	}
 	// possible children ASILs D
-	if (node.getParent()['ASIL'] =='D') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='D') {
 		ASILlist=['','QM[D]','A[D]','B[D]','C[D]','D[D]','D']
 	}
-	if (node.getParent()['ASIL'] =='D[D]') {
+	if (FuSa_lib.get_req_parent(node)['ASIL'] =='D[D]') {
 		ASILlist=['','QM[D]','A[D]','B[D]','C[D]','D[D]']
 	}	
 }
@@ -147,24 +147,24 @@ if (!(node['ASIL'] in ASILlist)) { ASILlist+=node['ASIL']}
 // assemble PL list
 def PLlist=['QM','a', 'b', 'c', 'd', 'e']
 if (ISO13849_mode) {
-	if (!node.getParent().isRoot()) {
+	if (!FuSa_lib.get_req_parent(node).isRoot()) {
 		// not a decendent of the rootnode
-		if (node.getParent()['PL'] =='QM') {
+		if (FuSa_lib.get_req_parent(node)['PL'] =='QM') {
 			PLlist=['','QM']
 		}
-		if (node.getParent()['PL'] =='a') {
+		if (FuSa_lib.get_req_parent(node)['PL'] =='a') {
 			PLlist=['','QM','a']
 		}
-		if (node.getParent()['PL'] =='b') {
+		if (FuSa_lib.get_req_parent(node)['PL'] =='b') {
 			PLlist=['','QM','a','b']
 		}
-		if (node.getParent()['PL'] =='c') {
+		if (FuSa_lib.get_req_parent(node)['PL'] =='c') {
 			PLlist=['','QM','a','b','c']
 		}
-		if (node.getParent()['PL'] =='d') {
+		if (FuSa_lib.get_req_parent(node)['PL'] =='d') {
 			PLlist=['','QM','a','b','c','d']
 		}
-		if (node.getParent()['PL'] =='e') {
+		if (FuSa_lib.get_req_parent(node)['PL'] =='e') {
 			PLlist=['','QM','a','b','c','d','e']
 		}		
 	}
@@ -175,24 +175,24 @@ if (ISO13849_mode) {
 // assemble AgPL list
 def AgPLlist=['QM','a', 'b', 'c', 'd', 'e']
 if (ISO25119_mode) {
-	if (!node.getParent().isRoot()) {
+	if (!FuSa_lib.get_req_parent(node).isRoot()) {
 		// not a decendent of the rootnode
-		if (node.getParent()['AgPL'] =='QM') {
+		if (FuSa_lib.get_req_parent(node)['AgPL'] =='QM') {
 			AgPLlist=['','QM']
 		}
-		if (node.getParent()['AgPL'] =='a') {
+		if (FuSa_lib.get_req_parent(node)['AgPL'] =='a') {
 			AgPLlist=['','QM','a']
 		}
-		if (node.getParent()['AgPL'] =='b') {
+		if (FuSa_lib.get_req_parent(node)['AgPL'] =='b') {
 			AgPLlist=['','QM','a','b']
 		}
-		if (node.getParent()['AgPL'] =='c') {
+		if (FuSa_lib.get_req_parent(node)['AgPL'] =='c') {
 			AgPLlist=['','QM','a','b','c']
 		}
-		if (node.getParent()['AgPL'] =='d') {
+		if (FuSa_lib.get_req_parent(node)['AgPL'] =='d') {
 			AgPLlist=['','QM','a','b','c','d']
 		}
-		if (node.getParent()['AgPL'] =='e') {
+		if (FuSa_lib.get_req_parent(node)['AgPL'] =='e') {
 			AgPLlist=['','QM','a','b','c','d','e']
 		}		
 	}
@@ -203,7 +203,7 @@ if (ISO25119_mode) {
 // Fallback list for Types
 Typelist=['SG', 'FSR', 'TSR', 'Information', 'HW', 'SW']
 // restrict types to acceptable types, based on the parent nodes type.
-def Parenttype=node.getParent()['Type']
+def Parenttype=FuSa_lib.get_req_parent(node)['Type']
 if (Parenttype=='SZ') {Parenttype='SG'} 	// backwards compatibility
 
 if (Parenttype=='SG'){
