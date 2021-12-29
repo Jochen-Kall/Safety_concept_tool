@@ -68,15 +68,15 @@ def Check_base_ASIL(thisNode){
 	}
 
 	// only consider nodes that are child of a Requirement node
-	nodelist=nodelist.findAll{it.getParent().style.name=='Requirement'}
+	nodelist=nodelist.findAll{FuSa_lib.get_req_parent(it).style.name=='Requirement'}
 
 	ba=ASIL_num(Base_ASIL(thisNode['ASIL']))
 	// check if any of the parents has a higher base ASIL than the node itself
-	if (nodelist.any{ASIL_num(Base_ASIL(it.getParent()["ASIL"]))>ba	} ) {
+	if (nodelist.any{ASIL_num(Base_ASIL(FuSa_lib.get_req_parent(it)["ASIL"]))>ba	} ) {
 		attach_warning(thisNode,'A Parent Requirement exists with higher base ASIL!')
 	}
 	// check if at least one parent has the same base ASIL
-	if (nodelist.every{ASIL_num(Base_ASIL(it.getParent()["ASIL"]))<ba} ) {
+	if (nodelist.every{ASIL_num(Base_ASIL(FuSa_lib.get_req_parent(it)["ASIL"]))<ba} ) {
 		attach_warning(thisNode,'All Parent Requirements have a lower base ASIL!')
 	}	
 }
@@ -84,7 +84,7 @@ def Check_base_ASIL(thisNode){
 // Verify that if there is a decomposition, the ASIL values add up
 def Check_decomposition(thisNode) {
 	// check if any child has a lower actual asil than the node itself, indicating a decomposition
-	def ch=thisNode.children.findAll{it['Type'] in ['SZ','SG','FSR','TSR','HW','SW']}
+	def ch=FuSa_lib.get_req_children(thisNode).findAll{it['Type'] in ['SZ','SG','FSR','TSR','HW','SW']}
 	if (ch.any{ASIL_num(Act_ASIL(it['ASIL']))<ASIL_num(Act_ASIL(thisNode['ASIL']))}){	
 		// check if the sum of actual ASILs of the children is smaller than the actual ASIL of the parent
 		if (ASIL_num(Act_ASIL(thisNode['ASIL'])) > ch.collect{ASIL_num(Act_ASIL(it['ASIL']))}.sum() ) {
@@ -118,8 +118,8 @@ Allowed_derivation['SW']=['Information','SW']
 Allowed_derivation['Information']=['Information']
 
 def Check_type(thisNode) {
-	if (thisNode.getParent().style.name !='Requirement') {return} // SZ is not hanging at a requirement style node at the first place
-	if (!(thisNode['Type'] in Allowed_derivation[thisNode.getParent()['Type']]))  {
+	if (FuSa_lib.get_req_parent(thisNode).style.name !='Requirement') {return} // SZ is not hanging at a requirement style node at the first place
+	if (!(thisNode['Type'] in Allowed_derivation[FuSa_lib.get_req_parent(thisNode)['Type']]))  {
 		attach_warning(thisNode,'Illegal Parent Child relationship')	
 	}
 }
@@ -138,7 +138,7 @@ c.find{(it.style.name=='Requirement') && (it['Type'] in ['FSR','TSR','HW','SW'])
 // Find all Requirement nodes that are of type ['SG','FSR','TSR','HW','SW'], i.e. excluding Information artifacts
 c.find{(it.style.name=='Requirement') && (it['Type'] in ['SZ','SG','FSR','TSR','HW','SW']) }.each{ 	// SZ in there for backwards compatibility
 	// Execute decomposition check on all requirements with children
-	if (it.children.any{it.style.name=='Requirement'}) {
+	if (FuSa_lib.get_req_children(it).any{it.style.name=='Requirement'}) {
 		Check_decomposition(it)
 	}
 	// Execute ASIL source check for all requirements
@@ -148,7 +148,3 @@ c.find{(it.style.name=='Requirement') && (it['Type'] in ['SZ','SG','FSR','TSR','
 c.find{(it.style.name=='Requirement')}.each{
 	Check_type(it)	
 }
-
-
-
-
