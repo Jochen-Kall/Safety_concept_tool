@@ -54,29 +54,33 @@ def Tainted_by_child = node['Tainted_by_child']
 def Tainted_by_parent = node['Tainted_by_parent']
 
 // Default selection based on Parent node, if field is not present in the node already
+def parent= FuSa_lib.get_req_parent(node)
+if (parent) {
 if (!Current_type){
-	Current_type=FuSa_lib.get_req_parent(node)['Type']
+	Current_type=parent['Type']
 }
 if (!Current_ASIL){
-	Current_ASIL=FuSa_lib.get_req_parent(node)['ASIL']
+	Current_ASIL=parent['ASIL']
 }
 if (!Current_PL){
-	Current_PL=FuSa_lib.get_req_parent(node)['PL']
+	Current_PL=parent['PL']
+	// Current_PL=FuSa_lib.get_req_parent(node)['PL']
 }
 if (!Current_AgPL){
-	Current_AgPL=FuSa_lib.get_req_parent(node)['AgPL']
+	Current_AgPL=parent['AgPL']
 }
 if (!Tainted_by_child){
 	Tainted_by_child=false
 } 
 if (!Tainted_by_parent){
 	Tainted_by_parent=false
+}
 } 
 
 // Backup selection list for ASILs
 def ASILlist=['QM', 'A', 'B', 'C', 'D']
 // Choose ASIL options based on the parent ASIL if it exists.
-if (FuSa_lib.get_req_parent(node).isRoot()) {
+if (!FuSa_lib.get_req_parent(node)) {
 	ASILlist=['QM', 'A', 'B', 'C', 'D']	
 } else{
 	// possible children ASILs QM
@@ -203,7 +207,11 @@ if (ISO25119_mode) {
 // Fallback list for Types
 Typelist=['SG', 'FSR', 'TSR', 'Information', 'HW', 'SW']
 // restrict types to acceptable types, based on the parent nodes type.
-def Parenttype=FuSa_lib.get_req_parent(node)['Type']
+def Parenttype=''
+if (parent) {
+	Parenttype=parent['Type']
+}
+
 if (Parenttype=='SZ') {Parenttype='SG'} 	// backwards compatibility
 
 if (Parenttype=='SG'){
