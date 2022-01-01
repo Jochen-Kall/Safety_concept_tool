@@ -30,29 +30,46 @@ ASIL_map['C[D]'] = 'ASIL C[D]'
 ASIL_map['D'] = 'ASIL D'
 ASIL_map['D[D]'] = 'ASIL D[D]'
 
-// Start export for passed Safety goal node
-def process_SG(thisNode, level) {
+// first crawler, crawles down to the first non-heading node, then switches to the bullet point crawler
+def crawl_headings(thisNode,level) {
 	def result=[]
-	if ((thisNode['Type']=='SZ')||(thisNode['Type']=='SG')) {
-		result=['## Safety goal: ' + thisNode.text]
-		result+="""<details><summary>Unfold Safety Goal</summary><p>\n"""
+	if (thisNode.style.name=="Caption") {
+		def L =  '#'*level + ' ' + thisNode.text
+		result += L
+		// recursion on all children nodes
 		thisNode.children.each{
-			result += process_reqs(it, 1)
+			result += crawl_headings(it,level+1)
 		}
-		result+='</p></details>\n'
+		
+	} else {
+		// switch to bullet point crawler
+		result+= crawl_requirements(thisNode,1)
 	}
-    	return result
+	return result
 }
 
-def process_reqs(thisNode,level){	
+// second crawler, starts with a requirement node and builds bullet points for the subtree
+def crawl_requirements(thisNode,level) {
+	def result=[]
+	def L=null
+	if (thisNode.style.name=="Caption") {
+		L =  render_caption_md(thisNode,level)
+	}
+	if (thisNode.style.name=="Requirement") {
+		L =  render_requirement_md(thisNode,level)
+	}
+	if (L) {result +=L}
+	thisNode.children.each{
+		result += crawl_requirements(it,level+1)
+	}
+	return result
+
+}
+
+def render_requirement_md(thisNode,level) {
 	L= '    '* (level-1) + '* '
-	L_indent=L
-	if (thisNode['ID']) {
-		L+= '[' + thisNode['ID'] + '] '
-	} else {
-		internal_ID= thisNode.getId() 
-		L+= """[$internal_ID] """
-	}	
+	internal_ID= thisNode.getId() 
+	L+= """[$internal_ID] """	
 	if (thisNode['Type']) {
 		L+= '[' + thisNode['Type'] + '] '
 	}
@@ -60,30 +77,15 @@ def process_reqs(thisNode,level){
 		L+= '[' + ASIL_map[thisNode['ASIL']] + '] '
 	}	
 	def result=[L + thisNode.text]
-//	if (thisNode.children) {result+="""<details><summary>Unfold Requirement</summary><p>\n"""}
-	thisNode.children.each{
-		result += process_reqs(it, level+1)
-	}
-//	if (thisNode.children) {result+='</p></details>\n'}
-    return result	
 }
 
-def process_start_node(thisNode) {
-	def result=[]
-	if ((thisNode['Type']=='SZ')||(thisNode['Type']=='SG')) {
-		// Start node already is a Safety goal
-		result= process_SG(thisNode,1)
-	} else {
-		// Start node is not a Safety goal, thus treat all children as potential safety goals.
-		thisNode.children.each{
-			result+= process_SG(it,1)
-		}
-	}
-	return result
+def render_caption_md(thisNode,level) {
+	L= '    '* (level-1) + '* '
+	L += thisNode.text
+	def result = [L] 	
 }
 
-
-def result = ['# Safety concept']
-result += process_start_node(node);
+def result = []
+result += crawl_headings(node,1);
 
 FuSa_lib.showDialog(result.join("\n"),ui)

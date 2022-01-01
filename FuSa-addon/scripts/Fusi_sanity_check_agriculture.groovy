@@ -44,15 +44,15 @@ def Check_AgPL(thisNode){
 	}
 
 	// only consider nodes that are child of a Requirement node
-	nodelist=nodelist.findAll{it.getParent().style.name=='Requirement'}
+	nodelist=nodelist.findAll{FuSa_lib.get_req_parent(it).style.name=='Requirement'}
 
 	ba=AgPL_num(thisNode['AgPL'])
 	// check if the parents AgPL is bigger than the children AgPL
-	if (nodelist.any{AgPL_num(it.getParent()["AgPL"])>ba	} ) {
+	if (nodelist.any{AgPL_num(FuSa_lib.get_req_parent(it)["AgPL"])>ba	} ) {
 		attach_warning(thisNode,'A Parent Requirement exists with a higher AgPL!')
 	}
 	// check if at least one parent has the same AgPL
-	if (nodelist.every{AgPL_num(it.getParent()["AgPL"])!=ba} ) {
+	if (nodelist.every{AgPL_num(FuSa_lib.get_req_parent(it)["AgPL"])!=ba} ) {
 		attach_warning(thisNode,'No Parent Requirement of the same AgPL!')
 	}	
 }
@@ -69,8 +69,8 @@ Allowed_derivation['SW']=['Information','SW']
 Allowed_derivation['Information']=['Information']
 
 def Check_type(thisNode) {
-	if (thisNode.getParent().style.name !='Requirement') {return} // SZ is not hanging at a requirement style node at the first place
-	if (!(thisNode['Type'] in Allowed_derivation[thisNode.getParent()['Type']]))  {
+	if (FuSa_lib.get_req_parent(thisNode).style.name !='Requirement') {return} // SZ is not hanging at a requirement style node at the first place
+	if (!(thisNode['Type'] in Allowed_derivation[FuSa_lib.get_req_parent(thisNode)['Type']]))  {
 		attach_warning(thisNode,'Illegal Parent Child relationship')	
 	}
 }
