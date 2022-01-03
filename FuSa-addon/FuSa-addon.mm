@@ -3,7 +3,7 @@
 <node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1641037552692" LINK="https://github.com/Jochen-Kall/Safety_concept_tool" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle" zoom="0.826">
-    <properties fit_to_viewport="false" show_icon_for_attributes="true" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
+    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -106,8 +106,7 @@
       </li>
     </ul>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="changes" POSITION="left" ID="ID_645554915" CREATED="1609274211245" MODIFIED="1641037552711">
 <edge COLOR="#0000ff"/>
 <richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
@@ -120,8 +119,7 @@
       Change log of this add-on: append one node for each noteworthy version and put the details for each version into a child node.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="/media/jochen/Linux_work/ELISA repos/Safety_concept_tool/FuSa-addon/FuSa-addon-v0.5.addon.mm" ID="ID_1006199234" CREATED="1609670949549" MODIFIED="1622112883039" HGAP_QUANTITY="23 pt" VSHIFT_QUANTITY="-0.75 pt"/>
 <node TEXT="Added ASIL Icons" ID="ID_1109716096" CREATED="1610652451941" MODIFIED="1610652470756"/>
 <node TEXT="Added support for HW and SW requirements" ID="ID_1117473821" CREATED="1610652472026" MODIFIED="1610652481447"/>
@@ -145,8 +143,7 @@
       The License text has to be entered as a child of the <i>'license'</i>&nbsp;node, either as plain text or as HTML.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xa;GNU General Public License for more details." ID="ID_957272066" CREATED="1609274211253" MODIFIED="1611076593930"/>
 </node>
 <node TEXT="preferences.xml" POSITION="left" ID="ID_146217099" CREATED="1609274211269" MODIFIED="1641037552714">
@@ -164,8 +161,7 @@
       <font color="#000000" face="SansSerif, sans-serif">Every property in the configuration should receive a default value in <i>default.properties</i>&nbsp;node.</font>
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xa;&lt;preferences_structure&gt;&#xa;         &lt;tabbed_pane&gt;&#xa;                  &lt;tab name=&quot;plugins&quot;&gt;&#xa;                           &lt;separator name=&quot;myaddon&quot;&gt;&#xa;                                    &lt;string name=&quot;User_Name&quot; /&gt;&#xa;                           &lt;/separator&gt;&#xa;                  &lt;/tab&gt;&#xa;         &lt;/tabbed_pane&gt;&#xa;&lt;/preferences_structure&gt;" ID="ID_1822557044" CREATED="1618778106378" MODIFIED="1618778420140"/>
 </node>
 <node TEXT="default.properties" POSITION="left" ID="ID_1237073425" CREATED="1609274211273" MODIFIED="1641037552716">
@@ -188,8 +184,7 @@
       </li>
     </ul>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <attribute_layout NAME_WIDTH="72.75 pt" VALUE_WIDTH="75.75 pt"/>
 <attribute NAME="User_Name" VALUE="&lt;User Name&gt;" OBJECT="org.freeplane.features.format.FormattedObject|java.lang.String&amp;#x7c;&lt;User Name&gt;|number:decimal:#0.####"/>
 </node>
@@ -211,8 +206,7 @@
       To translate the description you have to define a translation for the key 'addons.${name}.description'.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="Functional Safety Addon for Freeplane, to support designing Open Source Safety Concepts with Freeplane" ID="ID_1867477143" CREATED="1609321484661" MODIFIED="1611074898621"/>
 </node>
 <node TEXT="translations" POSITION="left" ID="ID_1891165789" CREATED="1609274211275" MODIFIED="1641037552718">
@@ -238,8 +232,7 @@
       </li>
     </ul>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="en" ID="ID_693758551" CREATED="1609274211285" MODIFIED="1641037573182">
 <attribute_layout NAME_WIDTH="263.99999 pt" VALUE_WIDTH="263.99999 pt"/>
 <attribute NAME="addons.${name}" VALUE="FuSa-addon"/>
@@ -271,8 +264,7 @@
       List of files and/or directories to remove on uninstall
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <attribute_layout NAME_WIDTH="49.5 pt" VALUE_WIDTH="343.49999 pt"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
 <attribute NAME="delete" VALUE="${installationbase}/icons/freeplane.png"/>
@@ -444,8 +436,7 @@
       &nbsp;&nbsp;- In any case set execute_scripts_without_asking to true unless you want to annoy users.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="Export_Safety_concept_markdown.groovy" ID="ID_866588008" CREATED="1609669083061" MODIFIED="1609670766815">
 <attribute_layout NAME_WIDTH="226.49999 pt" VALUE_WIDTH="263.99999 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.${name}.Export_Safety_concept_markdown"/>
@@ -578,11 +569,11 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="make_caption.groovy" ID="ID_23300795" CREATED="1641037552743" MODIFIED="1641037634397">
+<node TEXT="make_caption.groovy" ID="ID_23300795" CREATED="1641037552743" MODIFIED="1641245079715">
 <attribute_layout NAME_WIDTH="202.49999 pt" VALUE_WIDTH="202.49999 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.${name}.make_caption"/>
 <attribute NAME="menuLocation" VALUE="main_menu/addons.${name}/Edit"/>
-<attribute NAME="executionMode" VALUE="on_single_node"/>
+<attribute NAME="executionMode" VALUE="on_selected_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
 <attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
@@ -627,8 +618,7 @@
       &nbsp;- The files will be processed in the sequence as seen in the map.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node TEXT="zips" POSITION="right" ID="ID_1150015076" CREATED="1609274211332" MODIFIED="1641037552810">
 <edge COLOR="#007c7c"/>
@@ -666,8 +656,7 @@
       &nbsp;- The files will be processed in the sequence as seen in the map.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="icons" ID="ID_1750144087" CREATED="1609323304628" MODIFIED="1609323311863"/>
 <node TEXT="templates" ID="ID_870861486" CREATED="1611078669458" MODIFIED="1611078692599"/>
 <node TEXT="scripts" ID="ID_360567109" CREATED="1613223305807" MODIFIED="1613223305809"/>
@@ -705,8 +694,7 @@
       Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&nbsp;since they have to be (base64) encoded as simple strings.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </map>
