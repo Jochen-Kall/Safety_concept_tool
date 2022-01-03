@@ -3,3 +3,4 @@
 *.synctex.gz
 
 *.addon.mm
+/FuSa-addon/version.properties
