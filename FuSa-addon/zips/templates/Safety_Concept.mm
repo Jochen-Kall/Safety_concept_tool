@@ -1,8 +1,8 @@
 <map version="freeplane 1.9.8">
 <!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
-<node TEXT="Safety concept" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1640038805804"><hook NAME="MapStyle" zoom="0.912">
-    <properties show_icon_for_attributes="false" fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
+<node TEXT="Safety concept" STYLE_REF="Caption" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1641245399016"><hook NAME="MapStyle" zoom="0.912">
+    <properties fit_to_viewport="false" show_icon_for_attributes="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" ID="ID_1965934285" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -360,7 +360,7 @@
 </hook>
 <hook NAME="AutomaticEdgeColor" COUNTER="61" RULE="ON_BRANCH_CREATION"/>
 <attribute_layout NAME_WIDTH="97.5 pt" VALUE_WIDTH="97.5 pt"/>
-<attribute NAME="FuSi-Addon-version" VALUE="0.5" OBJECT="org.freeplane.features.format.FormattedNumber|0.5|#0.####"/>
+<attribute NAME="FuSi-Addon-version" VALUE="0.6" OBJECT="org.freeplane.features.format.FormattedNumber|0.6|#0.####"/>
 <attribute NAME="Enable Tainting" VALUE="false"/>
 <attribute NAME="ISO_26262_mode" VALUE="true"/>
 <attribute NAME="ISO_13849_mode" VALUE="false"/>
