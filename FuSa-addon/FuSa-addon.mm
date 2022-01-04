@@ -3,7 +3,7 @@
 <node TEXT="FuSi-addon" FOLDED="false" ID="ID_1246056751" CREATED="1609274185371" MODIFIED="1641037552692" LINK="https://github.com/Jochen-Kall/Safety_concept_tool" BACKGROUND_COLOR="#97c7dc" STYLE="oval">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle" zoom="0.826">
-    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
+    <properties fit_to_viewport="false" show_icon_for_attributes="true" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -120,7 +120,7 @@
     </p>
   </body>
 </html></richcontent>
-<node TEXT="/media/jochen/Linux_work/ELISA repos/Safety_concept_tool/FuSa-addon/FuSa-addon-v0.5.addon.mm" ID="ID_1006199234" CREATED="1609670949549" MODIFIED="1622112883039" HGAP_QUANTITY="23 pt" VSHIFT_QUANTITY="-0.75 pt"/>
+<node TEXT="FuSa-addon-v0.6.addon.mm" ID="ID_1821917377" CREATED="1641245651998" MODIFIED="1641245652007" LINK="FuSa-addon-v0.6.addon.mm"/>
 <node TEXT="Added ASIL Icons" ID="ID_1109716096" CREATED="1610652451941" MODIFIED="1610652470756"/>
 <node TEXT="Added support for HW and SW requirements" ID="ID_1117473821" CREATED="1610652472026" MODIFIED="1610652481447"/>
 <node TEXT="Added Icons for ASIL X[X]" ID="ID_1406193037" CREATED="1610812586353" MODIFIED="1610812611209"/>

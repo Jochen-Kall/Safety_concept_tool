@@ -33,21 +33,25 @@ if (node.map.getRoot().attributes.containsKey("ISO_25119_mode")) {
 }
 
 //Current_type=node['Type']
+Current_type=''
 if (node.attributes.containsKey('Type')) {
 	Current_type=node['Type']
-} else Current_type=null
-// Current_ASIL=node['ASIL']
+} 
+// Current ASIL
+Current_ASIL=''
 if (node.attributes.containsKey('ASIL')) {
 	Current_ASIL=node['ASIL']
-} else Current_ASIL=null
+} 
 // Current PL
+Current_PL=''
 if (node.attributes.containsKey('PL')) {
 	Current_PL=node['PL']
-} else Current_PL=null
+}
 // Current AgPL
+Current_AgPL=''
 if (node.attributes.containsKey('AgPL')) {
 	Current_AgPL=node['AgPL']
-} else Current_AgPL=null
+} 
 
 
 def Tainted_by_child = node['Tainted_by_child']
@@ -56,32 +60,47 @@ def Tainted_by_parent = node['Tainted_by_parent']
 // Default selection based on Parent node, if field is not present in the node already
 def parent= FuSa_lib.get_req_parent(node)
 if (parent) {
-if (!Current_type){
-	Current_type=parent['Type']
-}
-if (!Current_ASIL){
-	Current_ASIL=parent['ASIL']
-}
-if (!Current_PL){
-	Current_PL=parent['PL']
-	// Current_PL=FuSa_lib.get_req_parent(node)['PL']
-}
-if (!Current_AgPL){
-	Current_AgPL=parent['AgPL']
-}
-if (!Tainted_by_child){
-	Tainted_by_child=false
-} 
-if (!Tainted_by_parent){
-	Tainted_by_parent=false
-}
+    if (!Current_type){
+        //  Type is not present in node yet
+        if (parent.attributes.containsKey('Type')) {
+            // Parent node has an ASIL, otherwise it defaults to 'SG'
+            Current_type=parent['Type']
+        } else {Current_type='SG'}
+    }
+    if (!Current_ASIL){
+        //  ASIL is not present in node yet
+        if (parent.attributes.containsKey('ASIL')) {
+            // Parent node has an ASIL, otherwise it defaults to ''
+            Current_ASIL=parent['ASIL']
+        }
+    }
+    if (!Current_PL){
+        //  PL is not present in node yet
+        if (parent.attributes.containsKey('PL')) {
+            // Parent node has an PL, otherwise it defaults to ''
+            Current_PL=parent['PL']
+        }
+    }
+    if (!Current_AgPL){
+        //  AgPL is not present in node yet
+        if (parent.attributes.containsKey('AgPL')) {
+            // Parent node has an AgPL, otherwise it defaults to ''
+            Current_AgPL=parent['AgPL']
+        }
+    }
+    if (!Tainted_by_child){
+        Tainted_by_child=false
+    } 
+    if (!Tainted_by_parent){
+        Tainted_by_parent=false
+    }
 } 
 
 // Backup selection list for ASILs
-def ASILlist=['QM', 'A', 'B', 'C', 'D']
+def ASILlist=['','QM', 'A', 'B', 'C', 'D']
 // Choose ASIL options based on the parent ASIL if it exists.
 if (!FuSa_lib.get_req_parent(node)) {
-	ASILlist=['QM', 'A', 'B', 'C', 'D']	
+	ASILlist=['','QM', 'A', 'B', 'C', 'D']	
 } else{
 	// possible children ASILs QM
 	if (FuSa_lib.get_req_parent(node)['ASIL'] =='QM') {
@@ -146,12 +165,12 @@ if (!FuSa_lib.get_req_parent(node)) {
 		ASILlist=['','QM[D]','A[D]','B[D]','C[D]','D[D]']
 	}	
 }
-if (!(node['ASIL'] in ASILlist)) { ASILlist+=node['ASIL']}
+if (!(node['ASIL'] in ASILlist) & (node['ASIL'] in FuSa_lib.Valid_ASIL_values())) { ASILlist+=node['ASIL']}
 
 // assemble PL list
-def PLlist=['QM','a', 'b', 'c', 'd', 'e']
+def PLlist=['','QM','a', 'b', 'c', 'd', 'e']
 if (ISO13849_mode) {
-	if (!FuSa_lib.get_req_parent(node).isRoot()) {
+	if (FuSa_lib.get_req_parent(node)) {
 		// not a decendent of the rootnode
 		if (FuSa_lib.get_req_parent(node)['PL'] =='QM') {
 			PLlist=['','QM']
@@ -173,13 +192,13 @@ if (ISO13849_mode) {
 		}		
 	}
 	// clone exception
-	if (!(node['PL'] in PLlist)) { PLlist+=node['PL']}
+	if (!(node['PL'] in PLlist) & (node['PL'] in FuSa_lib.Valid_PL_values())) { PLlist+=node['PL']}
 }
 
 // assemble AgPL list
-def AgPLlist=['QM','a', 'b', 'c', 'd', 'e']
+def AgPLlist=['','QM','a', 'b', 'c', 'd', 'e']
 if (ISO25119_mode) {
-	if (!FuSa_lib.get_req_parent(node).isRoot()) {
+	if (FuSa_lib.get_req_parent(node)) {
 		// not a decendent of the rootnode
 		if (FuSa_lib.get_req_parent(node)['AgPL'] =='QM') {
 			AgPLlist=['','QM']
@@ -201,7 +220,7 @@ if (ISO25119_mode) {
 		}		
 	}
 	// clone exception
-	if (!(node['AgPL'] in AgPLlist)) { AgPLlist+=node['AgPL']}
+	if (!(node['AgPL'] in AgPLlist) & (node['AgPL'] in FuSa_lib.Valid_AgPL_values())) { AgPLlist+=node['AgPL']}
 }
 
 // Fallback list for Types

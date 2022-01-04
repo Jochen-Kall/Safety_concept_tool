@@ -29,6 +29,16 @@ def static test_fun() {
 	def ret = "funzt das?"
 }
 
+def static Valid_ASIL_values() {
+	return ['QM', 'QM[A]', 'QM[B]', 'QM[C]', 'QM[D]', 'A', 'A[A]','A[B]', 'A[C]', 'A[D]','B', 'B[B]', 'B[C]', 'B[D]','C','C[C]', 'C[D]','D','D[D]']
+}
+def static Valid_PL_values() {
+	return ['QM', 'a', 'b', 'c', 'd', 'e']
+}
+def static Valid_AgPL_values() {
+	return ['QM', 'a', 'b', 'c', 'd', 'e']
+}
+
 // returns the next non caption parent node up the tree, needed to skip over caption levels for Safety logic
 def static get_req_parent(node) {
 	if (node.isRoot()) {return null}
