@@ -12,18 +12,33 @@ Freeplane addon to build safety concepts within a freeplane mindmap.
 
 # Getting Started / Usage
 * Start a new map with the Template provided by the addon, it should work out of the box
-* Press F4 to open the Safety Edit GUI for selected node to turn it into a safety node or edit the properties of a safety node
-* Use ctrl + D instead of ctrl + V to create clones of nodes to avoid duplication
-## Map configuration happens via the properties of the root node, currently supported settings:
+* Press F4 to open the Safety Edit GUI for selected node to turn it into a safety node or edit the properties of a safety node ![Example](Readme_files/safety_edit_dialog.png)
+* Use ctrl + D instead of ctrl + V to create clones of nodes to avoid duplication. 
+  * Clones share their content, changing one clone automatically changes all others as well.
+  * Clones can be identified by their orange background and the clone indicator rectangle ![Example](Readme_files/clone_markup.png)
+
+## Node Markup
+* Artefact types and ASIL/PL levels are indicated visually by node style and icons. This is fully automatic based on the node attributes. 
+![Example](Readme_files/Artefact_markup.png)
+
+## Captions
+* The caption artefact type serves to help structurize a safety concept and support readability
+* The internal logic ignores/jumps over caption artefacts for sanity checking
+![Example](Readme_files/Caption_example.png)
+
+## Safety Concept Configuration
+Configuration happens via the properties of the root node, currently supported settings:
   * Enable Tainting: Enables taint propagation, i.e. tainting children and parents of clones, if a requirement is edited
   * ISO_26262_mode: Enable Automotive mode, i.e. tracking ASILs
   * ISO_13849_mode: Enable Machinery mode, i.e. tracking PLs
   * ISO_25119_mode: Enable Agriculture mode, i.e. tracking AgPLs
+![Example](Readme_files/root_node_settings.png)
 
 Note: Any number of modes can be active simultaneously to support multi domain projects 
 ## Architecture Trees and Allocation
-The Addon provides support for tracking one or more Architecture Trees and allocate Requirements to Architectural elements.
-The template map provided comes with one Architectural tree by default, to add additional architecture trees, copy the whole archictecture tree and edit according to your needs.
+The Addon provides support for tracking one or more Architecture Trees and allocate Requirements to Architectural elements on system, hardware and software level.
+The template map provided by the addon comes with one architectural tree by default, to add additional architecture trees, copy the whole archictecture tree and edit according to your needs.
+The documentation is embedded in the template map.
 
 ## Exporting
 * Currently supported:
@@ -31,7 +46,7 @@ The template map provided comes with one Architectural tree by default, to add a
   * Export of the Requirements and their properties to .csv
   * Export to ReqIF (Experimental)
   
-## Sanity Check
+## Sanity Checks
 The Addon provides some consistency checking routines to help identify Mistakes in a safety Concept
   * Artifact types derivation rules 
     * i.e. Deriving a Safety Goal from a TSR will trigger a warning
@@ -40,12 +55,14 @@ The Addon provides some consistency checking routines to help identify Mistakes 
     * Check for presence of the decomposition Base ASIL somewhere up the tree of decomposed requirements
     * Check for increasing (Base) ASILs along the tree
     * Check for insufficient decompositions, i.e. "Sum" of children ASILs too low
+    ![Example](Readme_files/26262_errors.png)
+* Use ctrl + D instead of ctrl + V to create clones of nodes to avoid duplication.  
 * Agriculture (ISO 25119)
   * AgPL flow warnings
     * Check for Requirements with a higher AgPL than all its parents
     * Check for Requirements having a lower AgPL than its parent 
     
-# Code Monitoring
+## Code Monitoring
 For the purpose of Software Safety Analysis, the addon brings source code monitoring and Github integration.
 To set it up, the following steps are necessary.
 * Enter the Link to the github repository and the Revision to work against in the parameter fields of the "Source code monitoring" node
@@ -55,8 +72,13 @@ To set it up, the following steps are necessary.
 ``` // [ID_197895921] ```
 * Use FuSi-addon-> Refresh Tag Mapping to add/refresh Github links to the Line of Codes containing the Tag 
 
-# Tainting (experimental)
+## Tainting (experimental)
 * The addon can track changes in nodes and propates them in form of of a "taint" to children of modified requirements as well as to parents of duplicated requirements, that might be affected by the change.
-* Taint can be removed by unchecking the taint checkmark in the safety edit dialog of a tainted node
-* Tainting is distracting during early stage development, thus can be disabled by setting the attribute "Enable Tainting" of the root node to "false" 
+* Taint can be removed by unchecking the taint checkmark in the safety edit dialog of a tainted node or with the mass untaint macro
+* Tainting is distracting during early stage development, thus can be disabled by setting the attribute "Enable Tainting" of the root node to "false"
+
+# Tool qualification according to ISO26262
+This tool has not been developed according to a safety standard, neither has freeplane, or the underlying Java platform for that matter!
+To be used for development of safety critical items, it needs to be classified in the context of the development process in question just like all tools!
+If the classification results in TCL1 it can be used, otherwise not since qualification is probably unfeasible. 
 
