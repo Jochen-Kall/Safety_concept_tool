@@ -67,8 +67,8 @@ def Check_base_ASIL(thisNode){
 		nodelist=[thisNode]
 	}
 
-	// only consider nodes that are child of a Requirement node
-	nodelist=nodelist.findAll{FuSa_lib.get_req_parent(it).style.name=='Requirement'}
+	// do not consider nodes without a parent requirement, i.e. safety goals
+	nodelist=nodelist.findAll{FuSa_lib.get_req_parent(it)!=null}
 
 	ba=ASIL_num(Base_ASIL(thisNode['ASIL']))
 	// check if any of the parents has a higher base ASIL than the node itself
@@ -118,7 +118,8 @@ Allowed_derivation['SW']=['Information','SW']
 Allowed_derivation['Information']=['Information']
 
 def Check_type(thisNode) {
-	if (FuSa_lib.get_req_parent(thisNode).style.name !='Requirement') {return} // SZ is not hanging at a requirement style node at the first place
+	if (FuSa_lib.get_req_parent(thisNode)==null) {return} // Parent chain (all Captions) goes up to the root node
+	if (FuSa_lib.get_req_parent(thisNode).style.name!='Requirement') {return} // Requirement is not hanging at a requirement style non-caption node at the first place 	
 	if (!(thisNode['Type'] in Allowed_derivation[FuSa_lib.get_req_parent(thisNode)['Type']]))  {
 		attach_warning(thisNode,'Illegal Parent Child relationship')	
 	}
