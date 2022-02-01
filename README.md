@@ -12,7 +12,7 @@ Freeplane addon to build safety concepts within a freeplane mindmap.
 
 # Getting Started / Usage
 * Start a new map with the Template provided by the addon, it should work out of the box
-* Press F4 to open the Safety Edit GUI for selected node to turn it into a safety node or edit the properties of a safety node ![Example](Readme_files/safety_edit_dialog.png)
+* Press F4 to open the Safety Edit GUI for selected node to turn it into a safety node or edit the properties of a safety node ![Example](Readme_files/Safety_edit_dialog.png)
 * Use ctrl + D instead of ctrl + V to create clones of nodes to avoid duplication. 
   * Clones share their content, changing one clone automatically changes all others as well.
   * Clones can be identified by their orange background and the clone indicator rectangle ![Example](Readme_files/clone_markup.png)
