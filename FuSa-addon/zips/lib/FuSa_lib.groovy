@@ -82,7 +82,7 @@ def static run_shell(node, shell_command) {
 
 // returns the git revision of the containing repository
 def static get_map_revision(node) {
-	FuSa.run_shell(node,"git rev-parse HEAD")
+	FuSa_lib.run_shell(node,"git rev-parse HEAD")
 }
 
 // Dialog window for easy copy and pasting
