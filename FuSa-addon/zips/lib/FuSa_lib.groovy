@@ -45,7 +45,11 @@ def static get_req_parent(node) {
     if (node.parent.style.name=="Caption") {
         return get_req_parent(node.parent)
     } else {
-        return node.parent
+		if (node.parent.hasStyle('Requirement')) {
+			return node.Parent
+		} else {
+			return null
+		}
     }
 }
 

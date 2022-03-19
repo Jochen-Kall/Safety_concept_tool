@@ -52,8 +52,10 @@ def Check_AgPL(thisNode){
 		attach_warning(thisNode,'A Parent Requirement exists with a higher AgPL!')
 	}
 	// check if at least one parent has the same AgPL
-	if (nodelist.every{AgPL_num(FuSa_lib.get_req_parent(it)["AgPL"])!=ba} ) {
-		attach_warning(thisNode,'No Parent Requirement of the same AgPL!')
+	if (!nodelist.isEmpty()) {
+		if (nodelist.every{AgPL_num(FuSa_lib.get_req_parent(it)["AgPL"])!=ba} ) {
+			attach_warning(thisNode,'No Parent Requirement of the same AgPL!')
+		}
 	}	
 }
 

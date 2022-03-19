@@ -76,8 +76,10 @@ def Check_base_ASIL(thisNode){
 		attach_warning(thisNode,'A Parent Requirement exists with higher base ASIL!')
 	}
 	// check if at least one parent has the same base ASIL
-	if (nodelist.every{ASIL_num(Base_ASIL(FuSa_lib.get_req_parent(it)["ASIL"]))<ba} ) {
-		attach_warning(thisNode,'All Parent Requirements have a lower base ASIL!')
+	if (!nodelist.isEmpty()) {
+		if (nodelist.every{ASIL_num(Base_ASIL(FuSa_lib.get_req_parent(it)["ASIL"]))<ba} ) {
+			attach_warning(thisNode,'All Parent Requirements have a lower base ASIL!')
+		}
 	}	
 }
 
