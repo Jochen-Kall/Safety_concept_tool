@@ -2,7 +2,7 @@
 <!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
 <node TEXT="Safety concept" STYLE_REF="Caption" FOLDED="false" ID="ID_273763478" CREATED="1609081280555" MODIFIED="1641245399016"><hook NAME="MapStyle" zoom="0.912">
-    <properties show_icon_for_attributes="false" fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" associatedTemplateLocation="template:/Template_CSV_doors_import.mm"/>
+    <properties fit_to_viewport="false" show_icon_for_attributes="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" associatedTemplateLocation="template:/Safety_Concept_CSV_import.mm"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" ID="ID_1965934285" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -359,7 +359,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="61" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="62" RULE="ON_BRANCH_CREATION"/>
 <attribute_layout NAME_WIDTH="97.5 pt" VALUE_WIDTH="97.5 pt"/>
 <attribute NAME="FuSi-Addon-version" VALUE="0.6" OBJECT="org.freeplane.features.format.FormattedNumber|0.6|#0.####"/>
 <attribute NAME="Enable Tainting" VALUE="false"/>
@@ -380,8 +380,7 @@
       CSV Seperator character
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node TEXT=".CSV file to import" GLOBALLY_VISIBLE="true" ALIAS="Input_File_CSV" ID="ID_1659547629" CREATED="1613838974545" MODIFIED="1647772759031"><richcontent CONTENT-TYPE="xml/" TYPE="DETAILS">
 <html>
@@ -393,8 +392,7 @@
       Add .csv file to be loaded as child per copy and paste or drag'n drop
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node TEXT="Columns" GLOBALLY_VISIBLE="true" ALIAS="Column_Names" ID="ID_767781699" CREATED="1613839002387" MODIFIED="1647772842812" LINK="#ID_22400830"><richcontent CONTENT-TYPE="xml/" TYPE="DETAILS">
 <html>
@@ -406,10 +404,9 @@
       Empty by default, get column nodes once a input file is set and &quot;Import Columns&quot; is executed Move them as child to the Structure nodes to control what goes where
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
-<node TEXT="ASIL candidates" GLOBALLY_VISIBLE="true" ALIAS="ASIL_candidates" ID="ID_216855051" CREATED="1613839649689" MODIFIED="1647772905419" LINK="#ID_227541644"><richcontent CONTENT-TYPE="xml/" TYPE="DETAILS">
+<node TEXT="ASIL candidates" GLOBALLY_VISIBLE="true" ALIAS="ASIL_candidates" ID="ID_216855051" CREATED="1613839649689" MODIFIED="1648884057104" LINK="#ID_227541644" VGAP_QUANTITY="2 pt"><richcontent CONTENT-TYPE="xml/" TYPE="DETAILS">
 <html>
   <head>
     
@@ -419,8 +416,7 @@
       Empty by default, gets populated with ASIL values from the .csv, once the ASIL collumn is matched and &quot;Import ASIL and Type Candidates&quot; is executed
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node TEXT="Type candidates" GLOBALLY_VISIBLE="true" ALIAS="node_type_candidates" ID="ID_1374505576" CREATED="1613839824709" MODIFIED="1647772915408" LINK="#ID_227541644"><richcontent CONTENT-TYPE="xml/" TYPE="DETAILS">
 <html>
@@ -432,8 +428,7 @@
       Empty by default, gets populated with Type values from the .csv, once the type collumn is matched and &quot;Import ASIL and Type Candidates&quot; is executed
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node TEXT="Structure" ID="ID_208023409" CREATED="1613839057896" MODIFIED="1613839061492">
 <node TEXT="Level column" GLOBALLY_VISIBLE="true" ALIAS="Level_source_col" ID="ID_62150688" CREATED="1613893916513" MODIFIED="1632497650748"><richcontent CONTENT-TYPE="xml/" TYPE="DETAILS">
@@ -458,8 +453,7 @@
       Attach Column nodes to the children of this node, to transfer the data from the collumn into the part of the node, text, details, ASIL or type
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="text" GLOBALLY_VISIBLE="true" ALIAS="text_source_col" ID="ID_403266528" CREATED="1613839062577" MODIFIED="1632497743924"/>
 <node TEXT="details" GLOBALLY_VISIBLE="true" ALIAS="details_source_col" ID="ID_351893205" CREATED="1613839071294" MODIFIED="1632497803005"/>
 <node TEXT="ASIL" GLOBALLY_VISIBLE="true" ALIAS="ASIL_source_col" ID="ID_145523049" CREATED="1613839243424" MODIFIED="1632497249635"/>
@@ -519,6 +513,31 @@
 <node TEXT="Predefinition" ID="ID_1478139788" CREATED="1614086262815" MODIFIED="1614086267422"/>
 </node>
 </node>
+</node>
+<node TEXT="Instructions" FOLDED="true" POSITION="right" ID="ID_774874065" CREATED="1648882846195" MODIFIED="1648882861629">
+<edge COLOR="#00007c"/>
+<node TEXT="Save the freshly created map, at its destination, this is necessary for the paths to the .csv files to be imported" ID="ID_587460527" CREATED="1648882867676" MODIFIED="1648882945583"/>
+<node TEXT="Copy and paste / drag n drop the .csv file to imported as child of the .CSV import node" ID="ID_646127179" CREATED="1648882947461" MODIFIED="1648883011862" LINK="#ID_1659547629"/>
+<node TEXT="If needed, change the Separator string in the Attribute of the General Settings node to match the separator of the .csv file to be imported" ID="ID_1939596547" CREATED="1648884321671" MODIFIED="1648884385462" LINK="#ID_1221109519"/>
+<node TEXT="Import Columns" ID="ID_285218427" CREATED="1648883018539" MODIFIED="1648883072405" LINK="#ID_22400830">
+<node TEXT="Doing so Reads the column names from the .csv file and creates management nodes as children of the Column node" ID="ID_1808833274" CREATED="1648883119980" MODIFIED="1648883182147" LINK="#ID_767781699"/>
+</node>
+<node TEXT="If the .csv represents a tree structure with a Level column, move the appropriate Column name to the Level Column control node, otherwise the import will be flat" ID="ID_1579056583" CREATED="1648883326230" MODIFIED="1648883413675" LINK="#ID_62150688"/>
+<node TEXT="Distribute the Columns to individual parts of the node, by moving the imported Column nodes to the appropriate Content Control node as child" ID="ID_1238702856" CREATED="1648883190118" MODIFIED="1648883610144" LINK="#ID_1326191346">
+<node TEXT="Mandatory Columns to be matched:" ID="ID_1502504099" CREATED="1648883513178" MODIFIED="1648883530187">
+<node TEXT="Type" ID="ID_1852104442" CREATED="1648883530655" MODIFIED="1648883649202" LINK="#ID_1699224948"/>
+<node TEXT="ASIL" ID="ID_1815437545" CREATED="1648883537033" MODIFIED="1648883628700" LINK="#ID_145523049"/>
+</node>
+<node TEXT="Note: You can copy Column management nodes to use them to fill various fields" ID="ID_548041436" CREATED="1648884127263" MODIFIED="1648884157737"/>
+<node TEXT="Importing as Generic Attributes imports the raw data as node attribute" ID="ID_1218418873" CREATED="1648884158532" MODIFIED="1648884212943"/>
+</node>
+<node TEXT="Import ASIL and Type Candidates." ID="ID_328907416" CREATED="1648883659345" MODIFIED="1648883732486" LINK="#ID_227541644">
+<node TEXT="This will extract all the Values in the specified Type Column of the .csv and create management nodes as children of the Type candidates control node" ID="ID_1168031247" CREATED="1648883737657" MODIFIED="1648883795154" LINK="#ID_1374505576"/>
+<node TEXT="This will extract all the Values in the specified ASIL Column of the .csv and create management nodes as children of the ASIL candidates control node" ID="ID_1287767927" CREATED="1648883803681" MODIFIED="1648883829707" LINK="#ID_216855051"/>
+</node>
+<node TEXT="Distribute the Type management nodes to children of the Type mapping control node to facilitate correct type mapping" ID="ID_540085222" CREATED="1648883836407" MODIFIED="1648883928977" LINK="#ID_1707023343"/>
+<node TEXT="Distribute the ASIL candidate management nodes to children of the ASIL mapping control node, to facilitate correct ASIL mapping" ID="ID_1567031548" CREATED="1648883933231" MODIFIED="1648883990511" LINK="#ID_509718544"/>
+<node TEXT="Select the Root node to imported to and Load content" ID="ID_526142354" CREATED="1648883994024" MODIFIED="1648884026400" LINK="#ID_278297766"/>
 </node>
 <node TEXT="Control center" POSITION="right" ID="ID_1982890714" CREATED="1614005487917" MODIFIED="1614009967396">
 <edge COLOR="#00ffff"/>
